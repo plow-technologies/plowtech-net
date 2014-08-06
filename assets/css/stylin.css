@@ -1,10 +1,10 @@
+/*------------------------------------font*/
 @font-face {
 	font-family: proxima;
 	src: url('../fonts/ProximaNova-Regular.otf');
 }
 
 /*------------------------------------misc*/
-
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -29,6 +29,12 @@ h3 {
 p {
 	font-size: 16px;
 	color: rgb(95,95,95);
+	-webkit-font-smoothing: antialiased;
+}
+
+ul.unstyled {
+	list-style: none;
+	padding: 0;
 }
 
 .leader {
@@ -54,28 +60,21 @@ p {
 	/*font-weight: 300;*/
 }
 
+/*----------------------------------back*/
+
+#back {
+	position: relative;
+	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
+
+}
+
+/*----------------------------------nav*/
+.navbar-brand {
+	margin-top: -7px;
+}
+
 /*----------------------------------header*/
 
-#head {
-	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
-	height: 600px;
-	width: 100%;
-	position: relative;
-}
-
-#head h1 {
-	font-size: 50px;
-	color: white;
-}
-
-#head-icon {
-	position: absolute;
-	left: 50%;
-	bottom: 20px;
-	color: white;
-	font-size: 50px;
-	cursor: pointer;
-}
 
 .subhead {
 	font-family: proxima, sans-serif;
@@ -90,40 +89,6 @@ p {
 	margin-bottom: 20px;
 }
 
-/*-----------------------------------body */
-#main {
-	/*position: relative;*/
-	/*box-shadow: 0 10px 100px rgba(0,0,0,0.3);*/
-}
-
-#first {
-	background: url("../img/1-tiltshift.jpg") 50% 0px no-repeat fixed;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*----------------------------------back*/
-
-#back {
-	position: relative;
-	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
-
-}
-
-/*----------------------------------nav*/
-.navbar-brand {
-	margin-top: -7px;
-}
-
 /*------------------------------content*/
 
 .wrapyourheadaroundthis {
@@ -135,7 +100,7 @@ p {
 }
 
 #content {
-	padding: 35px;
+	padding: 50px;
 	position: relative;
 	z-index: 100;
 	border-radius: 10px;
@@ -161,11 +126,21 @@ p {
 	margin-top: 30px;
 }
 
+/*-----------------------------second row*/
+
+#mock {
+	width: 150%;
+}
+
+#feat {
+	margin-top: 20px;
+}
+
 
 /*--------------------------------footer*/
 
 footer {
+	padding: 20px;
 	color: rgb(117, 128, 132);
-	height: 300px;
 	background-color: #1d2329;
 }
