@@ -1,4 +1,10 @@
+@font-face {
+	font-family: proxima;
+	src: url('../fonts/ProximaNova-Regular.otf');
+}
+
 /*------------------------------------misc*/
+
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -6,21 +12,23 @@ body {
 }
 
 h1 {
+	font-weight: 300;
 	margin-top: 50px;
 }
 
 h2 {
-	font-size: 26px;
+	font-size: 23px;
 }
 
 h3 {
 	margin-top: 0px;
 	margin-bottom: 50px;
+	font-weight: 300;
 }
 
 p {
 	font-size: 16px;
-	color: rgb(90,90,90);
+	color: rgb(95,95,95);
 }
 
 .leader {
@@ -36,16 +44,23 @@ p {
 }
 
 .img-responsive {
-	width: 90%;
+	width: 40%;
 	margin: 0 auto;
 }
 
+.sub {
+	font-size: 23px;
+	color: white;
+	/*font-weight: 300;*/
+}
+
 /*----------------------------------header*/
+
 #head {
-	background: url("../img/shifted.jpg");
-	height: 650px;
+	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
+	height: 600px;
 	width: 100%;
-	margin-bottom: 50px;
+	position: relative;
 }
 
 #head h1 {
@@ -53,35 +68,90 @@ p {
 	color: white;
 }
 
-#subhead p {
+#head-icon {
+	position: absolute;
+	left: 50%;
+	bottom: 20px;
 	color: white;
-	font-size: 40px;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.subhead {
+	font-family: proxima, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 300;
+	color: rgb(117,117,117);
+	font-size: 35px;
 }
 
 #logo {
-	/*margin-top: 20px;*/
+	margin-top: 150px;
+	margin-bottom: 20px;
 }
 
 /*-----------------------------------body */
 #main {
-	position: relative;
+	/*position: relative;*/
 	/*box-shadow: 0 10px 100px rgba(0,0,0,0.3);*/
+}
+
+#first {
+	background: url("../img/1-tiltshift.jpg") 50% 0px no-repeat fixed;
 }
 
 
 
 
+
+
+
+
+
+
+
+
+/*----------------------------------back*/
+
+#back {
+	position: relative;
+	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
+
+}
+
+/*----------------------------------nav*/
+.navbar-brand {
+	margin-top: -7px;
+}
+
+/*------------------------------content*/
+
+.wrapyourheadaroundthis {
+	z-index: 50;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+#content {
+	padding: 35px;
+	position: relative;
+	z-index: 100;
+	border-radius: 10px;
+	margin-top: 600px;
+	background-color: white;
+}
+
 /*-------------------------------first row*/
-#circlethings .img-responsive {
-	max-width: 110%;
-	margin: 0 auto;
+#circlethings {
+	width: 70%;
 }
 
 #pre p {
 	margin-top: 40px;
-	font-size: 23px;
+	font-size: 18px;
 }
-
 
 #features {
 	margin-top: 20px;
@@ -91,13 +161,6 @@ p {
 	margin-top: 30px;
 }
 
-
-
-/*-----------------------------second row*/
-#demo {
-	position: absolute;
-	right: -40px;
-}
 
 /*--------------------------------footer*/
 
