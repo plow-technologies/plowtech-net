@@ -1,14 +1,16 @@
-// stellar
-$.stellar({
-	horizontalScrolling: false
-});
+$(document).ready(function(){
 
-// jquery
-var $window = $(window);
+    $(".start-slide").click(function(){
+        $("#myCarousel").carousel('cycle');
+    });
 
-$window.scroll(function (event) {
-	var scrollTop = $window.scrollTop();
+    // logo blur
+	var $window = $(window);
 
-	$('#header').css('opacity', 1 - scrollTop*.0030);
+	$window.scroll(function (event) {
+		var scrollTop = $window.scrollTop();
+
+		$('#header').css('opacity', 1 - scrollTop*.0030);
+	});
 
 });
