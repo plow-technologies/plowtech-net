@@ -1,0 +1,183 @@
+/*------------------------------------font*/
+@font-face {
+	font-family: proxima;
+	src: url('../fonts/ProximaNova-Regular.otf');
+}
+
+/*------------------------------------misc*/
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-weight: 300;
+	margin-top: 50px;
+}
+
+h2 {
+	font-size: 23px;
+}
+
+h3 {
+	margin-top: 0px;
+	margin-bottom: 50px;
+	font-weight: 300;
+}
+
+p {
+	font-size: 16px;
+	color: rgb(95,95,95);
+	-webkit-font-smoothing: antialiased;
+}
+
+ul.unstyled {
+	list-style: none;
+	padding: 0;
+}
+
+.leader {
+	font-size: 26px;
+}
+
+.divider {
+	margin-top: 50px;
+}
+
+.learn {
+	margin-top: 30px;
+}
+
+#logo {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.sub {
+	font-size: 23px;
+	color: white;
+	/*font-weight: 300;*/
+}
+
+.text-muted {
+	-webkit-font-smoothing: antialiased;
+}
+
+.img-responsive {
+	margin: 0 auto;
+}
+
+/*----------------------------------back*/
+
+#back {
+	position: relative;
+	background: url("../img/2.jpg") 50% 0px no-repeat fixed;
+
+}
+
+/*----------------------------------nav*/
+.navbar-brand {
+	margin-top: -7px;
+}
+
+/*----------------------------------header*/
+
+
+.subhead {
+	font-family: proxima, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 300;
+	color: rgb(117,117,117);
+	font-size: 35px;
+}
+
+#logo {
+	margin-top: 150px;
+	margin-bottom: 20px;
+}
+
+/*------------------------------content*/
+
+.wrapyourheadaroundthis {
+	z-index: 50;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+#content {
+	padding: 50px;
+	position: relative;
+	z-index: 100;
+	border-radius: 10px;
+	margin-top: 600px;
+	background-color: white;
+}
+
+/*-------------------------------first row*/
+#circlethings {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#pre p {
+	margin-top: 40px;
+	font-size: 18px;
+}
+
+#features {
+	margin-top: 20px;
+}
+
+#listing {
+	margin-top: 30px;
+}
+
+#slidepics {
+	margin-top: 30px;
+}
+
+/*-----------------------------second row*/
+
+#mock {
+	width: 150%;
+}
+
+#feat {
+	margin-top: 20px;
+}
+
+/*------------------------------third row*/
+
+#customize {
+	width: 60%;
+	margin: 0 auto;
+}
+
+/*------------------------------fourth row*/
+
+.boxy {
+	margin: 25px 0 25px;
+}
+
+.reduce {
+	width: 30%;
+}
+
+
+/*--------------------------------footer*/
+
+footer {
+	padding: 20px;
+	color: rgb(117, 128, 132);
+	background-color: #1d2329;
+}
+
+/*phones */
+@media (max-width: 480px){
+	#logo {
+		width: 70%;
+	}
+}
