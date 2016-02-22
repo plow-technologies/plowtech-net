@@ -6,6 +6,7 @@ machine:
     - gcc --version
     - sudo apt-get install libzip-dev
     - sudo pip install awscli
+    - cabal update
     - cabal install shake
   services:
   ghc:
