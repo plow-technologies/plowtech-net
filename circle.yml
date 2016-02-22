@@ -13,19 +13,15 @@ machine:
 dependencies:
   cache_directories:
     - ~/dynamic/
-    - .cabal-sandbox
-    - dist/
+    - ./plowtech-hakyll/.cabal-sandbox
+    - ./plowtech-hakyll/dist/
+    
 
   override:
-    - cabal update
-    - cabal sandbox init
-    - cabal install --dependencies-only -j2 --no-upgrade-dependencies --enable-tests
+    - runhaskell Build.hs
 
 deployment:
    aws:
      branch: master
      commands:
-       - cabal run clean
-       - cabal run build
-       - cabal run deploy
-       - /bin/bash publish.sh
+       - runhaskell Build.hs deploy
