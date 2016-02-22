@@ -44,3 +44,4 @@ tramp
 # cask packages
 .cask/
 /plowtech-hakyll/TAGS
+/hakyll-log.log

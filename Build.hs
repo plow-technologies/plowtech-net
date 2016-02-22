@@ -73,7 +73,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     -- Make Ready For Deployment
     readyarg = phony "ready" $ do
         need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
-        putNormal "Preparing to deploy to staging"
+        putNormal "syncing up deply"
         cmd "rsync -r" (fullSiteDir) (".")
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
 
@@ -82,7 +82,15 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
         need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
         putNormal "Preparing to deploy to staging"
         () <- cmd "rsync -r" (fullSiteDir) (".")
-        command_ [] "aws s3 sync" [siteDir, "s3:/" </> stagingBucket]
+        command_ [] "aws s3 sync" [siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
+
+
+    -- View locally
+    viewarg = phony "watch" $ do
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      putNormal "starting Watch... go to http://localhost:8000"
+      command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["watch"]
+
 
 
     -- Execute these things
@@ -112,7 +120,8 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
             -- Args
             cleanarg <>
             readyarg <>
-            deployarg
+            deployarg <>
+            viewarg
 
 
     siteDirRule = siteDir %> \_ -> do
