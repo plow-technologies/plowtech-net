@@ -9,7 +9,8 @@ machine:
   services:
   ghc:
     version: 7.10.2
-
+  environment:
+    PATH: $HOME/.cabal/bin:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
 dependencies:
   cache_directories:
     - ~/dynamic/
@@ -18,6 +19,8 @@ dependencies:
     
 
   override:
+    - cabal update
+    - if shake -v |grep version; then echo "shake installed"; else cabal install shake; fi
     - runhaskell Build.hs
 
 deployment:
