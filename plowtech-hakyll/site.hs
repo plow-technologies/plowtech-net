@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
+import           Debug.Trace
 import           Hakyll
-
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -10,6 +10,9 @@ main = hakyll $ do
     match "assets/img/*" $ do
         route   idRoute
         compile copyFileCompiler
+        match "assets/img/carousel/*" $ do
+            route   idRoute
+            compile copyFileCompiler
     match "assets/fonts/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -52,9 +55,13 @@ main = hakyll $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
+            images <- (fmap (\ident -> Item ident ident) )  <$> -- Build an item to match an identifier
+                      getMatches "assets/img/carousel/*" :: Compiler [Item Identifier]
+--            images <- recentFirst =<< loadAll "assets/img/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
                     constField "title" "Home"                `mappend`
+                    listField "images" filePathCtx (traverse filepathGrabber images) `mappend`
                     defaultContext
 
             getResourceBody
@@ -65,8 +72,31 @@ main = hakyll $ do
     match "templates/*" $ compile templateCompiler
 
 
+
+
 --------------------------------------------------------------------------------
+
+
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+filePathCtx :: Context String
+filePathCtx =
+  field "img" (\i -> return $ itemBody i)
+
+
+
+filepathGrabber :: Item Identifier -> Compiler (Item String)
+filepathGrabber ident = toString
+  where
+    toFilePath :: Compiler (Item (Maybe FilePath))
+    toFilePath = withItemBody getRoute ident
+    toString :: Compiler (Item String)
+    toString = fmap itemToString toFilePath
+    maybeToUrl :: Maybe FilePath -> String
+    maybeToUrl = maybe "tst" toUrl
+    itemToString :: (Item (Maybe FilePath)) -> Item String
+    itemToString = fmap maybeToUrl
