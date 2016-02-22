@@ -16,6 +16,7 @@ dependencies:
     - ~/dynamic/
     - ./plowtech-hakyll/.cabal-sandbox
     - ./plowtech-hakyll/dist/
+    - ~/.cabal
     
 
   override:
