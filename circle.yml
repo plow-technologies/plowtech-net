@@ -19,6 +19,7 @@ dependencies:
     
 
   override:
+    - shake -v
     - runhaskell Build.hs
 
 deployment:
