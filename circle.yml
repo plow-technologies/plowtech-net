@@ -20,7 +20,7 @@ dependencies:
 
   override:
     - cabal update
-    - if shake -v |grep version; then echo "shake installed"; else cabal install shake
+    - if shake -v |grep version; then echo "shake installed"; else cabal install shake; fi
     - runhaskell Build.hs
 
 deployment:
