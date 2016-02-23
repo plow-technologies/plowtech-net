@@ -25,7 +25,7 @@ dependencies:
        cabal install shake; fi
     - shake -v
     - which aws
-    - runhaskell Build.hs
+    - runhaskell Build.hs -v
 
 test:
   pre:
