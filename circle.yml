@@ -16,11 +16,13 @@ dependencies:
     - ~/dynamic/
     - ./plowtech-hakyll/.cabal-sandbox
     - ./plowtech-hakyll/dist/
+    - ~/.cabal
     
 
   override:
     - cabal update
     - if shake -v |grep version; then echo "shake installed"; else cabal install shake; fi
+    - which aws
     - runhaskell Build.hs
 
 deployment:
