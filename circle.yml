@@ -21,7 +21,9 @@ dependencies:
 
   override:
     - cabal update
-    - if shake -v |grep version; then echo "shake installed"; else cabal --no-require-sandbox install shake; fi
+    - cd $HOME && which shake; if [ $? -ne 0 ]; then mkdir -p ~/shake && cd ~/shake && cabal sandbox init && 
+       cabal install shake; fi
+    - shake -v
     - which aws
     - runhaskell Build.hs
 
