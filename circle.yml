@@ -25,6 +25,11 @@ dependencies:
     - which aws
     - runhaskell Build.hs
 
+test:
+  pre:
+  override:
+    - runhaskell Build.hs
+
 deployment:
    staging:
      branch: master
