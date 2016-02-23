@@ -23,7 +23,7 @@ dependencies:
     - cabal update
     - cabal install shake
     - which aws
-    - runhaskell -v Build.hs
+    - runhaskell Build.hs
 
 test:
   pre:
