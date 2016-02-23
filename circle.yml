@@ -24,6 +24,11 @@ dependencies:
     - if shake -v |grep version; then echo "shake installed"; else cabal --no-require-sandbox install shake; fi
     - which aws
     - runhaskell Build.hs
+    
+test:
+  pre:
+  override:
+    - runhaskell Build.hs
 
 deployment:
    staging:
