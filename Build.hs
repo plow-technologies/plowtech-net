@@ -82,7 +82,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
         need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
         putNormal "Preparing to deploy to staging"
         () <- cmd "rsync -r" (fullSiteDir) (".")
-        command_ [Shell] "aws s3 sync" [siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
+        command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
 
 
     -- View locally
