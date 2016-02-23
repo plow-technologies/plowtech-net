@@ -21,24 +21,22 @@ dependencies:
 
   override:
     - cabal update
-    - cd $HOME && which shake; if [ $? -ne 0 ]; then mkdir -p ~/shake && cd ~/shake && cabal sandbox init && 
-       cabal install shake; fi
-    - shake -v
+    - cabal install shake
     - which aws
     - runhaskell Build.hs
-    
+
 test:
   pre:
   override:
     - runhaskell Build.hs
 
 deployment:
-   staging:
+  staging:
      branch: master
      commands:
        - runhaskell Build.hs deploy-staging
        
-   staging:
+  production:
      branch: production
      commands:
        - runhaskell Build.hs deploy-production
