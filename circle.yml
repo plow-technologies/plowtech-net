@@ -31,12 +31,12 @@ test:
     - runhaskell Build.hs
 
 deployment:
-   staging:
+  staging:
      branch: master
      commands:
        - runhaskell Build.hs deploy-staging
        
-   production:
+  production:
      branch: production
      commands:
        - runhaskell Build.hs deploy-production
