@@ -1,8 +1,17 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Control.Lens                           hiding (Context)
+import qualified Data.Attoparsec.Text                   as AttoParsec
+import           Data.Maybe                             (fromMaybe)
+import           Data.Monoid                            (mappend)
+import           Data.OrgMode.Parse.Attoparsec.Document
+import           Data.OrgMode.Parse.Types
+import           Data.Text                              (Text)
+import qualified Data.Text                              as Text
+import qualified Data.Text.IO                           as Text
 import           Debug.Trace
 import           Hakyll
+
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -62,7 +71,12 @@ main = hakyll $ do
             >>= relativizeUrls
 
 
-
+    match "products/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
 
 
 
@@ -134,3 +148,36 @@ filepathGrabber ident = toString
     maybeToUrl = maybe "tst" toUrl
     itemToString :: (Item (Maybe FilePath)) -> Item String
     itemToString = fmap maybeToUrl
+
+
+lDocumentHeadings :: Lens' Document [Heading]
+lDocumentHeadings = lens documentHeadings (\d n -> d {documentHeadings=n} )
+
+
+lHeadingTitle :: Lens' Heading Text
+lHeadingTitle = lens title (\h t -> h {title = t})
+
+
+--------------------------------------------------
+-- Org mode Parsing
+--------------------------------------------------
+
+parseAsOrgMode txt = returnTemplate
+  where
+    returnTemplate = parseDocumentWithKeyWords txt
+    parseDocumentWithKeyWords orgmodeByteString =  AttoParsec.parseOnly (parseDocument keyWords)  orgmodeByteString
+    keyWords = []
+
+
+
+retrieveDocumentTitle :: Document -> Text
+retrieveDocumentTitle doc = doc ^? lDocumentHeadings . folded . lHeadingTitle & fromMaybe ""
+
+orgmodeCompiler :: Compiler (Item String)
+orgmodeCompiler = do
+  itemBody' <- getResourceBody
+  let
+    body = Text.pack . itemBody $ itemBody'
+    title = Text.unpack $ either (const "") retrieveDocumentTitle $ parseAsOrgMode body
+    orgContext = constField "title" title
+  applyAsTemplate orgContext itemBody'
