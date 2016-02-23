@@ -22,7 +22,6 @@ dependencies:
   override:
     - cabal update
     - cabal install shake
-    - shake -v
     - which aws
     - runhaskell -v Build.hs
 
