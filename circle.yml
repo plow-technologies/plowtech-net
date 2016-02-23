@@ -26,7 +26,12 @@ dependencies:
     - runhaskell Build.hs
 
 deployment:
-   aws:
+   staging:
      branch: master
      commands:
-       - runhaskell Build.hs deploy
+       - runhaskell Build.hs deploy-staging
+       
+   staging:
+     branch: production
+     commands:
+       - runhaskell Build.hs deploy-production
