@@ -10,7 +10,7 @@ machine:
   ghc:
     version: 7.10.2
   environment:
-    PATH: $HOME/.cabal/bin:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
+    PATH: $HOME/shake/.cabal-sandbox/bin:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
 dependencies:
   cache_directories:
     - ~/dynamic/
