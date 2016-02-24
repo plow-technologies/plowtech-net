@@ -10,13 +10,15 @@ import           Data.OrgMode.Parse.Types
 import           Data.Text                              (Text)
 import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
+import qualified Data.Text.Lazy                         as Text.Lazy
 
 import qualified Data.Vector                            as Vector
 import           Debug.Trace
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
-import           Text.XML.Lens                          (el, nodes, root,
+import           Text.XML.Lens                          (attrs, el, named,
+                                                         nodes, root, text,
                                                          _Element)
 
 --------------------------------------------------------------------------------
@@ -229,8 +231,46 @@ data ProductPage = ProductPage {
 
 productContext :: Context ProductPage
 productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.unpack . _productTitle)) ip) <>
-                 field "product-image"  (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productImage)) ip) <>
+                 field "product-image"  (\ip -> (fmap itemBody. renderPandocBootStrapped . fmap (Text.unpack . _productImage)) ip) <>
                  field "product-description" (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productDescription)) ip)
+
+
+renderPandocBootStrapped :: Item String -> Compiler (Item String)
+renderPandocBootStrapped itemString = (fmap bootstrapify) <$>   renderPandoc itemString
+  where
+    bootstrapify :: String -> String
+    bootstrapify = Text.unpack .bootstrapifyText.Text.pack
+    bootstrapifyText :: Text -> Text
+    bootstrapifyText = dropXMLHeader. Text.Lazy.toStrict . bootstrapifyLazyText.  Text.Lazy.fromStrict
+    bootstrapifyLazyText = XML.renderText XML.def .applyTransforms . DOM.parseLT
+
+
+    -- Varous Transformations
+
+    applyTransforms doc = (tableTransformRunner) doc
+
+
+    -- Image Transformation
+    imageTransformRunner doc = editAllElements "img" imageTransform doc
+    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded"
+
+
+    -- Table Transformation
+    tableTransformRunner doc = editAllElements "table" tableTransform doc
+    tableTransform element = element & attrs . at "class" .~ addTxt "table"
+
+
+
+
+addTxt txt = (maybe (Just txt)
+              (\t -> Just $ t <> txt))
+
+
+
+
+
+
+
 
 
 
@@ -327,5 +367,5 @@ editAllElements name' f doc = finalDoc
 -- Idiotic function to drop xml namespace because I need to get on with life
 dropXMLHeader :: Text.Text -> Text.Text
 dropXMLHeader t
- |Text.length t <= 39 = t
- |otherwise = Text.drop 39 t
+ |Text.length t <= 38 = t
+ |otherwise = Text.drop 38 t

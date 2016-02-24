@@ -3,3 +3,6 @@
 
 * Welcome to my example product posting
 Here is some o
+| Here is a table | For example |    |     |   |
+|-----------------+-------------+----+-----+---|
+| Data            | Data        | 33 | er3 |   |
