@@ -29,7 +29,7 @@ hakyllAssets = "assets"
 siteDir = "_site"
 
 stagingBucket =  "mockup.plowtech.net"
-
+productionBucket = "plowtech.net"
 
 
 --------------------------------------------------
@@ -78,11 +78,18 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
 
     -- Make Deploy
-    deployarg = phony "deploy" $ do
+    deployStagingarg = phony "deploy-staging" $ do
         need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
         putNormal "Preparing to deploy to staging"
         () <- cmd "rsync -r" (fullSiteDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
+
+    -- Make Deploy
+    deployProductionarg = phony "deploy-production" $ do
+        need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+        putNormal "Preparing to deploy to production"
+        () <- cmd "rsync -r" (fullSiteDir) (".")
+        command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> productionBucket , "--region us-west-2"]
 
 
     -- View locally
@@ -120,7 +127,8 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
             -- Args
             cleanarg <>
             readyarg <>
-            deployarg <>
+            deployStagingarg <>
+            deployProductionarg <>
             viewarg
 
 

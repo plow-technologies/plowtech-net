@@ -21,12 +21,22 @@ dependencies:
 
   override:
     - cabal update
-    - if shake -v |grep version; then echo "shake installed"; else cabal install shake; fi
+    - cabal install shake
     - which aws
     - runhaskell Build.hs
 
+test:
+  pre:
+  override:
+    - runhaskell Build.hs
+
 deployment:
-   aws:
+  staging:
      branch: master
      commands:
-       - runhaskell Build.hs deploy
+       - runhaskell Build.hs deploy-staging
+       
+  production:
+     branch: production
+     commands:
+       - runhaskell Build.hs deploy-production
