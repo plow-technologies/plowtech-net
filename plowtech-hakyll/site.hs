@@ -1,4 +1,5 @@
 --------------------------------------------------------------------------------
+{-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 import           Control.Lens                           hiding (Context, Level)
 import qualified Data.Attoparsec.Text                   as AttoParsec
@@ -231,12 +232,15 @@ data ProductPage = ProductPage {
 
 productContext :: Context ProductPage
 productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.unpack . _productTitle)) ip) <>
-                 field "product-image"  (\ip -> (fmap itemBody. renderPandocBootStrapped . fmap (Text.unpack . _productImage)) ip) <>
-                 field "product-description" (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productDescription)) ip)
+                 field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
+                 field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
+  where
+    productImageCompiler = renderPandocBootStrapped [mainImageTransformRunner]
+    productDescriptionCompiler = renderPandocBootStrapped [imageTransformRunner, tableTransformRunner]
 
-
-renderPandocBootStrapped :: Item String -> Compiler (Item String)
-renderPandocBootStrapped itemString = (fmap bootstrapify) <$>   renderPandoc itemString
+-- | a Compiler that adds necessary bootstrap classes to pandoc parts
+-- renderPandocBootStrapped :: Item String -> Compiler (Item String)
+renderPandocBootStrapped transforms itemString = (fmap bootstrapify) <$>   renderPandoc itemString
   where
     bootstrapify :: String -> String
     bootstrapify = Text.unpack .bootstrapifyText.Text.pack
@@ -247,19 +251,32 @@ renderPandocBootStrapped itemString = (fmap bootstrapify) <$>   renderPandoc ite
 
     -- Varous Transformations
 
-    applyTransforms doc = (tableTransformRunner) doc
+    applyTransforms doc = Vector.foldr (\f doc'-> f doc') doc transforms
 
 
-    -- Image Transformation
-    imageTransformRunner doc = editAllElements "img" imageTransform doc
+
+--------------------------------------------------
+-- Transformations on Elements
+--------------------------------------------------
+
+-- Image Transformation
+
+mainImageTransformRunner = editAllDocument "img" imageTransform
+  where
     imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded"
 
 
-    -- Table Transformation
-    tableTransformRunner doc = editAllElements "table" tableTransform doc
-    tableTransform element = element & attrs . at "class" .~ addTxt "table"
+
+imageTransformRunner = editAllDocument "img" imageTransform
+  where
+    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded img-responsive"
 
 
+
+-- Table Transformation
+tableTransformRunner  = editAllDocument "table" tableTransform
+  where
+    tableTransform element = element & attrs . at "class" %~ addTxt "table table-bordered"
 
 
 addTxt txt = (maybe (Just txt)
@@ -273,6 +290,9 @@ addTxt txt = (maybe (Just txt)
 
 
 
+
+
+--------------------------------------------------
 
 
 
@@ -354,11 +374,17 @@ testSplitDocs = do
 -- | Find elements by name and change them
 -- Name is the name of an element, the 'div' in <div>
 -- >>> doc <- DOM.readFile "example.html"
--- >>> editAllElements "img" addSpecialClassToImages doc
-editAllElements :: XML.Name -> (XML.Element -> XML.Element) -> XML.Document -> XML.Document
-editAllElements name' f doc = finalDoc
+-- >>> editAllDocument "img" addSpecialClassToImages doc
+editAllDocument :: XML.Name -> (XML.Element -> XML.Element) -> XML.Document -> XML.Document
+editAllDocument name' f doc = finalDoc
   where
     finalDoc = doc & root %~ editSelfAndChildren -- final edit to document after all changes
+    editSelf self = self &  el name' %~ f
+    editChildren self = self & nodes . traverse . _Element %~ (editChildren . editSelf)
+    editSelfAndChildren = editChildren.editSelf  -- for the root node
+
+editAllElements name' f elem = editSelfAndChildren
+  where
     editSelf self = self &  el name' %~ f
     editChildren self = self & nodes . traverse . _Element %~ (editChildren . editSelf)
     editSelfAndChildren = editChildren.editSelf  -- for the root node
@@ -369,3 +395,5 @@ dropXMLHeader :: Text.Text -> Text.Text
 dropXMLHeader t
  |Text.length t <= 38 = t
  |otherwise = Text.drop 38 t
+
+
