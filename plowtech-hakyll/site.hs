@@ -72,7 +72,19 @@ main = hakyll $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
 
+    -- create "products.html" $ do
+    --   route $ setExtension "html"
+    --   compile $ do
+    --     productStrings <- recentFirst =<< loadAll "products/*"
 
+    --     let productsCtx = listField "products" productContext (return productPage) :: Context String
+    --         productDocument :: [Item (Either String Document)]
+    --         productDocument = (productStrings & folded.lItemBody %~ (Text.pack))
+    --         productPage :: [Item ProductPage]
+    --         productPage = _ -- productDocument & traverse . _Right %~ splitDocumentation
+    --         productPages = _ -- (productStrings & folded.lItemBody %~ (parseAsOrgMode . Text.pack))
+    --     loadAndApplyTemplate "templates/product-list.html" productsCtx productPages
+    --     >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute
@@ -196,11 +208,28 @@ isoLevel = iso (\(Level a) -> a) Level
 --------------------------------------------------
 -- | Product Definition
 --------------------------------------------------
+
+-- | To properly print a product out on a product page, we want a type that defines its various parts.  This allows rendering
+-- to take place more smoothly
+
 data ProductPage = ProductPage {
                    _productTitle       :: {-# UNPACK  #-} !Text
                  , _productImage       :: {-# UNPACK  #-} !Text
                  , _productDescription :: {-# UNPACK  #-} !Text
                }
+  deriving (Show)
+
+
+
+
+productContext :: Context ProductPage
+productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.unpack . _productTitle)) ip) <>
+                 field "product-image"  (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productImage)) ip) <>
+                 field "product-description" (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productDescription)) ip)
+
+
+
+
 
 productTitle :: Lens' ProductPage Text
 productTitle = lens _productTitle (\p v -> p{_productTitle = v})
@@ -235,13 +264,7 @@ productCompiler = do
       Nothing -> return $ body
       (Just doc) -> (templateApplication $ (const (splitDocumentation doc)) <$> body)
    where
-      productContext :: Context ProductPage
-      productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.unpack . _productTitle)) ip) <>
-                       field "product-image"  (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productImage)) ip) <>
-                       field "product-description" (\ip -> (fmap itemBody. renderPandoc . fmap (Text.unpack . _productDescription)) ip)
       templateApplication body = loadAndApplyTemplate "templates/product.html" productContext  body
-
-
 
 
 
@@ -274,7 +297,9 @@ printHeadingVector vec = Vector.foldr' printDocument "" vec
 
 
 testPrettyPrinter = do
-  (Right doc) <- parseAsOrgMode <$> Text.readFile "example-document.org"
+  (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
   return $ orgModePrinter doc
 
-
+testSplitDocs = do
+   (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
+   return $ splitDocumentation doc
