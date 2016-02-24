@@ -10,9 +10,14 @@ import           Data.OrgMode.Parse.Types
 import           Data.Text                              (Text)
 import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
+
 import qualified Data.Vector                            as Vector
 import           Debug.Trace
 import           Hakyll
+import qualified Text.HTML.DOM                          as DOM
+import qualified Text.XML                               as XML
+import           Text.XML.Lens                          (el, nodes, root,
+                                                         _Element)
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -273,9 +278,6 @@ productCompiler = do
 
 
 
-
-
-
 -- | Use this to print back multiple Documents after parsing and sorting
 
 -- | Pretty Printer for headings and body
@@ -303,3 +305,27 @@ testPrettyPrinter = do
 testSplitDocs = do
    (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
    return $ splitDocumentation doc
+
+
+--------------------------------------------------
+-- HTML Parsing Helpers
+--------------------------------------------------
+
+-- | Find elements by name and change them
+-- Name is the name of an element, the 'div' in <div>
+-- >>> doc <- DOM.readFile "example.html"
+-- >>> editAllElements "img" addSpecialClassToImages doc
+editAllElements :: XML.Name -> (XML.Element -> XML.Element) -> XML.Document -> XML.Document
+editAllElements name' f doc = finalDoc
+  where
+    finalDoc = doc & root %~ editSelfAndChildren -- final edit to document after all changes
+    editSelf self = self &  el name' %~ f
+    editChildren self = self & nodes . traverse . _Element %~ (editChildren . editSelf)
+    editSelfAndChildren = editChildren.editSelf  -- for the root node
+
+
+-- Idiotic function to drop xml namespace because I need to get on with life
+dropXMLHeader :: Text.Text -> Text.Text
+dropXMLHeader t
+ |Text.length t <= 39 = t
+ |otherwise = Text.drop 39 t
