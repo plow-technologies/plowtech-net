@@ -1,0 +1,5 @@
+* Here is an example product
+[[https://c2.staticflickr.com/8/7432/10111952905_7e58ecb32f_b.jpg]]
+
+** Welcome to my example product posting
+Here is some o
