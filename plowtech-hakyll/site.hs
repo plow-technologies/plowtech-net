@@ -18,7 +18,7 @@ import           Debug.Trace
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
-import           Text.XML.Lens                          (attrs, el, named,
+import           Text.XML.Lens                          (attrs, el, name, named,
                                                          nodes, root, text,
                                                          _Element)
 
@@ -236,7 +236,10 @@ productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.
                  field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
   where
     productImageCompiler = renderPandocBootStrapped [mainImageTransformRunner]
-    productDescriptionCompiler = renderPandocBootStrapped [imageTransformRunner, tableTransformRunner]
+    productDescriptionCompiler = renderPandocBootStrapped [ imageTransformRunner
+                                                          , tableTransformRunner
+                                                          , paragraphTransformationRunner
+                                                          , h2TransformationRunner]
 
 -- | a Compiler that adds necessary bootstrap classes to pandoc parts
 -- renderPandocBootStrapped :: Item String -> Compiler (Item String)
@@ -274,13 +277,87 @@ imageTransformRunner = editAllDocument "img" imageTransform
 
 
 -- Table Transformation
-tableTransformRunner  = editAllDocument "table" tableTransform
+tableTransformRunner  = editAllDocument "table" (noTouchRun tableTransform)
   where
-    tableTransform element = element & attrs . at "class" %~ addTxt "table table-bordered"
+    tableTransform element = element & attrs . at "class" %~ addTxt "table table-striped" &
+                                       touchElement &
+                                         divE [("class","row")] &
+                                           divE [("class", "col-md-12")]
 
+
+
+-- Paragraph Transformation
+paragraphTransformationRunner = editAllDocument "p" (noTouchRun paragraphTransform)
+  where
+    paragraphTransform element = divE [("class","col-md-12")] $ touchElement $ element
+
+-- Header 2 Transformation
+-- Header 2's are Rows in the product page
+
+h2TransformationRunner = editAllDocument "h2" (noTouchRun h2Transform)
+  where
+    h2Transform element = divE [("class","row")] $ touchElement $ element
+
+-- Header 2 To media element transformation runner
+mediaTransformationRunner
+
+--------------------------------------------------
+-- div selector helpers
+--------------------------------------------------
+-- | only run a given command if the element has not been touched
+
+
+noTouchRun  :: (XML.Element -> XML.Element) -> XML.Element ->  XML.Element
+noTouchRun f element
+  | isTouched element = element
+  | otherwise = f element
+
+divE attrs e = XML.Element "div" attrs [XML.NodeElement e]
 
 addTxt txt = (maybe (Just txt)
               (\t -> Just $ t <> txt))
+
+-- | For full recursion something has to flag to ignore this element.
+
+touchElement :: XML.Element -> XML.Element
+touchElement  elem = elem & attrs . at "touched" .~ Just "true"
+
+
+isTouched :: XML.Element -> Bool
+isTouched   elem = elem ^. attrs . at "touched" & (== (Just "true"))
+
+
+--------------------------------------------------
+-- HTML Parsing Helpers
+--------------------------------------------------
+
+-- | Find elements by name and change them
+-- Name is the name of an element, the 'div' in <div>
+-- >>> doc <- DOM.readFile "example.html"
+-- >>> editAllDocument "img" addSpecialClassToImages doc
+editAllDocument :: XML.Name -> (XML.Element -> XML.Element) -> XML.Document -> XML.Document
+editAllDocument name' f doc = finalDoc
+  where
+    finalDoc = doc & root %~ editAllElements name' f-- final edit to document after all changes
+
+
+
+editAllElements  :: XML.Name -> (XML.Element -> XML.Element) -> XML.Element -> XML.Element
+editAllElements name' f  = editSelfAndChildren
+  where
+    -- Because nodes can edit themselves you have to guard against repeat loops
+    editSelf self = self &  el name' %~ f
+    editSelfAndChildren = editChildren editSelf .editSelf  -- for the root node
+
+
+editChildren  :: (XML.Element -> XML.Element) -> XML.Element -> XML.Element
+editChildren f self = self & nodes . traverse . _Element %~ f
+
+-- Idiotic function to drop xml namespace because I need to get on with life
+dropXMLHeader :: Text.Text -> Text.Text
+dropXMLHeader t
+ |Text.length t <= 38 = t
+ |otherwise = Text.drop 38 t
 
 
 
@@ -365,35 +442,5 @@ testPrettyPrinter = do
 testSplitDocs = do
    (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
    return $ splitDocumentation doc
-
-
---------------------------------------------------
--- HTML Parsing Helpers
---------------------------------------------------
-
--- | Find elements by name and change them
--- Name is the name of an element, the 'div' in <div>
--- >>> doc <- DOM.readFile "example.html"
--- >>> editAllDocument "img" addSpecialClassToImages doc
-editAllDocument :: XML.Name -> (XML.Element -> XML.Element) -> XML.Document -> XML.Document
-editAllDocument name' f doc = finalDoc
-  where
-    finalDoc = doc & root %~ editSelfAndChildren -- final edit to document after all changes
-    editSelf self = self &  el name' %~ f
-    editChildren self = self & nodes . traverse . _Element %~ (editChildren . editSelf)
-    editSelfAndChildren = editChildren.editSelf  -- for the root node
-
-editAllElements name' f elem = editSelfAndChildren
-  where
-    editSelf self = self &  el name' %~ f
-    editChildren self = self & nodes . traverse . _Element %~ (editChildren . editSelf)
-    editSelfAndChildren = editChildren.editSelf  -- for the root node
-
-
--- Idiotic function to drop xml namespace because I need to get on with life
-dropXMLHeader :: Text.Text -> Text.Text
-dropXMLHeader t
- |Text.length t <= 38 = t
- |otherwise = Text.drop 38 t
 
 
