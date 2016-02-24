@@ -15,84 +15,96 @@
     <link rel="icon", href="assets/img/favicon.ico", type="image/x-icon"></link>
 
     <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"></link>
 
-      <!-- Custom CSS -->
-      <link href="assets/css/stylin.css" rel="stylesheet"> </link>
-      <link rel="stylesheet" type="text/css" href="assets/css/animate.css"> </link>
-      <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css"> </link>
-      
-      <!-- fonts -->
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Montserrat:400,700|Lobster' rel='stylesheet' type='text/css'> </link>
-      <!-- javascript  -->
-      <script type="text/javascript" src="assets/js/jquery-1.8.2.min.js"></script>
-      <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="assets/js/scriptin.js"></script>
-    </head>
-    <body>
+    <!-- Custom CSS -->
+    <link href="assets/css/stylin.css" rel="stylesheet"> </link>
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css"> </link>
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css"> </link>
+    
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Montserrat:400,700|Lobster' rel='stylesheet' type='text/css'> </link>
+  </head>
+  <body>
 
-      <div class='navbar navbar-default navbar-fixed-top animated fadeInDown'>
-	<div class='container'>
+    <div class='navbar navbar-default navbar-fixed-top animated fadeInDown'>
+      <div class='container'>
 
-	  <a href="#" class='navbar-brand'><img src="assets/img/nav.png" alt='Plow Technologies'></a>
+	<a href="#" class='navbar-brand'><img src="assets/img/nav.png" alt='Plow Technologies'></a>
 
-	    <button class='navbar-toggle' data-toggle='collapse' data-target='.navHeaderCollapse'>
-	      <span class='icon-bar'></span>
-	      <span class='icon-bar'></span>
-	      <span class='icon-bar'></span>
-	    </button>
+	  <button class='navbar-toggle' data-toggle='collapse' data-target='.navHeaderCollapse'>
+	    <span class='icon-bar'></span>
+	    <span class='icon-bar'></span>
+	    <span class='icon-bar'></span>
+	  </button>
 
-	    <div class='collapse navbar-collapse navHeaderCollapse'>
-	      <ul class='nav navbar-nav navbar-right'>
-		<li><a href="https://onping.aacs-us.com">Login</a></li>
-		<li><a href="http://www.aacs-us.com/onping/">Old</a></li>
-		<li><a href="#">Contact</a></li>
-	      </ul>
+	  <div class='collapse navbar-collapse navHeaderCollapse'>
+	    <ul class='nav navbar-nav navbar-right'>
+	      <li><a href="https://onping.aacs-us.com">Login</a></li>
+	      <li><a href="http://www.aacs-us.com/onping/">Old</a></li>
+	      <li><a href="#">Contact</a></li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+
+      <!-- background -->
+      <div id='back'>
+	<!-- header -->
+	<div class='wrapyourheadaroundthis'>
+	  <div class='container' id='header'>
+	    <div class='row'>
+	      <img class='img-responsive' src="assets/img/logo.png" id='logo'>
+	      </div>
+	      <div class='row text-center'>
+		<p class='subhead'>Automation &amp; Data Capture in the Cloud.</p>
+	      </div>
 	    </div>
 	  </div>
+
+	  $body$
         </div>
+      </div>
+    </div>
 
-        <!-- background -->
-        <div id='back'>
-	  <!-- header -->
-	  <div class='wrapyourheadaroundthis'>
-	    <div class='container' id='header'>
-	      <div class='row'>
-		<img class='img-responsive' src="assets/img/logo.png" id='logo'>
-		</div>
-		<div class='row text-center'>
-		  <p class='subhead'>Automation &amp; Data Capture in the Cloud.</p>
-		</div>
-	      </div>
-	    </div>
 
-	    $body$
-          </div>
 
-          <footer>
-	    <div class='container'>
-	      <div class='row'>
-		<div class='col-sm-4'>
-		  <h5>Contact</h5>
-		  <ul class='unstyled'>
-		    <li>405-265-6072</li>
-		    <li>info@plowtech.net</li>
-		  </ul>
-		</div>
-		<div class='col-sm-4'>
-		  <h5>Address</h5>
-		  <ul class='unstyled'>
-		    <li>8925 NW 10th</li>
-		    <li>Yukon Oklahoma, 73127</li>
-		  </ul>
-		</div>
+  <footer>
+    <div class='container'>
+      <div class='row'>
+	<div class='col-sm-4'>
+	  <h5>Contact</h5>
+	  <ul class='unstyled'>
+	    <li>405-265-6072</li>
+	    <li>info@plowtech.net</li>
+	  </ul>
+	</div>
+	<div class='col-sm-4'>
+	  <h5>Address</h5>
+	  <ul class='unstyled'>
+	    <li>8925 NW 10th</li>
+	    <li>Yukon Oklahoma, 73127</li>
+	  </ul>
+	</div>
 
-		<div class='col-sm-4'>
-		  <h5>&copy 2014 Plow Technologies. All rights reserved.</h5>
-		</div>
-	      </div>
-	    </div>
-          </footer>
+	<div class='col-sm-4'>
+	  <h5>&copy 2014 Plow Technologies. All rights reserved.</h5>
+	</div>
+      </div>
+    </div>
+  </footer>
 
-        </body>
-      </html>
+</body>
+<!-- First try for the online version of jQuery-->
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- If no online access, fallback to our hardcoded version of jQuery -->
+<script src="assets/js/jquery-1.8.2.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/js/scriptin.js"></script>
+
+</html>
