@@ -80,19 +80,16 @@ main = hakyll $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
 
-    -- create "products.html" $ do
-    --   route $ setExtension "html"
-    --   compile $ do
-    --     productStrings <- recentFirst =<< loadAll "products/*"
+    create ["products.html"] $ do
+      route idRoute
+      compile $ do
+        productStrings <- loadAll "products/*"  :: Compiler ([Item String])
+        let productsCtx = listField "products" productContext ((return . fmap itemStringToProduct ) productStrings) <>
+                          defaultContext :: Context String
+        makeItem "" >>=
+          loadAndApplyTemplate "templates/product-list.html" productsCtx
+          >>= relativizeUrls
 
-    --     let productsCtx = listField "products" productContext (return productPage) :: Context String
-    --         productDocument :: [Item (Either String Document)]
-    --         productDocument = (productStrings & folded.lItemBody %~ (Text.pack))
-    --         productPage :: [Item ProductPage]
-    --         productPage = _ -- productDocument & traverse . _Right %~ splitDocumentation
-    --         productPages = _ -- (productStrings & folded.lItemBody %~ (parseAsOrgMode . Text.pack))
-    --     loadAndApplyTemplate "templates/product-list.html" productsCtx productPages
-    --     >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute
@@ -420,6 +417,16 @@ productCompiler = do
 
 
 
+itemStringToProduct :: Item String -> Item ProductPage
+itemStringToProduct str = productPage
+  where
+    parseError = "perror parsing OrgDocument"
+    productPage :: Item ProductPage
+    productPage = either emptyProductPage id .
+                     fmap splitDocumentation .
+                     parseAsOrgMode .
+                     Text.pack <$> str
+    emptyProductPage s = ProductPage ("Error parsing Org Document  " <> Text.pack s)  "" ""
 
 
 
