@@ -32,66 +32,71 @@
 
 	<a href="#" class='navbar-brand'><img src="/assets/img/nav.png" alt='Plow Technologies'></a>
 
-	<button class='navbar-toggle' data-toggle='collapse' data-target='.navHeaderCollapse'>
-	  <span class='icon-bar'></span>
-	  <span class='icon-bar'></span>
-	  <span class='icon-bar'></span>
-	</button>
+	  <button class='navbar-toggle' data-toggle='collapse' data-target='.navHeaderCollapse'>
+	    <span class='icon-bar'></span>
+	    <span class='icon-bar'></span>
+	    <span class='icon-bar'></span>
+	  </button>
 
-	<div class='collapse navbar-collapse navHeaderCollapse'>
-	  <ul class='nav navbar-nav navbar-right'>
-	    <li><a href="https://onping.aacs-us.com">Login</a></li>
-	    <li><a href="http://www.aacs-us.com/onping/">Old</a></li>
-	    <li><a href="#">Contact</a></li>
-	  </ul>
-	</div>
-      </div>
-    </div>
-    <!-- background -->
-    <div id='back'>
-      <!-- header -->
-      <div class='wrapyourheadaroundthis'>
-	<div class='container' id='header'>
-	  <div class='row'>
-	    <img class='img-responsive' src="assets/img/logo.png" id='logo'>
+	  <div class='collapse navbar-collapse navHeaderCollapse'>
+	    <ul class='nav navbar-nav navbar-right'>
+	      <li><a href="https://onping.aacs-us.com">Login</a></li>
+	      <li><a href="http://www.aacs-us.com/onping/">Old</a></li>
+	      <li><a href="#">Contact</a></li>
+	    </ul>
 	  </div>
-	  <div class='row text-center'>
-	    <p class='subhead'>Automation &amp; Data Capture in the Cloud.</p>
-	  </div>
-	</div>
-      </div>
-
-      <div class="container">
-        <div id='content'>
-          <div class="row">
-            <div class="col-md-8">
-
-              <ul>
-                $for(products)$
-                <li>
-                  $product-description$
-                </li>
-                $endfor$
-              </ul>         
-            </div>
-            
-          </div>
         </div>
       </div>
+      <!-- background -->
+      <div id='back'>
+        <!-- header -->
+        <div class='wrapyourheadaroundthis'>
+	  <div class='container' id='header'>
+	    <div class='row'>
+	      <img class='img-responsive' src="assets/img/logo.png" id='logo'></img>
+	    </div>
+	    <div class='row text-center'>
+	      <p class='subhead'>Automation &amp; Data Capture in the Cloud.</p>
+	    </div>
+	  </div>
+        </div>
+
+        <div class="container">
+          <div id='content'>
+            <div class="row">
+              <div class="list-group"> 
+                $for(products)$
+                <a href="/products/$title$.html" class="list-group-item">
+                  <div class="media">
+                    <div class="media-left"> 
+                      <img class="media-object" width="64px" height="64px" src="$product-image$" alt="$product-title$"></img>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">$product-title$</h4>
+                    </div>
+                  </div>
+                </a>
+                $endfor$
+              </div>         
+
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
       
-    </div>
+    </body>
+    <!-- First try for the online version of jQuery-->
+    <script src="http://code.jquery.com/jquery.js"></script>
 
-  </body>
-  <!-- First try for the online version of jQuery-->
-  <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script src="assets/js/jquery-1.8.2.min.js"></script>
 
-  <!-- If no online access, fallback to our hardcoded version of jQuery -->
-  <script src="assets/js/jquery-1.8.2.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
 
-  <!-- Bootstrap JS -->
-  <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/scriptin.js"></script>
 
-  <!-- Custom JS -->
-  <script src="assets/js/scriptin.js"></script>
-
-</html>
+  </html>

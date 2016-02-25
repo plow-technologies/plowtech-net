@@ -14,14 +14,15 @@ import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
 
 import qualified Data.Vector                            as Vector
-import           Debug.Trace
+
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
-import           Text.XML.Lens                          (attrs, el, name, named,
-                                                         nodes, root, text,
-                                                         _Element)
-
+import           Text.XML.Lens                          (attr, attributeIs,
+                                                         attributeSatisfies,
+                                                         attrs, el, entire,
+                                                         name, named, nodes,
+                                                         root, text, _Element)
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
@@ -84,11 +85,10 @@ main = hakyll $ do
       route idRoute
       compile $ do
         productStrings <- loadAll "products/*"  :: Compiler ([Item String])
-        let productsCtx = listField "products" productContext ((return . fmap itemStringToProduct ) productStrings) <>
-                          defaultContext :: Context String
+        let productListContext = listField "products" postProductContext (return productStrings)
         makeItem "" >>=
-          loadAndApplyTemplate "templates/product-list.html" productsCtx
-          >>= relativizeUrls
+            loadAndApplyTemplate "templates/product-list.html" productListContext
+            >>= relativizeUrls
 
 
     create ["archive.html"] $ do
@@ -133,9 +133,22 @@ main = hakyll $ do
 
 
 --------------------------------------------------------------------------------
+-- |Product Context fields for things using products post processing
+postProductContext = productTitleField <> imageField <> defaultContext
+  where
 
+    productTitleField =  field "product-title" (\istr -> (return . Text.unpack .retrieveTitle.parseDoc. itemBody) istr)
 
+    imageField = field "product-image" (\istr -> (return .Text.unpack. retrieveImage .parseDoc .itemBody ) istr)
 
+    parseDoc = DOM.parseLT . Text.Lazy.pack
+
+    renderText = Text.unpack.dropXMLHeader . Text.Lazy.toStrict . (XML.renderText XML.def)
+
+    retrieveTitle is = is ^. root . entire . named "title" . text
+
+    retrieveImage :: XML.Document -> Text
+    retrieveImage is = is ^. root . entire . (attributeSatisfies "main-image" (const True)) . attr "src"
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
@@ -168,6 +181,9 @@ lItemBody = lens itemBody (\i v -> i{itemBody= v})
 
 lHeadingTitle :: Lens' Heading Text
 lHeadingTitle = lens title (\h t -> h {title = t})
+
+lHeadingSubHeadings :: Lens' Heading [Heading]
+lHeadingSubHeadings = lens subHeadings (\h t -> h {subHeadings = t})
 
 lHeadingLevel :: Lens' Heading Level
 lHeadingLevel = lens level (\h t -> h {level = t})
@@ -220,6 +236,7 @@ isoLevel = iso (\(Level a) -> a) Level
 data ProductPage = ProductPage {
                    _productTitle       :: {-# UNPACK  #-} !Text
                  , _productImage       :: {-# UNPACK  #-} !Text
+                 , _productSynopsis    :: {-# UNPACK  #-} !Text
                  , _productDescription :: {-# UNPACK  #-} !Text
                }
   deriving (Show)
@@ -228,15 +245,19 @@ data ProductPage = ProductPage {
 
 
 productContext :: Context ProductPage
-productContext = field "product-title"  (\ip -> (return . itemBody . fmap (Text.unpack . _productTitle)) ip) <>
+productContext = field "product-title"  (\ip -> (return . itemBody . fmap ( Text.unpack  . _productTitle)) ip) <>
                  field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
+                 field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
                  field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
   where
+    productSynopsisCompiler = renderPandocBootStrapped [mainImageTransformRunner]
     productImageCompiler = renderPandocBootStrapped [mainImageTransformRunner]
     productDescriptionCompiler = renderPandocBootStrapped [ imageTransformRunner
                                                           , tableTransformRunner
                                                           , paragraphTransformationRunner
                                                           , h2TransformationRunner]
+
+
 
 -- | a Compiler that adds necessary bootstrap classes to pandoc parts
 -- renderPandocBootStrapped :: Item String -> Compiler (Item String)
@@ -261,25 +282,32 @@ renderPandocBootStrapped transforms itemString = (fmap bootstrapify) <$>   rende
 
 -- Image Transformation
 
+
+-- |Round the edges on the main images
 mainImageTransformRunner = editAllDocument "img" imageTransform
   where
-    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded"
+    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded media-object" & addId
+    addId element = element & attrs . at "main-image" %~ addTxt ""
 
 
-
+-- | make images responsive
 imageTransformRunner = editAllDocument "img" imageTransform
   where
     imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded img-responsive"
 
 
 
+
 -- Table Transformation
+-- Striped and apply classes
 tableTransformRunner  = editAllDocument "table" (noTouchRun tableTransform)
   where
     tableTransform element = element & attrs . at "class" %~ addTxt "table table-striped" &
                                        touchElement &
                                          divE [("class","row")] &
                                            divE [("class", "col-md-12")]
+
+
 
 
 
@@ -393,11 +421,15 @@ productDescription = lens _productDescription (\p v -> p{_productDescription = v
 splitDocumentation :: Document -> ProductPage
 splitDocumentation doc = ProductPage  (titlePortion doc )
                                       (imagePortion doc )
+                                      (synopsisPortion doc )
                                       (descriptionPortion doc )
    where
      titlePortion d = retrieveDocumentTitle d
      imagePortion d = d ^? lDocumentHeadings .folded . lHeadingSection  <&> sectionParagraph & fromMaybe ""
-     descriptionPortion d = d & lDocumentHeadings %~ drop 1 & orgModePrinter
+     synopsisPortion d = d & lDocumentHeadings %~ (\lst -> (lst ^.. iix 1 ) &
+                                                  traverse . lHeadingSubHeadings .~ [] ) & orgModePrinter
+     descriptionPortion d = d & lDocumentHeadings %~ (\headings ->
+                                                       headings ^. iix 1 . lHeadingSubHeadings )  & orgModePrinter
 
 
 
@@ -424,9 +456,9 @@ itemStringToProduct str = productPage
     productPage :: Item ProductPage
     productPage = either emptyProductPage id .
                      fmap splitDocumentation .
-                     parseAsOrgMode .
+                     (\str -> parseAsOrgMode  $ str).
                      Text.pack <$> str
-    emptyProductPage s = ProductPage ("Error parsing Org Document  " <> Text.pack s)  "" ""
+    emptyProductPage s = ProductPage ("Error parsing Org Document  " <> Text.pack s) "" "" ""
 
 
 
