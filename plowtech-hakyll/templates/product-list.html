@@ -64,39 +64,45 @@
         <div class="container">
           <div id='content'>
             <div class="row">
-              <div class="list-group"> 
-                $for(products)$
-                <a href="/products/$title$.html" class="list-group-item">
-                  <div class="media">
-                    <div class="media-left"> 
-                      <img class="media-object" width="64px" height="64px" src="$product-image$" alt="$product-title$"></img>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">$product-title$</h4>
-                    </div>
-                  </div>
-                </a>
-                $endfor$
-              </div>         
+              <div class="col-md-6"> 
+                <ul class="media-list">
+                  $for(products)$
+                  <li class="media">
+                    <div class="media-left pull-left">
+                      <a href="/products/$title$.html">
+                        <img style="width: 64px; height: 64px;" class="media-object" src="$product-image$" alt="$product-title$"></img>
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">$product-title$</h4>
+                                          $product-synopsis$ 
+                      </div>
+                    </li>
 
-              
+                   
+
+                    $endfor$
+                  </ul>
+                </div>         
+
+                
+              </div>
             </div>
           </div>
+          
         </div>
         
-      </div>
-      
-    </body>
-    <!-- First try for the online version of jQuery-->
-    <script src="http://code.jquery.com/jquery.js"></script>
+      </body>
+      <!-- First try for the online version of jQuery-->
+      <script src="http://code.jquery.com/jquery.js"></script>
 
-    <!-- If no online access, fallback to our hardcoded version of jQuery -->
-    <script src="assets/js/jquery-1.8.2.min.js"></script>
+      <!-- If no online access, fallback to our hardcoded version of jQuery -->
+      <script src="assets/js/jquery-1.8.2.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="assets/js/bootstrap.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="assets/js/scriptin.js"></script>
+      <!-- Custom JS -->
+      <script src="assets/js/scriptin.js"></script>
 
-  </html>
+    </html>

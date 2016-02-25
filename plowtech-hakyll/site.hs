@@ -22,7 +22,8 @@ import           Text.XML.Lens                          (attr, attributeIs,
                                                          attributeSatisfies,
                                                          attrs, el, entire,
                                                          name, named, nodes,
-                                                         root, text, _Element)
+                                                         root, text, _Content,
+                                                         _Element)
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
@@ -134,12 +135,14 @@ main = hakyll $ do
 
 --------------------------------------------------------------------------------
 -- |Product Context fields for things using products post processing
-postProductContext = productTitleField <> imageField <> defaultContext
+postProductContext = productTitleField <> imageField <> synopsisField <> defaultContext
   where
 
     productTitleField =  field "product-title" (\istr -> (return . Text.unpack .retrieveTitle.parseDoc. itemBody) istr)
 
     imageField = field "product-image" (\istr -> (return .Text.unpack. retrieveImage .parseDoc .itemBody ) istr)
+
+    synopsisField = field "product-synopsis" (\istr -> (return .Text.unpack. retrieveSynopsis .parseDoc .itemBody ) istr)
 
     parseDoc = DOM.parseLT . Text.Lazy.pack
 
@@ -149,6 +152,14 @@ postProductContext = productTitleField <> imageField <> defaultContext
 
     retrieveImage :: XML.Document -> Text
     retrieveImage is = is ^. root . entire . (attributeSatisfies "main-image" (const True)) . attr "src"
+
+
+    retrieveSynopsis is = is ^. root . entire . (attributeIs "id" "synopsis") . entire .
+                                        named "p" . text & Text.take twitterLimit
+    twitterLimit = 140
+
+
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
