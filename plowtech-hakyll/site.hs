@@ -265,8 +265,7 @@ productContext = field "product-title"  (\ip -> (return . itemBody . fmap ( Text
     productImageCompiler = renderPandocBootStrapped [mainImageTransformRunner]
     productDescriptionCompiler = renderPandocBootStrapped [ imageTransformRunner
                                                           , tableTransformRunner
-                                                          , paragraphTransformationRunner
-                                                          , h2TransformationRunner]
+                                                          , paragraphTransformationRunner ]
 
 
 
