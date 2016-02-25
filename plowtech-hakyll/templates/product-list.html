@@ -64,26 +64,28 @@
         <div class="container">
           <div id='content'>
             <div class="row">
-              <div class="col-md-6"> 
-                <ul class="media-list">
+ 
+
                   $for(products)$
-                  <li class="media">
+              <div class="col-md-6">
+                      <a href="/products/$title$.html" class="list-group-item">
+                  <div class="media">
                     <div class="media-left pull-left">
-                      <a href="/products/$title$.html">
+
                         <img style="width: 64px; height: 64px;" class="media-object" src="$product-image$" alt="$product-title$"></img>
-                        </a>
+
                       </div>
                       <div class="media-body">
                         <h4 class="media-heading">$product-title$</h4>
                                           $product-synopsis$ 
                       </div>
-                    </li>
-
+                    </div>
+                        </a>
+                </div>         
                    
 
                     $endfor$
-                  </ul>
-                </div>         
+
 
                 
               </div>
