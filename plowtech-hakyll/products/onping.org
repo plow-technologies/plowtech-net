@@ -1,4 +1,4 @@
-* OnPing, modern Data Control
+* OnPing, modern data control
 [[/assets/img/demo2.png]]
 * Build your own world, a world that fits you best.  
 Use tables and pictures to make your numbers come to life. You can control who sees what and use that control to make your field better. Automation is about control, for the people that matter, both in the field and away.
