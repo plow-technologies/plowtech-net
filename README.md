@@ -2,7 +2,9 @@ plowtech-net
 ============
 Company website for Plow Technologies. 
 
-#
+# Specifications
+
+## Product Image Size 1024 x 683
 
 
 # Deployment
