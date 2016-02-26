@@ -1,5 +1,5 @@
 * Tank Battery
-[[/assets/IMG/practicepic.JPG]]
+[[/assets/img/practicepic.jpg]]
 * Run your tanks with no hanpds
 Automating a tank battery is really fun
 ** Plow technoligies can automate these things.
