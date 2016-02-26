@@ -1,12 +1,22 @@
 * OnPing, modern Data Control
-[[/assets/img/onping-demo-3-devices.png]]
+[[/assets/img/demo2.png]]
 * Build your own world, a world that fits you best.  
-Use tables and pictures to make your numbers come to life. You can control who sees what and use that control to make your field better. 'Automation' is about control, for the people that matter, both in the field and away.
-It is about answers and change.  That means you need to control what you see.  Not us, not your 'IT' ... YOU!
-'OnPing' was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
-That is what makes 'OnPing' so different than other things out there.
-Look here at the use of 'OnPing' and you will see what you have wanted but didn't have!
+Use tables and pictures to make your numbers come to life. You can control who sees what and use that control to make your field better. Automation is about control, for the people that matter, both in the field and away.
+It is about answers and change.  That means you need to control what you see.  Not us, not your IT ... YOU!
+OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
+That is what makes OnPing so different than other things out there.
 
-** Test
-Here is some text
+
+** Look here at the use of OnPing and you will see what you have wanted but do not have!
+
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
+We get things started by sitting down and figuring out what you need to see.
+But everything can be changed and added to!
+
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddPanel.mp4.jpg]]
+
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddWidget.mp4.jpg]]
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/SaveDashboard.mp4.jpg]]
+
