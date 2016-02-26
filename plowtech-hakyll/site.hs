@@ -1,3 +1,4 @@
+{-# LANGUAGE NamedFieldPuns    #-}
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -13,8 +14,8 @@ import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
 
+import           Data.Map                               (Map)
 import qualified Data.Vector                            as Vector
-
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
@@ -233,10 +234,6 @@ isoLevel = iso (\(Level a) -> a) Level
 
 
 
-
-
-
-
 --------------------------------------------------
 -- | Product Definition
 --------------------------------------------------
@@ -261,29 +258,50 @@ productContext = field "product-title"  (\ip -> (return . itemBody . fmap ( Text
                  field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
                  field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
   where
-    productSynopsisCompiler = renderPandocBootStrapped [mainImageTransformRunner]
-    productImageCompiler = renderPandocBootStrapped [mainImageTransformRunner]
-    productDescriptionCompiler = renderPandocBootStrapped [ imageTransformRunner
-                                                          , tableTransformRunner
-                                                          , paragraphTransformationRunner ]
+    productImageCompiler = renderPandocBootStrapped imageNodeProps [mainImageTransformRunner]
+    imageNodeProps = RootNodeProps "div" []
 
 
+    defaultRootNodeProps = RootNodeProps "html"  []
+
+
+
+
+    productSynopsisCompiler = renderPandocBootStrapped synopsisNodeProps synopsisTransforms
+    synopsisNodeProps = RootNodeProps "div"  [ ("class","col-md-12")
+                                              , ("id","synopsis")]
+    synopsisTransforms = [mainImageTransformRunner]
+
+
+
+
+    productDescriptionCompiler = renderPandocBootStrapped descriptionNodeProps descriptionTransforms
+    descriptionNodeProps = RootNodeProps "div"  [ ("class","row")
+                                                 , ("id","description")]
+
+    descriptionTransforms = [ imageTransformRunner
+                            , tableTransformRunner
+                            , paragraphTransformationRunner ]
+
+
+
+type XMLAttrs = Map XML.Name Text
+data RootNodeProps = RootNodeProps { rootName :: XML.Name, rootAttrs :: XMLAttrs }
 
 -- | a Compiler that adds necessary bootstrap classes to pandoc parts
 -- renderPandocBootStrapped :: Item String -> Compiler (Item String)
-renderPandocBootStrapped transforms itemString = (fmap bootstrapify) <$>   renderPandoc itemString
+renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms itemString = (fmap bootstrapify) <$>   renderPandoc itemString
   where
     bootstrapify :: String -> String
     bootstrapify = Text.unpack .bootstrapifyText.Text.pack
     bootstrapifyText :: Text -> Text
     bootstrapifyText = dropXMLHeader. Text.Lazy.toStrict . bootstrapifyLazyText.  Text.Lazy.fromStrict
-    bootstrapifyLazyText = XML.renderText XML.def .applyTransforms . DOM.parseLT
-
-
+    bootstrapifyLazyText = XML.renderText XML.def .applyTransforms . parseWithNewHead rootName rootAttrs
     -- Varous Transformations
-
     applyTransforms doc = Vector.foldr (\f doc'-> f doc') doc transforms
-
+    parseWithNewHead :: XML.Name -> XMLAttrs -> Text.Lazy.Text -> XML.Document
+    parseWithNewHead elemName elemAttrs elem = (DOM.parseLT elem) & root. name .~ elemName &
+                                               root. attrs .~  elemAttrs
 
 
 --------------------------------------------------
