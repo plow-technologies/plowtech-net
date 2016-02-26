@@ -9,5 +9,5 @@ some words are good to use when doing things and stuff
 
 | Here | is |  a | table |   |
 |------+----+----+-------+---|
-|    2 |  3 | 34 | 3     | 4 |
+|    2 |  7 | 34 | 3     | 4 |
 |      |    |    |       |   |
