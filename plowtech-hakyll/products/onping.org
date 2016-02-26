@@ -12,7 +12,6 @@ That is what makes OnPing so different than other things out there.
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
 We get things started by sitting down and figuring out what you need to see.
 But everything can be changed and added to!
-
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddPanel.mp4.jpg]]
 
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddWidget.mp4.jpg]]
