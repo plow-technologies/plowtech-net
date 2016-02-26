@@ -1,5 +1,5 @@
 * Tank Battery
-[[home/plow/plowtech.net/plowtech-hakyll/assets/practicepic.JPG]]
+[[/assets/IMG/practicepic.JPG]]
 * Run your tanks with no hanpds
 Automating a tank battery is really fun
 ** Plow technoligies can automate these things.
