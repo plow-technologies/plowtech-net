@@ -2,10 +2,11 @@ plowtech-net
 ============
 Company website for Plow Technologies. 
 
+<<<<<<< HEAD
 # Document Size and color specifications
 
 ## Images
-* All product page images should be sized at 1024 x 683 
+* All product page images should be sized at **1024 x 683**
 
 # Deployment
 
