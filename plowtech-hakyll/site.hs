@@ -8,12 +8,10 @@ import           Data.Maybe                             (fromMaybe)
 import           Data.Monoid                            (mappend, (<>))
 import           Data.OrgMode.Parse.Attoparsec.Document
 import           Data.OrgMode.Parse.Types
-import           Data.OrgMode.Parse.Types
 import           Data.Text                              (Text)
 import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
-import           Debug.Trace
 
 import           Data.Map                               (Map)
 import qualified Data.Vector                            as Vector
@@ -472,9 +470,7 @@ editAllElements  :: XML.Name -> (XML.Element -> XML.Element) -> XML.Element -> X
 editAllElements name' f  = editSelfAndChildren
   where
     -- Because nodes can edit themselves you have to guard against repeat loops
-    editSelf self
-        | (name' == "img" ) = traceShow (self ^. name) self & runFunctionOnNameMatch
-        |otherwise = self & runFunctionOnNameMatch
+    editSelf self =   self & runFunctionOnNameMatch
     editSelfAndChildren = editChildren editSelf . editSelf  -- for the root node
     runFunctionOnNameMatch = el name' %~ f
 
