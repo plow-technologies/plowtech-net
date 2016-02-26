@@ -1,6 +1,6 @@
 * Tank Battery
-[[/assets/img/carousel/IMG_20160225_131958.jpg]]
-* Run your tanks with no hands
+[[/assets/img/practicepic.jpg]]
+* Run your tanks with no hanpds
 Automating a tank battery is really fun
 ** Plow technoligies can automate these things.
 + here is a list
@@ -9,5 +9,5 @@ some words are good to use when doing things and stuff
 
 | Here | is |  a | table |   |
 |------+----+----+-------+---|
-|    2 |  3 | 34 | 3     | 2 |
+|    2 |  7 | 34 | 3     | 4 |
 |      |    |    |       |   |
