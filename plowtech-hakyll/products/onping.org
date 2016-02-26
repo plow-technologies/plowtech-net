@@ -2,9 +2,25 @@
 [[/assets/img/demo2.png]]
 * Build your own world, a world that fits you best.  
 Use tables and pictures to make your numbers come to life. You can control who sees what and use that control to make your field better. Automation is about control, for the people that matter, both in the field and away.
-It is about answers and change.  That means you need to control what you see.  Not us, not your IT. YOU!
+It is about answers and change.  That means you need to control what you see.  Not us, not your IT  YOU!
 OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
 That is what makes OnPing so different than other things out there.
 
-
 ** Look here at the use of OnPing and you will see what you have wanted but do not have!
+** Make a panel
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddPanel.mp4.jpg]]
+** Add a widget
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddWidget.mp4.jpg]]     
+** Build a table
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
+
+** Save your dashboard
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/SaveDashboard.mp4.jpg]]
+   
+
+** Now you have a new Table
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
+
+** Enabling and disabling alarms is one click !
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
+
