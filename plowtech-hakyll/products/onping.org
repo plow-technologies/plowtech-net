@@ -9,4 +9,4 @@ Look here at the use of 'OnPing' and you will see what you have wanted but didn'
 
 ** Test
 Here is some text
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.png]]
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]

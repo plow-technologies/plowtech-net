@@ -345,16 +345,19 @@ videoTransformRunner = editAllDocument "h2" h2Transform
 
 
         nameElementSource :: XML.Element
-        nameElementSource = element & name .~ "source"
+        nameElementSource = element & name .~ "source" & attrs .~ [("src",videoSrc),("type","video/mp4")]
 
 
-        src :: Text
-        src = element ^. attrs . at "src" . _Just
+        rawSrc :: Text
+        rawSrc = element ^. attrs . at "src" . _Just
 
+        videoSrc = Text.dropEnd 4 rawSrc
+        imgSrc = Text.dropEnd 8 rawSrc <> ".jpg"
+        runIfVid = case Text.takeEnd 8 rawSrc of
+                     ".mp4.jpg" -> videoE [("id","my_video"), ("class","video-js vjs-default-skin")
+                                          ,("controls",""),("preload","auto"),("poster",imgSrc)
+                                          , ("width","720" ),("height","440")] nameElementSource
 
-
-        runIfVid = case Text.takeEnd 8 (traceShow src src) of
-                     ".mp4.png" -> nameElementSource
                      _ -> element
 
 
