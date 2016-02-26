@@ -13,6 +13,7 @@ import           Data.Text                              (Text)
 import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
+import           Debug.Trace
 
 import           Data.Map                               (Map)
 import qualified Data.Vector                            as Vector
@@ -254,37 +255,36 @@ data ProductPage = ProductPage {
 
 productContext :: Context ProductPage
 productContext = field "product-title"  (\ip -> (return . itemBody . fmap ( Text.unpack  . _productTitle)) ip) <>
-                 field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
-                 field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
-                 field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
+                  field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
+                  field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
+                  field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
   where
+    -- IMAGES
     productImageCompiler = renderPandocBootStrapped imageNodeProps [mainImageTransformRunner]
     imageNodeProps = RootNodeProps "div" []
 
 
-    defaultRootNodeProps = RootNodeProps "html"  []
 
-
-
-
+    -- Synopsis
     productSynopsisCompiler = renderPandocBootStrapped synopsisNodeProps synopsisTransforms
     synopsisNodeProps = RootNodeProps "div"  [ ("class","col-md-12")
                                               , ("id","synopsis")]
-    synopsisTransforms = [mainImageTransformRunner]
+    synopsisTransforms = []
 
 
 
-
+    -- Description
     productDescriptionCompiler = renderPandocBootStrapped descriptionNodeProps descriptionTransforms
     descriptionNodeProps = RootNodeProps "div"  [ ("class","row")
                                                  , ("id","description")]
 
     descriptionTransforms = [ imageTransformRunner
-                            , tableTransformRunner
-                            , paragraphTransformationRunner ]
+                            , videoTransformRunner
+                            , tableTransformRunner]
 
 
-
+-- | a root node must be specified for any template compiler that is processing the Document node tree
+-- the default root node is <html> and is almost never what is desired
 type XMLAttrs = Map XML.Name Text
 data RootNodeProps = RootNodeProps { rootName :: XML.Name, rootAttrs :: XMLAttrs }
 
@@ -318,12 +318,51 @@ mainImageTransformRunner = editAllDocument "img" imageTransform
     addId element = element & attrs . at "main-image" %~ addTxt ""
 
 
--- | make images responsive
-imageTransformRunner = editAllDocument "img" imageTransform
+-- | video transformer
+
+{--
+
+
+<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+    <source src="MY_VIDEO.mp4" type='video/mp4'>
+    <source src="MY_VIDEO.webm" type='video/webm'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+
+--}
+videoTransformRunner = editAllDocument "h2" h2Transform
   where
-    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded img-responsive"
+    h2Transform element = element & nodes . traverse . _Element . named "img"  %~ videoTransform
+
+    videoTransform :: XML.Element -> XML.Element
+    videoTransform element = runIfVid
+      where
 
 
+        nameElementSource :: XML.Element
+        nameElementSource = element & name .~ "source"
+
+
+        src :: Text
+        src = element ^. attrs . at "src" . _Just
+
+
+
+        runIfVid = case Text.takeEnd 8 (traceShow src src) of
+                     ".mp4.png" -> nameElementSource
+                     _ -> element
+
+
+
+-- | make images responsive
+imageTransformRunner = editAllDocument "p" imageTransform
+  where
+    imageTransform element = element & nodes.traverse. _Element . named "img" . attrs . at "class" %~ addTxt "img-rounded img-responsive"
 
 
 -- Table Transformation
@@ -364,6 +403,10 @@ h2TransformationRunner = editAllDocument "h2" (noTouchRun h2Transform)
 
 
 
+
+
+
+
 --------------------------------------------------
 -- div selector helpers
 --------------------------------------------------
@@ -377,6 +420,8 @@ noTouchRun f element
 
 divE attrs e = XML.Element "div" attrs [XML.NodeElement e]
 
+videoE attrs e = XML.Element "video" attrs [XML.NodeElement e]
+
 addTxt txt = (maybe (Just txt)
               (\t -> Just $ t <> txt))
 
@@ -388,6 +433,21 @@ touchElement  elem = elem & attrs . at "touched" .~ Just "true"
 
 isTouched :: XML.Element -> Bool
 isTouched   elem = elem ^. attrs . at "touched" & (== (Just "true"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --------------------------------------------------
@@ -409,9 +469,11 @@ editAllElements  :: XML.Name -> (XML.Element -> XML.Element) -> XML.Element -> X
 editAllElements name' f  = editSelfAndChildren
   where
     -- Because nodes can edit themselves you have to guard against repeat loops
-    editSelf self = self &  el name' %~ f
-    editSelfAndChildren = editChildren editSelf .editSelf  -- for the root node
-
+    editSelf self
+        | (name' == "img" ) = traceShow (self ^. name) self & runFunctionOnNameMatch
+        |otherwise = self & runFunctionOnNameMatch
+    editSelfAndChildren = editChildren editSelf . editSelf  -- for the root node
+    runFunctionOnNameMatch = el name' %~ f
 
 editChildren  :: (XML.Element -> XML.Element) -> XML.Element -> XML.Element
 editChildren f self = self & nodes . traverse . _Element %~ f
@@ -442,15 +504,26 @@ productTitle = lens _productTitle (\p v -> p{_productTitle = v})
 productImage :: Lens' ProductPage Text
 productImage = lens _productImage (\p v -> p{_productImage = v})
 
+
+
+
 productDescription :: Lens' ProductPage Text
 productDescription = lens _productDescription (\p v -> p{_productDescription = v})
 
 
+
+
+
+
+
+
+
+-- |Separate a Document into pieces of a Product Page
 splitDocumentation :: Document -> ProductPage
 splitDocumentation doc = ProductPage  (titlePortion doc )
-                                      (imagePortion doc )
-                                      (synopsisPortion doc )
-                                      (descriptionPortion doc )
+                                        (imagePortion doc )
+                                        (synopsisPortion doc )
+                                        (descriptionPortion doc )
    where
      titlePortion d = retrieveDocumentTitle d
      imagePortion d = d ^? lDocumentHeadings .folded . lHeadingSection  <&> sectionParagraph & fromMaybe ""
@@ -458,7 +531,6 @@ splitDocumentation doc = ProductPage  (titlePortion doc )
                                                   traverse . lHeadingSubHeadings .~ [] ) & orgModePrinter
      descriptionPortion d = d & lDocumentHeadings %~ (\headings ->
                                                        headings ^. iix 1 . lHeadingSubHeadings )  & orgModePrinter
-
 
 
 
@@ -474,6 +546,8 @@ productCompiler = do
       (Just doc) -> (templateApplication $ (const (splitDocumentation doc)) <$> body)
    where
       templateApplication body = loadAndApplyTemplate "templates/product.html" productContext  body
+
+
 
 
 
@@ -499,6 +573,7 @@ orgModePrinter :: Document -> Text
 orgModePrinter doc =  ( printHeadingVector . Vector.fromList . documentHeadings) doc
 
 
+
 printHeadingVector :: Vector.Vector Heading -> Text
 printHeadingVector vec = Vector.foldr' printDocument "" vec
   where
@@ -510,6 +585,8 @@ printHeadingVector vec = Vector.foldr' printDocument "" vec
 
 
     levelPrinter heading = Text.replicate (heading^.lHeadingLevel.isoLevel) "*"
+
+
 
 
 testPrettyPrinter = do

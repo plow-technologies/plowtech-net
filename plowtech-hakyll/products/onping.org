@@ -7,3 +7,6 @@ It is about answers and change.  That means you need to control what you see.  N
 That is what makes 'OnPing' so different than other things out there.
 Look here at the use of 'OnPing' and you will see what you have wanted but didn't have!
 
+** Test
+Here is some text
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.png]]
