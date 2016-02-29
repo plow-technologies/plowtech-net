@@ -143,7 +143,6 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
                             hakyllExecDir </> hakyllSite
     sandboxDir = hakyllProjectRootDir </> sandbox
     fullSiteDir = hakyllProjectRootDir </> siteDir
-    orgmodeParseDir = buildDir </> "orgmode-parse"
 
 
 
@@ -172,13 +171,6 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     sandboxDirRule = sandboxDir %> \_ -> do
                        cmdHakyll "cabal sandbox init"
 
-    customOrgModeParseRule = orgmodeParseDir  %> \dir -> do
-                    () <- runOnlyWhenFolderNotPresent (buildDir </> "orgmode-parse") $
-                                cmd (Cwd buildDir) Shell "git clone https://github.com/plow-technologies/orgmode-parse.git"
-
-
-                    cmd (Cwd hakyllProjectRootDir) Shell ("cabal sandbox add-source "  <>  (".." </> buildDir</>"orgmode-parse"))
-
 
     packageExecutableFileRule = packageExecutableFile %> \_ -> do
       need [sandboxDir]
@@ -192,7 +184,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
 
     fullSiteDirRule = fullSiteDir %> \_ -> do
-      need [sandboxDir,orgmodeParseDir, packageExecutableFile]
+      need [sandboxDir, packageExecutableFile]
       command_ [(Cwd hakyllProjectRootDir)] (hakyllExecDir </> hakyllSite) ["clean"]
       command_ [(Cwd hakyllProjectRootDir)] (hakyllExecDir </> hakyllSite) ["build"]
  --------------------------------------------------
