@@ -66,7 +66,7 @@ removeNonApprovedProducts  = do
   let filesToDelete = L.filter filterFunction contents :: [FilePath]
       deleteAllNonApprovedFiles :: FilePath -> Action ()
       deleteAllNonApprovedFiles file = (command_ [(Cwd productDir)] "rm" [file])
-      filterFunction f = L.elem f productFile
+      filterFunction f = L.notElem f productFile
   traverse deleteAllNonApprovedFiles filesToDelete
 
 
@@ -105,6 +105,12 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
         putNormal "syncing up deply"
         cmd "rsync -r" (fullSiteDir) (".")
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
+    readyargProduction = phony "readyprod" $ do
+      removeNonApprovedProducts
+      need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+      putNormal "syncing up deply"
+      cmd "rsync -r" (fullSiteDir) (".")
+
 
     -- Make Deploy
     deployStagingarg = phony "deploy-staging" $ do
@@ -156,6 +162,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
             -- Args
             cleanarg <>
             readyarg <>
+            readyargProduction <>
             deployStagingarg <>
             deployProductionarg <>
             viewarg
