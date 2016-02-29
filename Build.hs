@@ -1,12 +1,14 @@
 #!/usr/bin/env runhaskell
 
 import           Control.Monad              (unless)
+import qualified Data.List                  as L
 import           Data.Monoid
 import           Data.Monoid                ((<>))
 import           Development.Shake
 import           Development.Shake.Command
 import           Development.Shake.FilePath
 import           Development.Shake.Util
+import qualified System.IO                  as IO
 --------------------------------------------------
 -- Project Directories
 --------------------------------------------------
@@ -28,8 +30,12 @@ hakyllAssets = "assets"
 
 siteDir = "_site"
 
+productDir = hakyllProjectRootDir </> "products"
+
 stagingBucket =  "mockup.plowtech.net"
 productionBucket = "plowtech.net"
+
+
 
 
 --------------------------------------------------
@@ -42,6 +48,29 @@ hakyllSite = "site"
 
 -- name of produced website
 index = "index" <.> "html"
+
+
+
+
+--------------------------------------------------
+-- Approved Product selection
+--------------------------------------------------
+-- | Place products that have been approved for production here.
+-- They are the only ones that will actually release to production.
+
+productionReadyFileName = "production-ready-products.txt"
+
+removeNonApprovedProducts  = do
+  contents <- getDirectoryContents productDir
+  productFile <- readFileLines productionReadyFileName
+  let filesToDelete = L.filter filterFunction contents :: [FilePath]
+      deleteAllNonApprovedFiles :: FilePath -> Action ()
+      deleteAllNonApprovedFiles file = (command_ [(Cwd productDir)] "rm" [file])
+      filterFunction f = L.elem f productFile
+  traverse deleteAllNonApprovedFiles filesToDelete
+
+
+
 
 --------------------------------------------------
 -- Application
@@ -86,6 +115,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Deploy
     deployProductionarg = phony "deploy-production" $ do
+        removeNonApprovedProducts
         need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
         putNormal "Preparing to deploy to production"
         () <- cmd "rsync -r" (fullSiteDir) (".")
@@ -116,7 +146,6 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
 
 
-
     -- Rules
     rules = packageExecutableFileRule <>
             sandboxDirRule <>
@@ -139,7 +168,8 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
 
 
-    sandboxDirRule = sandboxDir %> \_ -> cmdHakyll "cabal sandbox init"
+    sandboxDirRule = sandboxDir %> \_ -> do
+                       cmdHakyll "cabal sandbox init"
 
 
     packageExecutableFileRule = packageExecutableFile %> \_ -> do
@@ -165,3 +195,9 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 cmdHakyll = cmd (Cwd hakyllProjectRootDir) Shell
 
 --                                                            () <- cmdHakyll "aws s3 sync"   [siteDir] s3://$BUCKET/ --region us-west-2
+
+runOnlyWhenFolderNotPresent fp cmd = do
+   rslt <- (doesDirectoryExist fp)
+   if rslt
+      then cmd
+      else return ()

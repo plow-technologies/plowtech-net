@@ -1,0 +1,15 @@
+
+* Example of using orgmode
+** How to use orgmode to create product pages.
+1. You can use lists like you see here
+2. you can insert images by inserting a link to them [[http://orgmode.org/][file:images/org-mode-unicorn.png]]
+3.  [[https://github.com/fniessen/refcard-org-mode][https://github.com/fniessen/refcard-org-mode]] is where I got a lot of this
+
+
+** General Product Structure
+
+* Title
+** Features
+** Pictures
+** Other Documents
+   
