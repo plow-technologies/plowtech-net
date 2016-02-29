@@ -15,7 +15,7 @@ makes all the difference.
 + protection of pumping system components
 + gross production measurement stored for 29-120 days
 
-** Other benefits of an RPC include guarding against or detection of:
+** Other benefits of an RPC include guarding against or detection of
 + leaking standing or traveling valves
 + tubing leaks
 + rod parts / stuck or tight pumps
