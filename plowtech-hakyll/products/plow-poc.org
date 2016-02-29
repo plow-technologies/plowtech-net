@@ -7,7 +7,7 @@ performance for your equipment. When it comes
 to automation, the configuration and expertise setting up the system
 makes all the difference.
 
-** The benefits of Pump Off Control:
+** The benefits of Pump Off Control
 + detection and control of pump off (fluid pound)
 + maximizing well production
 + minimizing power usage
