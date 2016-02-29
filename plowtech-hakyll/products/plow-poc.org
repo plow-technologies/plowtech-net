@@ -20,5 +20,4 @@ makes all the difference.
 + rod parts / stuck or tight pumps
 + gas lock situations
 + rod overload / underload
-+ automatic restart after power failure
-
++ automatic restart after power failur
