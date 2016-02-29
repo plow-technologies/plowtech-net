@@ -1,20 +1,20 @@
-* Pump off control saves you money!
+* Pump Off Control saves you money!
 [[/assets/img/poc_title.png]]
 
-* You need an expert!
+* You need an expert
 Pump off controllers are amazing devices for delivering peak
-performance for your equipment. Like so often when it comes
+performance for your equipment. When it comes
 to automation, the configuration and expertise setting up the system
 makes all the difference.
 
-
-** The benefits of pump off control
+** The benefits of Pump Off Control
 + detection and control of pump off (fluid pound)
-+ maximize well production
-+ minimum power usage
++ maximizing well production
++ minimizing power usage
 + protection of pumping system components
-+ Other benefits of an RPC include guarding against or detection of:
 + gross production measurement stored for 29-120 days
+
+** Other benefits of an RPC include guarding against or detection of
 + leaking standing or traveling valves
 + tubing leaks
 + rod parts / stuck or tight pumps
