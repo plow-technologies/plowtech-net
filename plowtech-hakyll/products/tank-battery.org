@@ -1,27 +1,16 @@
 * Tank Battery
 [[/assets/img/carousel/IMG_20160225_131958.jpg]]
 * Run your tanks with no hands
-Automating a tank
+We provide data tracking, monitoring and alarming for your tank battery.  Ask about transfer pumps and drives to move your water where it needs to be.
 ** Plow technoligies can automate these things.
-+ here is a list
-
-some words are good to use when doing things and stuff
 
 PLCs allow operators to manage entire systems from one central location.  Our advanced custom PLC 
-
 software offers real time monitoring of critical operating parameters, including data trending.  Our 
-
 ability to customize sets us apart from automation only companies.  No matter what your production 
-
 operation consists of, we have the ability to monitor, control, and alarm. You have the ability to access 
-
 your facilities via the web, make changes if you choose to do so either locally or through the website and 
-
 more.  In today’s increasingly sensitive environmental climate it is critical that we strive to have a zero 
-
 incident rate and because of the design and reliability of our systems an immediate notification of a 
-
 potential spill and our ability to react by controlling your field will help you to avoid a costly situation.  
-
 As your field personnel increasingly rely on the daily monitoring it will help them to prioritize their 
 routes and avoid unnecessary trips to the well sites.

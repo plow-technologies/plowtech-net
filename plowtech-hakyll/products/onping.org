@@ -13,14 +13,9 @@ That is what makes OnPing so different than other things out there.
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddWidget.mp4.jpg]]     
 ** Build a table
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
-
 ** Save your dashboard
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/SaveDashboard.mp4.jpg]]
-   
-
+** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
 ** Now you have a new Table
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
-
 ** Enabling and disabling alarms is one click !
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
-
