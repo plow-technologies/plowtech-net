@@ -6,7 +6,9 @@ It is about answers and change.  That means you need to control what you see.  N
 OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
 That is what makes OnPing so different than other things out there.
 
-** Look here at the use of OnPing and you will see what you have wanted but do not have!
+** Below are lots of examples of using OnPing live.
+
+
 ** Make a panel
 ** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddPanel.mp4.jpg]]
 ** Add a widget
