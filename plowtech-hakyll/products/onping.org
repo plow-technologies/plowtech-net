@@ -7,17 +7,15 @@ OnPing was built by people who needed an answer. It was built by  people who lov
 That is what makes OnPing so different than other things out there.
 
 ** Below are examples of using OnPing live.
-
-
 ** Making a panel
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddPanel.mp4.jpg]]
+** [[http://plowtech.net/assets/video/AddPanel.mp4.jpg]]
 ** Adding a widget
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddWidget.mp4.jpg]]     
+** [[http://plowtech.net/assets/video/AddWidget.mp4.jpg]]     
 ** Building a table
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
+** [[http://plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
 ** Saving your dashboard
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
+** [[http://plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
 ** Making a new table
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
+** [[http://plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
 ** Enabling and disabling alarms (in one click!)
-** [[http://s3-us-west-2.amazonaws.com/plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
+** [[http://plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]

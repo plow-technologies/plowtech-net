@@ -1,5 +1,4 @@
 {-# LANGUAGE NamedFieldPuns    #-}
---------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 import           Control.Lens                           hiding (Context, Level)
@@ -491,9 +490,9 @@ productDescription = lens _productDescription (\p v -> p{_productDescription = v
 -- |Separate a Document into pieces of a Product Page
 splitDocumentation :: Document -> ProductPage
 splitDocumentation doc = ProductPage  (titlePortion doc )
-                                        (imagePortion doc )
-                                        (synopsisPortion doc )
-                                        (descriptionPortion doc )
+                                      (imagePortion doc )
+                                      (synopsisPortion doc )
+                                      (descriptionPortion doc )
    where
      titlePortion d = retrieveDocumentTitle d
      imagePortion d = d ^? lDocumentHeadings .folded . lHeadingSection  <&> sectionParagraph & fromMaybe ""
