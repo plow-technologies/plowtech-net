@@ -10,7 +10,8 @@ That is what makes OnPing so different than other things out there.
 
 *** Great Graphics
 Many ways to see your wells means greater understanding of what is really happening.
-
+[[/assets/img/active_analysis.png]] OnPing allows you to graph multiple values 
+at the same time.  You can view the results on multiple axis and create quick spreadsheets.
 *** Usable Tables
 
 *** Powerful Alarming

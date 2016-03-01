@@ -283,7 +283,7 @@ renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms item
 mainImageTransformRunner = editAllDocument "img" imageTransform
   where
     imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded media-object" & addId
-    addId element = element & attrs . at "main-image" %~ addTxt ""
+    addId element = element & attrs . at "main-image" %~ addTxt ""  & attrs . at "width" %~ addTxt "100%"
 
 
 -- | video transformer
