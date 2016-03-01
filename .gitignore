@@ -10,7 +10,7 @@ cabal-dev
 cabal.sandbox.config
 _cache/
 _site/
-
+_build/
 # -*- mode: gitignore; -*-
 *~
 \#*\#

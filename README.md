@@ -2,10 +2,21 @@ plowtech-net
 ============
 Company website for Plow Technologies. 
 
+
+# Document Size and color specifications
+
+## Images
+* All product page images should be sized at **1024 x 683**
+
 # Deployment
 
+## To Mockup
 Pushing to master will automatically update mockup.plowtech.net
 
+## To Production
+Pushing to production will automatically push to production
+However, you need to add any new products into the [production-ready-products.txt](/production-ready-products.txt) file. 
+for them to make the leap to production
 
 # Development
 
