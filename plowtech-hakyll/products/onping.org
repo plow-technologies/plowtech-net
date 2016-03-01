@@ -6,16 +6,6 @@ Automation is about answers. That means you need to control what you see.  Not u
 OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
 That is what makes OnPing so different than other things out there.
 
-** Below are examples of using OnPing live.
-** Making a panel
-** [[http://www.plowtech.net/assets/video/AddPanel.mp4.jpg]]
-** Adding a widget
-** [[http://www.plowtech.net/assets/video/AddWidget.mp4.jpg]]     
-** Building a table
-** [[http://www.plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
-** Saving your dashboard
-** [[http://www.plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
-** Making a new table
-** [[http://www.plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
-** Enabling and disabling alarms (in one click!)
-** [[http://www.plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
+** Some of the best features of OnPing include...
+
+*** Create 
