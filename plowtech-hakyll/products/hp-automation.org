@@ -1,11 +1,7 @@
 *Horizontal Pump System
-HPS
-
-[[/assets/img/carousel/IMG_20140811_071030.jpg]]
-
-*Keep it flowing with a PLOW Hps
-
-
+*HPS
+[[/assets/img/carousel/horizontalpump.jpg]]
+**Keep it flowing with a PLOW Hps
 As an automation company we strive to simplify and increase efficiency in all your company needs.  
 PLOW tech has a HPS that once calibrated, can keep a consistent water flow.  A sequential
 alarm system will occur when an inconsistency in the flow occurs.   
