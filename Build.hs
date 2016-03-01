@@ -33,7 +33,7 @@ siteDir = "_site"
 productDir = hakyllProjectRootDir </> "products"
 
 stagingBucket =  "mockup.plowtech.net"
-productionBucket = "plowtech.net"
+productionBucket = "www.plowtech.net"
 
 
 
