@@ -1,6 +1,8 @@
 *Horizontal Pump System
-*HPS
 [[/assets/img/carousel/horizontalpump.jpg]]
+
+*HPS well package
+
 **Keep it flowing with a PLOW Hps
 As an automation company we strive to simplify and increase efficiency in all your company needs.  
 PLOW tech has a HPS that once calibrated, can keep a consistent water flow.  A sequential
