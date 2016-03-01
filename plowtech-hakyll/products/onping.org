@@ -6,6 +6,17 @@ Automation is about answers. That means you need to control what you see.  Not u
 OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
 That is what makes OnPing so different than other things out there.
 
-** Some of the best features of OnPing include...
+** Some of the best features of OnPing include
 
-*** Create 
+*** Great Graphics
+Many ways to see your wells means greater understanding of what is really happening.
+
+*** Usable Tables
+
+*** Powerful Alarming
+
+*** Share Data With People
+
+*** Share Data with Apps
+
+*** Friendly pricing
