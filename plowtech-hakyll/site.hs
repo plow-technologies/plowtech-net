@@ -1,6 +1,7 @@
 {-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
 import           Control.Lens                           hiding (Context, Level)
 import qualified Data.Attoparsec.Text                   as AttoParsec
 import           Data.Map                               (Map)
@@ -324,35 +325,39 @@ videoTransformRunner = editAllDocument "h2" h2Transform
 
 
 -- | make images responsive
+imageTransformRunner :: XML.Document -> XML.Document
 imageTransformRunner = editAllDocument "p" imageTransform
   where
-    imageTransform element = element & nodes.traverse. _Element . named "img" . attrs . at "class" %~ addTxt "img-rounded img-responsive"
+    imageTransform element' = element' & nodes.traverse. _Element . named "img" . attrs . at "class" %~ addTxt "img-rounded img-responsive"
 
 
 -- Table Transformation
 -- Striped and apply classes
+tableTransformRunner :: XML.Document -> XML.Document
 tableTransformRunner  = editAllDocument "table" (noTouchRun tableTransform)
   where
-    tableTransform element = element & attrs . at "class" %~ addTxt "table table-striped" &
-                                       touchElement &
-                                         divE [("class","row")] &
-                                           divE [("class", "col-md-12")]
+    tableTransform element' = element' & attrs . at "class" %~ addTxt "table table-striped" &
+                                         touchElement &
+                                           divE [("class","row")] &
+                                             divE [("class", "col-md-12")]
 
 
 
 
 
 -- Paragraph Transformation
+paragraphTransformationRunner :: XML.Document -> XML.Document
 paragraphTransformationRunner = editAllDocument "p" (noTouchRun paragraphTransform)
   where
-    paragraphTransform element = divE [("class","col-md-12")] $ touchElement $ element
+    paragraphTransform element' = divE [("class","col-md-12")] $ touchElement $ element'
 
 -- Header 2 Transformation
 -- Header 2's are Rows in the product page
 
+h2TransformationRunner :: XML.Document -> XML.Document
 h2TransformationRunner = editAllDocument "h2" (noTouchRun h2Transform)
   where
-    h2Transform element = divE [("class","row")] $ touchElement $ element
+    h2Transform element' = divE [("class","row")] $ touchElement $ element'
 
 
 
@@ -378,25 +383,31 @@ h2TransformationRunner = editAllDocument "h2" (noTouchRun h2Transform)
 
 
 noTouchRun  :: (XML.Element -> XML.Element) -> XML.Element ->  XML.Element
-noTouchRun f element
-  | isTouched element = element
-  | otherwise = f element
+noTouchRun f element'
+  | isTouched element' = element'
+  | otherwise = f element'
 
-divE attrs e = XML.Element "div" attrs [XML.NodeElement e]
+divE :: Map XML.Name Text -> XML.Element -> XML.Element
+divE attrs' e = XML.Element "div" attrs' [XML.NodeElement e]
 
-videoE attrs e = XML.Element "video" attrs [XML.NodeElement e]
+videoE :: Map XML.Name Text -> XML.Element -> XML.Element
+videoE attrs' e = XML.Element "video" attrs' [XML.NodeElement e]
 
+-- Add text to an attribute if there is no text there
+-- append to the text if something already exists
+
+addTxt :: forall r. Monoid r => r -> Maybe r -> Maybe r
 addTxt txt = (maybe (Just txt)
               (\t -> Just $ t <> txt))
 
 -- | For full recursion something has to flag to ignore this element.
 
 touchElement :: XML.Element -> XML.Element
-touchElement  elem = elem & attrs . at "touched" .~ Just "true"
+touchElement  elem' = elem' & attrs . at "touched" .~ Just "true"
 
 
 isTouched :: XML.Element -> Bool
-isTouched   elem = elem ^. attrs . at "touched" & (== (Just "true"))
+isTouched   elem' = elem' ^. attrs . at "touched" & (== (Just "true"))
 
 
 
@@ -516,11 +527,11 @@ productCompiler = do
 itemStringToProduct :: Item String -> Item ProductPage
 itemStringToProduct str = productPage
   where
-    parseError = "perror parsing OrgDocument"
+--    parseError = "perror parsing OrgDocument"
     productPage :: Item ProductPage
     productPage = either emptyProductPage id .
                      fmap splitDocumentation .
-                     (\str -> parseAsOrgMode  $ str).
+                     (parseAsOrgMode  ).
                      Text.pack <$> str
     emptyProductPage s = ProductPage ("Error parsing Org Document  " <> Text.pack s) "" "" ""
 
@@ -550,7 +561,7 @@ printHeadingVector vec = Vector.foldr' printDocument "" vec
 
 
 
-
+testPrettyPrinter :: IO Text
 testPrettyPrinter = do
   (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
   return $ orgModePrinter doc
