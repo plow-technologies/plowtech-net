@@ -1,6 +1,6 @@
 * Tank Battery
 [[/assets/img/carousel/IMG_20160225_131958.jpg]]
-* Run your tanks with no hands
+* No more spills
 We provide data tracking, monitoring and alarming for your tank battery.  Ask about transfer pumps and drives to move your water where it needs to be.
 
 PLCs allow operators to manage entire systems from one central location.  Our advanced custom PLC 
