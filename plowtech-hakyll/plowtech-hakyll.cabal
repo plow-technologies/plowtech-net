@@ -24,7 +24,8 @@ library
   ghc-options:      -threaded
   default-language: Haskell2010
 
-        
+
+          
 executable site
   main-is:          site.hs
   build-depends:    attoparsec
@@ -40,6 +41,7 @@ executable site
                   , xml-conduit
                   , xml-conduit 
                   , xml-lens
+                  , plowtech-hakyll
   ghc-options:      -threaded
   default-language: Haskell2010
 
