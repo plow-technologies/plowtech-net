@@ -5,7 +5,7 @@ import           Control.Lens                           hiding (Context, Level)
 import qualified Data.Attoparsec.Text                   as AttoParsec
 import           Data.Map                               (Map)
 import           Data.Maybe                             (fromMaybe)
-import           Data.Monoid                            (mappend, (<>))
+import           Data.Monoid                            ((<>))
 import           Data.OrgMode.Parse.Attoparsec.Document
 import           Data.OrgMode.Parse.Types
 import           Data.Text                              (Text)
@@ -21,8 +21,7 @@ import           Text.XML.Lens                          (attr, attributeIs,
                                                          attributeSatisfies,
                                                          attrs, el, entire,
                                                          name, named, nodes,
-                                                         root, text, _Content,
-                                                         _Element)
+                                                         root, text, _Element)
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
@@ -72,7 +71,7 @@ main = hakyll $ do
       compile $ do
         productStrings <- loadAll "products/*"  :: Compiler ([Item String])
         let productListContext = listField "products" postProductContext (return productStrings)
-        makeItem "" >>=
+        makeItem (""::String) >>=
             loadAndApplyTemplate "templates/product-list.html" productListContext
             >>= relativizeUrls
 
@@ -105,6 +104,7 @@ main = hakyll $ do
 
 --------------------------------------------------------------------------------
 -- |Product Context fields for things using products post processing
+postProductContext :: Context String
 postProductContext = productTitleField <> imageField <> synopsisField <> defaultContext
   where
 
@@ -116,7 +116,7 @@ postProductContext = productTitleField <> imageField <> synopsisField <> default
 
     parseDoc = DOM.parseLT . Text.Lazy.pack
 
-    renderText = Text.unpack.dropXMLHeader . Text.Lazy.toStrict . (XML.renderText XML.def)
+--    renderText = Text.unpack.dropXMLHeader . Text.Lazy.toStrict . (XML.renderText XML.def)
 
     retrieveTitle is = is ^. root . entire . named "title" . text
 
@@ -245,6 +245,10 @@ data RootNodeProps = RootNodeProps { rootName :: XML.Name, rootAttrs :: XMLAttrs
 
 -- | a Compiler that adds necessary bootstrap classes to pandoc parts
 -- renderPandocBootStrapped :: Item String -> Compiler (Item String)
+renderPandocBootStrapped :: RootNodeProps
+                                  -> Vector.Vector (XML.Document -> XML.Document)
+                                  -> Item String
+                                  -> Compiler (Item String)
 renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms itemString = (fmap bootstrapify) <$>   renderPandoc itemString
   where
     bootstrapify :: String -> String
@@ -255,8 +259,8 @@ renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms item
     -- Varous Transformations
     applyTransforms doc = Vector.foldr (\f doc'-> f doc') doc transforms
     parseWithNewHead :: XML.Name -> XMLAttrs -> Text.Lazy.Text -> XML.Document
-    parseWithNewHead elemName elemAttrs elem = (DOM.parseLT elem) & root. name .~ elemName &
-                                               root. attrs .~  elemAttrs
+    parseWithNewHead elemName elemAttrs elem' = (DOM.parseLT elem') & root. name .~ elemName &
+                                                root. attrs .~  elemAttrs
 
 
 --------------------------------------------------
@@ -267,10 +271,11 @@ renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms item
 
 
 -- |Round the edges on the main images
+mainImageTransformRunner :: XML.Document -> XML.Document
 mainImageTransformRunner = editAllDocument "img" imageTransform
   where
-    imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded media-object" & addId
-    addId element = element & attrs . at "main-image" %~ addTxt ""  & attrs . at "width" %~ addTxt "100%"
+    imageTransform element' = element' & attrs . at "class" %~ addTxt "img-rounded media-object" & addId
+    addId element' = element' & attrs . at "main-image" %~ addTxt ""  & attrs . at "width" %~ addTxt "100%"
 
 
 -- | video transformer
@@ -290,21 +295,22 @@ mainImageTransformRunner = editAllDocument "img" imageTransform
 
 
 --}
+videoTransformRunner :: XML.Document -> XML.Document
 videoTransformRunner = editAllDocument "h2" h2Transform
   where
-    h2Transform element = element & nodes . traverse . _Element . named "img"  %~ videoTransform
+    h2Transform element' = element' & nodes . traverse . _Element . named "img"  %~ videoTransform
 
     videoTransform :: XML.Element -> XML.Element
-    videoTransform element = runIfVid
+    videoTransform element' = runIfVid
       where
 
 
         nameElementSource :: XML.Element
-        nameElementSource = element & name .~ "source" & attrs .~ [("src",videoSrc),("type","video/mp4")]
+        nameElementSource = element' & name .~ "source" & attrs .~ [("src",videoSrc),("type","video/mp4")]
 
 
         rawSrc :: Text
-        rawSrc = element ^. attrs . at "src" . _Just
+        rawSrc = element' ^. attrs . at "src" . _Just
 
         videoSrc = Text.dropEnd 4 rawSrc
         imgSrc = Text.dropEnd 8 rawSrc <> ".jpg"
@@ -313,7 +319,7 @@ videoTransformRunner = editAllDocument "h2" h2Transform
                                           ,("controls",""),("preload","auto"),("poster",imgSrc)
                                           , ("width","100%" )] nameElementSource
 
-                     _ -> element
+                     _ -> element'
 
 
 
@@ -549,6 +555,7 @@ testPrettyPrinter = do
   (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
   return $ orgModePrinter doc
 
+testSplitDocs :: IO ProductPage
 testSplitDocs = do
    (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
    return $ splitDocumentation doc
