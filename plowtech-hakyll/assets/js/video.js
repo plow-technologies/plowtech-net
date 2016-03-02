@@ -19670,7 +19670,7 @@ if (!style) {
   style = stylesheet.createStyleElement('vjs-styles-defaults');
   var head = Dom.$('head');
   head.insertBefore(style, head.firstChild);
-  stylesheet.setTextContent(style, '\n    .video-js {\n      width: 740px;\n      height: 440px;\n    }\n\n    .vjs-fluid {\n      padding-top: 36.25%\n    }\n  ');
+  stylesheet.setTextContent(style, '\n    .video-js {\n      width: 100%;\n     \n    }\n\n    .vjs-fluid {\n      padding-top: 36.25%\n    }\n  ');
 }
 
 // Run Auto-load players

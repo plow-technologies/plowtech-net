@@ -324,7 +324,7 @@ videoTransformRunner = editAllDocument "h2" h2Transform
         runIfVid = case Text.takeEnd 8 rawSrc of
                      ".mp4.jpg" -> videoE [("id","my_video"), ("class","video-js vjs-default-skin")
                                           ,("controls",""),("preload","auto"),("poster",imgSrc)
-                                          , ("width","720" ),("height","440")] nameElementSource
+                                          , ("width","100%" )] nameElementSource
 
                      _ -> element
 
