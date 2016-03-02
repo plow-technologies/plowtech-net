@@ -3,6 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Control.Lens                           hiding (Context, Level)
 import qualified Data.Attoparsec.Text                   as AttoParsec
+import           Data.Map                               (Map)
 import           Data.Maybe                             (fromMaybe)
 import           Data.Monoid                            (mappend, (<>))
 import           Data.OrgMode.Parse.Attoparsec.Document
@@ -11,9 +12,8 @@ import           Data.Text                              (Text)
 import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
-
-import           Data.Map                               (Map)
 import qualified Data.Vector                            as Vector
+import           Elements.Compilers
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
@@ -139,19 +139,6 @@ filePathCtx :: Context String
 filePathCtx =
   field "img" (\i -> return $ itemBody i)
 
-
-
-filepathGrabber :: Item Identifier -> Compiler (Item String)
-filepathGrabber ident = toString
-  where
-    toFilePath :: Compiler (Item (Maybe FilePath))
-    toFilePath = withItemBody getRoute ident
-    toString :: Compiler (Item String)
-    toString = fmap itemToString toFilePath
-    maybeToUrl :: Maybe FilePath -> String
-    maybeToUrl = maybe "tst" toUrl
-    itemToString :: (Item (Maybe FilePath)) -> Item String
-    itemToString = fmap maybeToUrl
 
 
 lDocumentHeadings :: Lens' Document [Heading]
