@@ -1,15 +1,6 @@
-* Tank Battery
+* Tank Battery Automation
 [[/assets/img/carousel/IMG_20160225_131958.jpg]]
-* No more spills
-We provide data tracking, monitoring and alarming for your tank battery.  Ask about transfer pumps and drives to move your water where it needs to be.
-
-PLCs allow operators to manage entire systems from one central location.  Our advanced custom PLC 
-software offers real time monitoring of critical operating parameters, including data trending.  Our 
-ability to customize sets us apart from automation only companies.  No matter what your production 
-operation consists of, we have the ability to monitor, control, and alarm. You have the ability to access 
-your facilities via the web, make changes if you choose to do so either locally or online.
-In today’s increasingly sensitive environmental climate it is critical to have a zero 
-incident rate. Because of the design and reliability of our systems, and ability immediately notify you of a 
-potential spill and react by controlling your field, we can prevent costly spills and disasters.
-As your field personnel increasingly rely on the daily monitoring it will help them to prioritize their 
-routes and avoid unnecessary trips to the well sites.
+* Level monitoring and control
+** Keeping water off the ground is done with redunancy
+Floats and transducers are used in tandem to ensure secure fluid transfer 
+from one site to another.
