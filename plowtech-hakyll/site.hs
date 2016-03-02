@@ -283,7 +283,7 @@ renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms item
 mainImageTransformRunner = editAllDocument "img" imageTransform
   where
     imageTransform element = element & attrs . at "class" %~ addTxt "img-rounded media-object" & addId
-    addId element = element & attrs . at "main-image" %~ addTxt ""
+    addId element = element & attrs . at "main-image" %~ addTxt ""  & attrs . at "width" %~ addTxt "100%"
 
 
 -- | video transformer
@@ -324,7 +324,7 @@ videoTransformRunner = editAllDocument "h2" h2Transform
         runIfVid = case Text.takeEnd 8 rawSrc of
                      ".mp4.jpg" -> videoE [("id","my_video"), ("class","video-js vjs-default-skin")
                                           ,("controls",""),("preload","auto"),("poster",imgSrc)
-                                          , ("width","720" ),("height","440")] nameElementSource
+                                          , ("width","100%" )] nameElementSource
 
                      _ -> element
 

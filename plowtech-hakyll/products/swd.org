@@ -1,10 +1,27 @@
-*Salt Water Disposal
+* Salt Water Disposal
 [[/assets/img/carousel/IMG_20160225_132446.jpg]] 
 
-* Following regulations with automation
-Plow automation on a swd well can offer the comfort that comes in knowing that our alarming system can notify you within minutes. Available
-to you online you can check on your well to see what type of issue to better decide who needs to resolve it.
+* Automation means peace of mind
+Plow automation on a salt water disposal lowers costs by 
+extending equipment life and catching small problems before they become big ones.
+We offer multiple varieties of sensors, meters, valves, motors and drives to 
+provide the perfect amount of automation for your disposal well.
 
-**Handling hazardous waste safely and efficient is the key. 
-Plow automation on a swd well can offer the comfort that comes in knowing that our alarming system can notify you within minutes. Available
-to you online you can check on your well to see what type of issue to better decide who needs to resolve it.
+** Available Equipment
+
+*** Tank Level Sensors
+**** Guided Wave Radar
+Dual level, guided wave sensors provide detailed monitoring of wells.
+[[picture of a rosemont radar please]]
+
+**** Pressure Transmitters
+Pressure transmitters paired with floats provide a reliable and effective 
+method of monitoring your disposal.
+[[Something like a tank with a radar here?]]
+**** Wireless Sensors
+Tank level sensors, paired with 'on exception' floats pair a low installation cost
+with the ability to grow your system.
+[[OleumTech stuff]]
+
+
+

@@ -6,16 +6,56 @@ Automation is about answers. That means you need to control what you see.  Not u
 OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
 That is what makes OnPing so different than other things out there.
 
-** Below are examples of using OnPing live.
-** Making a panel
+** Some of the best features of OnPing include
+
+*** Great Graphics
+Many ways to see your wells means greater understanding of what is really happening.
+[[/assets/img/active_analysis.png]] OnPing allows you to graph multiple values 
+at the same time.  You can view the results on multiple axis and create quick spreadsheets.
+
+View your tank levels real time in a rich graphical format.  
+[[/assets/img/tank_widget.png]]
+*** Powerful Alarming
+[[/assets/img/washed_out_table.png]]
+
++ Broadcast notification
++ Enforced Tripped/Acknowlege
++ Simple Drag and Drop scheduling
++ Quick and complete Logging 
++ Custom alarm sets for key people
++ Alarm on inactivity of sensors
++ Alarm on historical conditions
+
+
+Scheduling is made much simpler with drag and drop control...
+[[/assets/img/call_order.png]]
+
+
+*** Share Data With People
+Our dashboards approach allows you to create views and tables that can be shared
+across your organization.  It isn't some complicated thing either watch!
+
+Make a panel...
 ** [[http://www.plowtech.net/assets/video/AddPanel.mp4.jpg]]
-** Adding a widget
+Add a widget...
 ** [[http://www.plowtech.net/assets/video/AddWidget.mp4.jpg]]     
-** Building a table
+Build a table...
 ** [[http://www.plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
-** Saving your dashboard
+Save...
 ** [[http://www.plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
-** Making a new table
-** [[http://www.plowtech.net/assets/video/OpenAlarmTableInDashboard.mp4.jpg]]
-** Enabling and disabling alarms (in one click!)
-** [[http://www.plowtech.net/assets/video/EnableDisableAlarmsInTable.mp4.jpg]]
+Done!
+
+*** Fair pricing
+Everything we do is covered under one price.  
++ No hidden fees!
++ No tricky contracts
+
+*** World Class support
+
+Your problems are our problems, we get them figured out and fixed.
+Our software is designed to be easy for our customers to use without our help.
+
+That doesn't mean our help isn't ready and available!  We can be your IT and have
+a rich amount of experience helping people get onping to be the tool they need it to be for them.
+
+
