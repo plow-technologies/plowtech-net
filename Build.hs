@@ -132,7 +132,15 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     viewarg = phony "watch" $ do
       need [packageExecutableFile, sandboxDir,fullSiteDir]
       putNormal "starting Watch... go to http://localhost:8000"
+      command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
+      command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["build"]
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["watch"]
+   
+    -- Site only clean
+    siteCleanarg = phony "site-clean" $ do
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      putNormal "starting clean"
+      command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
 
 
 
@@ -165,7 +173,8 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
             readyargProduction <>
             deployStagingarg <>
             deployProductionarg <>
-            viewarg
+            viewarg <> 
+            siteCleanarg
 
 
     siteDirRule = siteDir %> \_ -> do
