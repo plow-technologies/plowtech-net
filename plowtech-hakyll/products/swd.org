@@ -11,9 +11,10 @@ More and more emphasis is being placed on tracking how much water is flowing int
 This means monitoring these wells is more crucial than ever.  We offer multiple varieties of sensors,
 meters, valves motors and drives to provide the perfect amount of automation for your disposal well.  
 Our field service team has experience monitoring both private and commercial systems.
-** Available Equipment
-
-*** Tank Level Sensors
+***
+***
+*** Available Equipment
+** Tank Level Sensors
 **** Guided Wave Radar
 Dual level, guided wave sensors provide detailed monitoring of wells.
 [[/assets/img/rosemont_edited_picture.jpg]]
