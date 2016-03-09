@@ -1,9 +1,9 @@
-* Low Cost RT
+* Low Cost RTU
 [[/assets/img/Micro820_20x24_RTU_1025_683.png]]
 
 * A Basic Platform for Automation
-Plow Technologies features a full panel shop, 
-capable of designing RTU packages for both small and large applications.
+At Plow, we have a full panel shop. 
+It is capable of designing RTU packages for both small and large applications.
 
 
 ** We can change this list to suit your needs

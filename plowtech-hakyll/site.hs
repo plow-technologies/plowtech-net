@@ -14,6 +14,7 @@ import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
 import qualified Data.Vector                            as Vector
+import           Debug.Trace                            (traceShow)
 import           Elements.Compilers
 import           Hakyll
 import qualified Text.HTML.DOM                          as DOM
@@ -57,11 +58,19 @@ main = hakyll $ do
 
 
 
+
+
+
     match (fromList ["about.rst", "contact.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
+
+
+
+
+
 
     match "products/*" $ do
         route $ setExtension "html"
@@ -81,17 +90,26 @@ main = hakyll $ do
         route idRoute
         compile $ do
 
+
+
             packages <- do
                packages <- loadAll "frontpage/packages-*.md"
                loadAndApplyTemplate "templates/frontpage/package-points.html" defaultContext `traverse` packages
             images <- (fmap (\ident -> Item ident ident) )  <$> -- Build an item to match an identifier
                       getMatches "assets/img/carousel/*" :: Compiler [Item Identifier]
+
+
+
+
 --            images <- recentFirst =<< loadAll "assets/img/*"
             let indexCtx =
                     constField "title" "Home"                `mappend`
                     listField "packages" defaultContext (return packages) `mappend`
                     listField "images" filePathCtx (traverse filepathGrabber images) `mappend`
                     defaultContext
+
+
+
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
@@ -125,20 +143,25 @@ postProductContext = productTitleField <> imageField <> synopsisField <> default
     retrieveImage is = is ^. root . entire . (attributeSatisfies "main-image" (const True)) . attr "src"
 
 
-    retrieveSynopsis is = is ^. root . entire . (attributeIs "id" "synopsis") . entire .
-                                        named "p" . text & Text.take twitterLimit 
+    retrieveSynopsis is = is ^. root . entire . (attributeIs "id" "synopsis") . nodes. folded. _Element.
+                                        named "p" . text & takeTextAndPad
     twitterLimit = 140
     takeTextAndPad :: Text -> Text
     takeTextAndPad t = if Text.length t >= twitterLimit
-                         then Text.take twitterLimit t
-                         else t <> (Text.pack . replicate  (twitterLimit - Text.length t) $ ' ')
-      
+                         then  Text.take twitterLimit t
+                         else t <> (Text.pack . mconcat. replicate  (twitterLimit - Text.length t) $ " ")
+
+
+
 
 
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+
+
 
 filePathCtx :: Context String
 filePathCtx =
