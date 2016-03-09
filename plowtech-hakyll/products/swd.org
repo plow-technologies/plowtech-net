@@ -5,26 +5,26 @@
 Plow automation on a salt water disposal lowers costs by 
 extending equipment life and catching small problems before they become big ones.
 
+
 ** More important than ever
-We offer multiple varieties of sensors, meters, valves, motors and drives to 
-provide the perfect amount of automation for your disposal well.
 More and more emphasis is being placed on tracking how much water is flowing into disposal wells. 
-This means monitoring these wells is more crucial than ever.  Our field service team has experience monitoring both private and commercial systems.
+This means monitoring these wells is more crucial than ever.  We offer multiple varieties of sensors,
+meters, valves motors and drives to provide the perfect amount of automation for your disposal well.  
+Our field service team has experience monitoring both private and commercial systems.
 ** Available Equipment
 
 *** Tank Level Sensors
 **** Guided Wave Radar
 Dual level, guided wave sensors provide detailed monitoring of wells.
 [[/assets/img/rosemont_edited_picture.jpg]]
-~picture of a rosemont radar please~
 **** Pressure Transmitters
-Pressure transmitters provide a reliable and effective 
+Pressure transmitters paired with floats provide a reliable and effective 
 method of monitoring your disposal.
-~Something like a tank with a radar here?~
+[[Something like a tank with a radar here?]]
 **** Wireless Sensors
-Tank level sensors, paired with on exception floats  lower installation cost
-without sacrificing quick notification of problems at a tank.
-~OleumTech stuff~
+Tank level sensors, paired with 'on exception' floats pair a low installation cost
+with the ability to grow your system.
+[[OleumTech stuff]]
 
 
 
