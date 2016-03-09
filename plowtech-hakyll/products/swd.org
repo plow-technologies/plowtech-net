@@ -19,12 +19,12 @@ Our field service team has experience monitoring both private and commercial sys
 Dual level, guided wave sensors provide detailed monitoring of wells.
 ~picture of a rosemont radar please~
 **** Pressure Transmitters
-Pressure transmitters paired with floats provide a reliable and effective 
+Pressure transmitters provide a reliable and effective 
 method of monitoring your disposal.
 ~Something like a tank with a radar here?~
 **** Wireless Sensors
-Tank level sensors, paired with on exception floats pair a low installation cost
-with the ability to grow your system.
+Tank level sensors, paired with on exception floats  lower installation cost
+without sacrificing quick notification of problems at a tank.
 ~OleumTech stuff~
 
 
