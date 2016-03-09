@@ -1,0 +1,23 @@
+* Low Cost RT
+[[/assets/img/Micro820_20x24_RTU_1025_683.png]]
+
+* A Basic Platform for Automation
+Plow Technologies features a full panel shop, 
+capable of designing RTU packages for both small and large applications.
+
+
+** We can change this list to suit your needs
++        This low cost RTU is customized to fit your needs, all pieces are reliable off the shelf components.
++        Each RTU can be custom programmed to meet your application.
++        Minimum 12 discrete inputs, 7 discrete outputs, 2 analog input, and can be expanded to fit much larger I/O applications.
++        Communication Ports are Ethernet, RS232, RS485, and can add RS232/RS485 ports if needed.
++        Communication Protocols include Ethernet I/P, DF1, Modbus TCP/IP, Modbus RTU, Master/Slave
++        Available SD card for local Data Logging.
++        Built in Real Time Clock
++        A variety of HMI Displays for local edit and control.
++        A cell modem accessing the web for remote control and monitoring using Onping or any other monitoring software.
++        Programming software is free to end user.
++        Multiple programming languages to meet any engineering specs.
++        Can be offered with solar package and battery back up.
+
+         
