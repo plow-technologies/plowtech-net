@@ -15,6 +15,7 @@ This means monitoring these wells is more crucial than ever.  Our field service 
 *** Tank Level Sensors
 **** Guided Wave Radar
 Dual level, guided wave sensors provide detailed monitoring of wells.
+[[/assets/img/rosemont_edited_picture.jpg]]
 ~picture of a rosemont radar please~
 **** Pressure Transmitters
 Pressure transmitters provide a reliable and effective 
