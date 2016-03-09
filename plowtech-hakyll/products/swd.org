@@ -17,7 +17,7 @@ Our field service team has experience monitoring both private and commercial sys
 *** Tank Level Sensors
 **** Guided Wave Radar
 Dual level, guided wave sensors provide detailed monitoring of wells.
-[[picture of a rosemont radar please]]
+[[/assets/img/rosemont_edited_picture]]
 
 **** Pressure Transmitters
 Pressure transmitters paired with floats provide a reliable and effective 
