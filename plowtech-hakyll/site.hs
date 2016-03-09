@@ -126,9 +126,13 @@ postProductContext = productTitleField <> imageField <> synopsisField <> default
 
 
     retrieveSynopsis is = is ^. root . entire . (attributeIs "id" "synopsis") . entire .
-                                        named "p" . text & Text.take twitterLimit
+                                        named "p" . text & Text.take twitterLimit 
     twitterLimit = 140
-
+    takeTextAndPad :: Text -> Text
+    takeTextAndPad t = if Text.length t >= twitterLimit
+                         then Text.take twitterLimit t
+                         else t <> (Text.pack . replicate  (twitterLimit - Text.length t) $ ' ')
+      
 
 
 postCtx :: Context String
