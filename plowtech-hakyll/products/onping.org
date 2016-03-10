@@ -1,21 +1,21 @@
 * OnPing: Modern Data Control
 [[/assets/img/demo2.png]]
 * Build your own automation site to fit your needs.
-Use tables and graphical gauges to make your numbers come to life. You can control who sees what, and use that control to make your field better. Automation is about control, for the people that matter, in the field and in the office.
-Automation is about answers. That means you need to control what you see.  Not us, not your IT department, *you*!
-OnPing was built by people who needed an answer. It was built by  people who love easy.  Who love fast.  Who hate having to be told they have to wait to get what they need to do their job. 
-That is what makes OnPing so different than other things out there.
-
-** Some of the best features of OnPing include
-
-*** Great Graphics
+Use tables and graphical gauges to make your numbers come to life.
+**
+**
+*** Some of the best features of OnPing include 
+** Automation is about control 
+Onping allows you to decide who sees what.  Set the level of restrictions on who can make changes. Best of all we made it easy to use so that you maintain the control.  Get trouble shooting help
+from our 24hr tech support.  
+** Great Graphics
 Many ways to see your wells means greater understanding of what is really happening.
 [[/assets/img/active_analysis.png]] OnPing allows you to graph multiple values 
 at the same time.  You can view the results on multiple axis and create quick spreadsheets.
 
 View your tank levels real time in a rich graphical format.  
 [[/assets/img/tank_widget.png]]
-*** Powerful Alarming
+** Powerful Alarming
 [[/assets/img/washed_out_table.png]]
 
 + Broadcast notification
@@ -31,13 +31,13 @@ Scheduling is made much simpler with drag and drop control...
 [[/assets/img/call_order.png]]
 
 
-*** Share Data With People
+** Share Data With People
 Our dashboards approach allows you to create views and tables that can be shared
 across your organization.  It isn't some complicated thing either watch!
 
 Make a panel...
 ** [[http://www.plowtech.net/assets/video/AddPanel.mp4.jpg]]
-Add a widget...
+  Add a widget...
 ** [[http://www.plowtech.net/assets/video/AddWidget.mp4.jpg]]     
 Build a table...
 ** [[http://www.plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
@@ -45,12 +45,12 @@ Save...
 ** [[http://www.plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
 Done!
 
-*** Fair pricing
+** Fair pricing
 Everything we do is covered under one price.  
 + No hidden fees!
 + No tricky contracts
 
-*** World Class support
+** World Class support
 
 Your problems are our problems, we get them figured out and fixed.
 Our software is designed to be easy for our customers to use without our help.
