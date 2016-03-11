@@ -21,7 +21,7 @@ Dual level, guided wave sensors provide detailed monitoring of wells.
 **** Pressure Transmitters
 Pressure transmitters paired with floats provide a reliable and effective 
 method of monitoring your disposal.
-
+[[/assets/img/editedpressuretransdusers.jpg]]
 **** Wireless Sensors
 Tank level sensors, paired with 'on exception' floats pair a low installation cost
 with the ability to grow your system.
