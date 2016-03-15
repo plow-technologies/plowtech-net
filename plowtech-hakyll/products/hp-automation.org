@@ -1,5 +1,5 @@
 * Horizontal Pump System
-[[/assets/img/carousel/horizontalpump.jpg]]
+[[/assets/img/carousel/temphorizontalpump.jpg]]
 
 * Keep it flowing with a PLOW Hps package
  Heavy weather or simply time can unbalance your HP, disrupting your steady flow.      
