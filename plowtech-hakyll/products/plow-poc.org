@@ -1,5 +1,5 @@
 * Pump Off Control Package 
-[[/assets/img/editing_poc_picture.jpg]]
+[[/assets/img/edited_pocnodrive.jpg]]
 * P.O.C. automaton accuracy
 Pump off controllers are amazing  devices for delivering peak
 performance for your equipment.
