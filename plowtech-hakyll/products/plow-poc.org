@@ -1,11 +1,16 @@
 * Pump Off Control Package 
 [[/assets/img/edited_pocnodrive.jpg]]
-* P.O.C. automaton accuracy
-Pump off controllers are amazing  devices for delivering peak
-performance for your equipment.
-**
-**
-** When it comes to automation, the configuration and expertise setting up the system makes all the difference.
+
+* P.O.C. automation 
+Access to accurate and timely information is the key to preventing an uninformed, costly decision.
+** Opening a wider view of options with automated run well 
+ When it comes to automation, the configuration and knowledge of setting up the system makes all the
+difference. Turn to the experienced field technicians at PLOW for proper installation and
+configurations. Pump off controllers are amazing devices for delivering peak performance for your
+equipment. The RPC's gross fluid production calculation includes user-defined pump efficiency values 
+for both deep and shallow wells as well as using the calculated downhole pump stroke information
+from host software analysis of deep wells.  Having this information available to you either on site 
+or off, puts all the tools in your hand to flourish the potential of your well.
 ** The benefits of Pump Off Control
 + detection and control of pump off (fluid pound)
 + maximizing well production
@@ -20,3 +25,5 @@ performance for your equipment.
 + gas lock situations
 + rod overload / under-load
 + automatic restart after power failure
+** See the graph below to compare kilo watts per day usage before and after installation
+[[/assets/img/rpc_graph.jpg]]   
