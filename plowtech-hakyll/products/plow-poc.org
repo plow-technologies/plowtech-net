@@ -1,5 +1,6 @@
 * Pump Off Control Package 
 [[/assets/img/edited_pocnodrive.jpg]]
+<<<<<<< HEAD
 
 * P.O.C. automation 
 Access to accurate and timely information is the key to preventing an uninformed, costly decision.
@@ -12,6 +13,14 @@ for both deep and shallow wells as well as using the calculated downhole pump st
 from host software analysis of deep wells.  Having this information available to you either on site 
 or off, puts all the tools in your hand to flourish the potential of your well.
 
+=======
+* P.O.C. automaton accuracy
+Pump off controllers are amazing devices. They deliver peak
+performance to your well.
+**
+**
+** When it comes to automation, the configuration and expertise setting up the system makes all the difference.
+>>>>>>> f4205d96d72574bda0ebc68455fe5b7fc0210aca
 ** The benefits of Pump Off Control
 + detection and control of pump off (fluid pound)
 + maximizing well production

@@ -35,15 +35,15 @@ Scheduling is made much simpler with drag and drop control...
 Our dashboards approach allows you to create views and tables that can be shared
 across your organization.  It isn't some complicated thing either watch!
 
-Make a panel...
+Make a panel
 ** [[http://www.plowtech.net/assets/video/AddPanel.mp4.jpg]]
-  Add a widget...
+Add a widget
 ** [[http://www.plowtech.net/assets/video/AddWidget.mp4.jpg]]     
-Build a table...
+Build a table
 ** [[http://www.plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
-Save...
+Save
 ** [[http://www.plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
-Done!
+Done
 
 ** Fair pricing
 Everything we do is covered under one price.  

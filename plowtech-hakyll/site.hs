@@ -72,7 +72,7 @@ main = hakyll $ do
 
 
 
-    match "products/*" $ do
+    match "products/*.org" $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
 
