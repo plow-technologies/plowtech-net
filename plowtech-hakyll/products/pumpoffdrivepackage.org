@@ -1,10 +1,31 @@
 * Pump Off Drive Package
 [[/assets/img/editing_poc_picture.jpg]]
-* POC with drive
- Access to accurate, up to the minute reports to make informed decision. 
+* P.O.C. with drive
+Accurate and up to the minute reports through Plow automation 
+
 ** For the highest production value
-Plow automation offers a POC with a variable frequency drive. With this
-more detailed information is accessible.  Proactive decisions can be made with 
+Plow automation offers a pump off control with a variable frequency drive. Unmanned,
+the P.O.C. drive will automatically make adjustments to the depth of the pump when
+needed. No over worked equipment cuts out repair costs.  More detailed information  
+is accessible on site or off. Programmed range guidelines will
+control the pump rate to maximize production. Proactive decisions can be made with 
 daily real time reports. Saving costs on repairs and avoiding down time makes
-a Plow POC drive a great investment.  As an option we offer to build our enclosure 
-onto a sturdy stand.
+a Plow P.O.C. drive package a great investment.  
+
+** Benefits to a P.O.C. drive package
++ detection and control of pump off (fluid pound)
++ maximizing well production
++ minimizing power usage
++ protection of pumping system components
++ gross production measurement stored for 29-120 days
+
+** Other benefits of an RPC include guarding against or detection of
++ leaking standing or traveling valves
++ tubing leaks
++ gas lock situations
++ rod parts /stuck or tight pumps
++ rod overload / under-load 
++ automatic restart after power failure
+
+** See the graph below to compare kilo watts per day usage before and after installation
+[[/assets/img/rpc_graph.jpg]]
