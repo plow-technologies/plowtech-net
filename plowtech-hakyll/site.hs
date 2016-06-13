@@ -17,6 +17,7 @@ import qualified Data.Vector                            as Vector
 import           Debug.Trace                            (traceShow)
 import           Elements.Compilers
 import           Hakyll
+
 import qualified Text.HTML.DOM                          as DOM
 import qualified Text.XML                               as XML
 import           Text.XML.Lens                          (attr, attributeIs,
@@ -128,20 +129,16 @@ postProductContext = productTitleField <> imageField <> synopsisField <> default
   where
 
     productTitleField =  field "product-title" (\istr -> (return . Text.unpack .retrieveTitle.parseDoc. itemBody) istr)
-
-    imageField = field "product-image" (\istr -> (return .Text.unpack. retrieveImage .parseDoc .itemBody ) istr)
-
-    synopsisField = field "product-synopsis" (\istr -> (return .Text.unpack. retrieveSynopsis .parseDoc .itemBody ) istr)
+    imageField        =  field "product-image" (\istr -> (return .Text.unpack.(\x -> traceShow x x). retrieveImage .parseDoc .itemBody ) istr)
+    synopsisField     =  field "product-synopsis" (\istr -> (return .Text.unpack. retrieveSynopsis .parseDoc .itemBody ) istr)
 
     parseDoc = DOM.parseLT . Text.Lazy.pack
 
 --    renderText = Text.unpack.dropXMLHeader . Text.Lazy.toStrict . (XML.renderText XML.def)
 
     retrieveTitle is = is ^. root . entire . named "title" . text
-
     retrieveImage :: XML.Document -> Text
     retrieveImage is = is ^. root . entire . (attributeSatisfies "main-image" (const True)) . attr "src"
-
 
     retrieveSynopsis is = is ^. root . entire . (attributeIs "id" "synopsis") . nodes. folded. _Element.
                                         named "p" . text & takeTextAndPad
