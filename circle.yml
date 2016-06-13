@@ -10,16 +10,26 @@ machine:
   ghc:
     version: 7.10.2
   environment:
-    PATH: $HOME/.cabal/bin/:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
+    PATH: /opt/ghc/7.10.3/bin/:$HOME/.cabal/bin:$HOME/.cabal/bin/:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
 dependencies:
   cache_directories:
     - ~/dynamic/
     - ./plowtech-hakyll/.cabal-sandbox
     - ./plowtech-hakyll/dist/
     - ~/.cabal
+    - "~/ghc"
     
 
   override:
+    - ghc --version
+    - if [ -d ~/ghc ]; then sudo cp -r ~/ghc /opt; fi
+    - if ghc --version | grep 7.10.3; then echo "Version 7.10.3"; else sudo apt-get install ghc-7.10.3 -y && sudo cp -r /opt/ghc 
+       $HOME/ghc && echo "copy complete"; fi
+    - ghc --version
+    - if cabal --version | grep 1.23.0.0; then echo "Version 1.23.0.0"; else cd ~/ && git clone https://github.com/plow-technologies/cabal.git && cd cabal && cabal --no-require-sandbox install -j2 Cabal/ cabal-install/; fi
+    - git clone git@github.com:plow-technologies/plow-scripts.git
+    - cp plow-scripts/config $HOME/.cabal/config
+    - cabal --version
     - cabal update
     - cabal install shake-0.15.5
     - which aws
