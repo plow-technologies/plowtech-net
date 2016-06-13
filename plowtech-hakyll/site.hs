@@ -129,7 +129,7 @@ postProductContext = productTitleField <> imageField <> synopsisField <> default
   where
 
     productTitleField =  field "product-title" (\istr -> (return . Text.unpack .retrieveTitle.parseDoc. itemBody) istr)
-    imageField        =  field "product-image" (\istr -> (return .Text.unpack.(\x -> traceShow x x). retrieveImage .parseDoc .itemBody ) istr)
+    imageField        =  field "product-image" (\istr -> (return .Text.unpack. retrieveImage .parseDoc .itemBody ) istr)
     synopsisField     =  field "product-synopsis" (\istr -> (return .Text.unpack. retrieveSynopsis .parseDoc .itemBody ) istr)
 
     parseDoc = DOM.parseLT . Text.Lazy.pack
