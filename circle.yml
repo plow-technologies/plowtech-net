@@ -9,7 +9,7 @@ machine:
     - sudo pip install awscli
   services:
   ghc:
-    version: 7.10.3
+    version: 7.10.2
   environment:
     PATH: /opt/ghc/7.10.3/bin/:$HOME/.cabal/bin:$HOME/.cabal/bin/:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
 dependencies:
