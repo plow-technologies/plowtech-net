@@ -3,8 +3,14 @@
 
 * A Basic Platform for Automation 
 RTU packages for both small and large applications. Designed and built in house.
-
-
+** Team up with the minds at plow to design a RTU just for your needs.
+A creative team of programmers and technicians will work with you and your 
+needs. With our experience we will create simple or higher functioning programs.   Guarantying 
+the lowest cost to your needs. we stand strongly behind our shop that your equipment will be 
+built to last.  
+** Leave room for more.
+The hope for all companies is to grow.  PLOW automation team wants to be there with you as you do.  Call us for upgrades
+to match any increase in your productivity you have in your company. 
 ** We can change this list to suit your needs
 +        This low cost RTU is customized to fit your needs, all pieces are reliable off the shelf components.
 +        Each RTU can be custom programmed to meet your application.
