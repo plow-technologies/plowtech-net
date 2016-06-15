@@ -1,7 +1,7 @@
-* Transfer Drive
+* Transfer Drive Package
 [[/assets/img/edited_transfer_drive.png]]
-* Manage and monitor multiple sites with a VSD
-With a front facing interface keypad, changes are quick and easy to access.
+* Manage and monitor multiple sites with a variable speed drive
+Have quick and easy access to numerous points on a large field from one interface keypad.
 
 ** Save cost on repairs or purchases
 Automatically change speed by the parameters that you set. This extends the life of your equipment.

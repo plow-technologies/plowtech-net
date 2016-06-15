@@ -1,8 +1,7 @@
 * Compressor Drive Package
 [[/assets/img/compressor.jpg]]
-* Full control over your site 
-Variable speed drives are used in many locations in the
-world for efficient motor running.
+* Variable speed drive air compressor 
+V.S.D. balances the energy usage to the need of the compressor.
 
 ** Doing it right every step with automation
 The compression of gas and fluids in the oil industry involves 

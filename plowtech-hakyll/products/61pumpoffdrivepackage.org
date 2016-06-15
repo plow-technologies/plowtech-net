@@ -1,7 +1,7 @@
 * Pump Off Drive Package
 [[/assets/img/editing_poc_picture.jpg]]
 * P.O.C. with drive
-Accurate and up to the minute reports through Plow automation 
+Accurate pump off cycles with less loss of profitable oil. 
 
 ** For the highest production value
 Plow automation offers a pump off control with a variable frequency drive. Unmanned,

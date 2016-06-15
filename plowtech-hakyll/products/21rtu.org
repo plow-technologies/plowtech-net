@@ -1,9 +1,8 @@
 * Low Cost RTU
 [[/assets/img/Micro820_20x24_RTU_1025_683.png]]
 
-* A Basic Platform for Automation
-At Plow, we have a full panel shop. 
-It is capable of designing RTU packages for both small and large applications.
+* A Basic Platform for Automation 
+RTU packages for both small and large applications. Designed and built in house.
 
 
 ** We can change this list to suit your needs
