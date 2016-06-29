@@ -2,30 +2,22 @@
 [[/assets/img/editing_poc_picture.jpg]]
 * P.O.C. with drive
 Accurate pump off cycles with less loss of profitable oil. 
-
-** For the highest production value
-Plow automation offers a pump off control with a variable frequency drive. Unmanned,
-the P.O.C. drive will automatically make adjustments to the depth of the pump when
-needed. No over worked equipment cuts out repair costs.  More detailed information  
-is accessible on site or off. Programmed range guidelines will
-control the pump rate to maximize production. Proactive decisions can be made with 
-daily real time reports. Saving costs on repairs and avoiding down time makes
-a Plow P.O.C. drive package a great investment.  
-
-** Benefits to a P.O.C. drive package
-+ detection and control of pump off (fluid pound)
-+ maximizing well production
-+ minimizing power usage
-+ protection of pumping system components
-+ gross production measurement stored for 29-120 days
-
-** Other benefits of an RPC include guarding against or detection of
-+ leaking standing or traveling valves
-+ tubing leaks
-+ gas lock situations
-+ rod parts /stuck or tight pumps
-+ rod overload / under-load 
-+ automatic restart after power failure
+** For the highest production value add a veroable frequency drive to your p.o.c.
+Pump off control is a huge part of profit flux on an oil well.  PLOW can add a 
+variable frequency drive to your well with our pump off automation.  With the
+addition of a drive installation, your pump can run 24 hrs daily unmanned.
+Programmed with guidlines set in onping.  The drive will make changes on the speed
+and depth automatically, keeping energy usage at a minimal.  Proggrammed to resart
+after a power outage with data safely maintained in cloud.  A drive powered pump
+off is an investment with less equipment repairs and maximized well pump production.
+**
+**
+** Benifits of a p.o.c. drive package 
+Make every drop count by getting a PLOW autoamtion system through out your well site.
+Sensors and flow rate meteres keep the settings regulated and inform you when they fall
+outside those guidlines.  With a drive run p.o.c. getting the most out of your well is 
+simplified. With our easy to use onping program, make better decisions with up to the minute 
+report. Stored in cloud and retrievable from a h.m.i. on site or any pc.   
 
 ** See the graph below to compare kilo watts per day usage before and after installation
 [[/assets/img/rpc_graph.jpg]]
