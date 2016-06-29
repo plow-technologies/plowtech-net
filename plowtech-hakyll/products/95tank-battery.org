@@ -1,17 +1,24 @@
 * Tank Battery Package
 [[/assets/img/carousel/IMG_20160225_131958.jpg]]
-* Level monitoring and control through automated storage tanks
+* Level monitoring and control of automated storage tanks
 Trust in Plow automation alarm design to set up a
-defense against inconsistency and over flow.
+defense against equipment damage or over flow.
+** 
+**
+**
 ** Reliable and dependable equipment to ensure max productivity
-With level sensors in your tanks automatic data logging
-can be set to show any variance in flow. Being proactive
-to tank issues can cut out downtime for repairs and with
-that increase profit margins.
-** Keeping water off the ground is done with redunancy
-Floats and transducers are used in tandem to ensure 
-secure fluid transfer from one site to another.  We
-provide level sensors to set your guidelines on your
-water and oil level.  Temperature settings can be 
-regulated there also. 
-
+Take full advantage of your tank battery by controlling and maintaining
+tank levels and pressure.  Floats and transducers are used in tandem to 
+ensure secure fluid transfer from inlet to drain.  Installing sensors gives
+you an exact reading. With up to the minute data. Onping will store all your
+data in cloud to access at your convenience.  Feel secure with our call out
+cycle that your team will know whats going on and where.
+**
+**
+** Safe and secure fields with PLOW.
+Facilitate the safety maintenance for your tank battery with automation from
+PLOW.  Lower risk factors by having your team gather information from a view
+screen rather than around dangerous gasses or tempeture.  Being alerted of
+changes will give the time needed to be proactive
+and make safe decision.  Inconsistency in flow can also add wear to your
+equipment.
