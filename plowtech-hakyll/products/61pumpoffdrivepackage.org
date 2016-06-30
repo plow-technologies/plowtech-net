@@ -2,20 +2,20 @@
 [[/assets/img/editing_poc_picture.jpg]]
 * P.O.C. with drive
 Accurate pump off cycles with less loss of profitable oil. 
-** For the highest production value add a veroable frequency drive to your p.o.c.
+** For the highest production value add a variable frequency drive to your p.o.c.
 Pump off control is a huge part of profit flux on an oil well.  PLOW can add a 
 variable frequency drive to your well with our pump off automation.  With the
 addition of a drive installation, your pump can run 24 hrs daily unmanned.
-Programmed with guidlines set in onping.  The drive will make changes on the speed
-and depth automatically, keeping energy usage at a minimal.  Proggrammed to resart
+Programmed with guidelines set in onping.  The drive will make changes on the speed
+and depth automatically, keeping energy usage at a minimal.  Programmed to restart
 after a power outage with data safely maintained in cloud.  A drive powered pump
 off is an investment with less equipment repairs and maximized well pump production.
 **
 **
-** Benifits of a p.o.c. drive package 
-Make every drop count by getting a PLOW autoamtion system through out your well site.
-Sensors and flow rate meteres keep the settings regulated and inform you when they fall
-outside those guidlines.  With a drive run p.o.c. getting the most out of your well is 
+** Benefits of a p.o.c. drive package 
+Make every drop count by getting a PLOW automation system through out your well site.
+Sensors and flow rate meters keep the settings regulated and inform you when they fall
+outside those guidelines.  With a drive run p.o.c. getting the most out of your well is 
 simplified. With our easy to use onping program, make better decisions with up to the minute 
 report. Stored in cloud and retrievable from a h.m.i. on site or any pc.   
 
