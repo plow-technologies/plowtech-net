@@ -9,7 +9,7 @@ extending equipment life and catching small problems before they become big ones
 ** More important than ever
 Salt water disposal well accidents can be very harmful to the environment and with that, your company.  
 Automating your well with PLOW brings our alarm and data retrieval program to you.  An alarm set up 
-is triggered by a break in the guidelines set in onping.  Optional to you is an alarm light that can be seen on site.
+is triggered by a break in the guidelines set in [[/products/11onping.html][onping]].  Optional to you is an alarm light that can be seen on site.
 A call out will begin, reaching out to your team leads to respond. Cycling 
 through till an acknowledgment is given.  A larger emphasis
 is being placed on tracking how much water is flowing into disposal wells. This means that 
