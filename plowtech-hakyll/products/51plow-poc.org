@@ -12,32 +12,14 @@ or off, puts all the tools in your hand to flourish the potential of your well. 
 technicians at PLOW for proper installation and configuration.
 **
 **
+** Team up with PLOW to run your pump at its best.
+Make every drop count by getting a PLOW automation system through out your well site.  With an automated pump
+jack automatic restart occurs after a power outage. Data is recorded in onping and than stored in cloud for up to 
+3 years. Onping can be accessed on most mobile devices or pc's. We have multiple types of sensors and meters.
+Installed they can inform you instantly of problem areas. They also are great to use for proactive decisions with 
+up to the minute reports.
+   
 ** Pump jacks 
-Know the details of each stroke on your pump jack with PLOW automation. Having data available to you 
-at any time while stored in cloud. Reach max pump off with PLOW. Automated, your pump will instantly 
-make changes in depth and or speed.The shift would normally create spikes of power usage. with a poc
-the changes are expected and made gradually to avoid  An alarm system in onping is linked to sensors and meters and activated
-when an inconsistency occurs. Ask about our lighting for alarms.  Assign the team members to be contacted
-if there is a problem on site. Worry not if the first contact is not available, onping will cycle through 
-until a response is made. Onping is available on most portable devices.  Collecting the need to know 
-information before you get to the site can save time and effort. With all that PLOW automation brings to 
-your pump jack we still are available 24/7 for any technical support in onping.   
-
-
-
-** The benefits of Pump Off Control
-+ detection and control of pump off (fluid pound)
-+ maximizing well production
-+ minimizing power usage
-+ protection of pumping system components
-+ gross production measurement stored for 29-120 days
-
-** Other benefits of an RPC include guarding against or detection of
-+ leaking standing or traveling valves
-+ tubing leaks
-+ rod parts / stuck or tight pumps
-+ gas lock situations
-+ rod overload / under-load
-+ automatic restart after power failure
+  
 ** See the graph below to compare kilo watts per day usage before and after installation
 [[/assets/img/rpc_graph.jpg]]   

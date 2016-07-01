@@ -13,11 +13,16 @@ off is an investment with less equipment repairs and maximized well pump product
 **
 **
 ** Benefits of a p.o.c. drive package 
-Make every drop count by getting a PLOW automation system through out your well site.
-Sensors and flow rate meters keep the settings regulated and inform you when they fall
-outside those guidelines.  With a drive run p.o.c. getting the most out of your well is 
-simplified. With our easy to use onping program, make better decisions with up to the minute 
-report. Stored in cloud and retrievable from a h.m.i. on site or any pc.   
+Know the details of each stroke on your pump jsack with PLOW automation. having data available to you
+at any time while stored in cloud.  Reach max pump off with PLOW. Automated, your pump will instantly 
+make changes in depth and or speed.  The shift would normally create a spike of power usage.  With a poc
+the changes are expected and are made gradually to avoid this.  An alarm system in onping is linked to sensors
+and meters and activated when an inconsistent occurs.  Ask about our lighting feature for alarms.  Assign 
+the team members to be contacted if there is a problem on site.  Worry not if the first contact is not
+available, onping will cycle through the call out until a response is made.  Onping is available on most 
+portable devices and PC's.  Collecting the need to know information before you arrive, will save you time
+and effort. With all that PLOW automation brings to your pump jack we still are available 24/7 for any
+technical support in onping.          
 
 ** See the graph below to compare kilo watts per day usage before and after installation
 [[/assets/img/rpc_graph.jpg]]
