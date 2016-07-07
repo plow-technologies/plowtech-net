@@ -14,4 +14,4 @@ avoid over heating.
 
 ** Limitless options with Plow automation
 Our team creates the package you need. We design it to be upgraded at minimal cost. 
-All of our drives can be equipped with data logging and alarming through our [[http://www.plowtech.net/products/onping.html][OnPing Web system]]
+All of our drives can be equipped with data logging and alarming through our [[http://www.plowtech.net/products/11onping.html][OnPing Web system]]
