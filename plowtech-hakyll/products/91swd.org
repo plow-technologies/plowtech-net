@@ -14,7 +14,7 @@ wells is crucial.
 ** Quality equipment, precision installation and 24/7 support at your side
  Automating your well with PLOW brings our alarm and data 
 retrieval program to you.  An alarm set up is triggered by a break in the guidelines set
-in [[http://www.mockup.plowtech.net/products/11onping.html][onping]] Optional to you is an alarm light that can be seen on site.  A call out will
+in [[http://www.mockup.plowtech.net/products/11onping.org][onping]] option       to you is an alarm light that can be seen on site.  A call out will
 begin, reaching out to your team leads to respond. Cycling through till an acknowledgment
 is given.  We offer multiple varieties of sensors, meters, valve motors and drives to 
 provide the perfect amount of automation for your disposal well.  Our field service team 
