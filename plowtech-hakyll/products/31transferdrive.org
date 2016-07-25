@@ -1,8 +1,8 @@
 * Transfer Drive Package
-[[/assets/img/edited_transfer_drive.png]]
+  [[/assets/img/edited_transfer_drive.png]]
 * Manage and monitor multiple sites with a variable speed drive
-Have quick and easy access to numerous points on a large field from one interface keypad.
-
+  Have quick and easy access to numerous points on a large field from one interface keypad.
+  
 ** Save cost on repairs or purchases
 Automatically change speed by the parameters that you set. This extends the life of your equipment.
 Maximizing your well's productivity with our Plow variable speed drive pushes up your profit margins.
@@ -14,4 +14,4 @@ avoid over heating.
 
 ** Limitless options with Plow automation
 Our team creates the package you need. We design it to be upgraded at minimal cost. 
-All of our drives can be equipped with data logging and alarming through our [[http://www.plowtech.net/products/11onping.html][OnPing Web system]]
+All of our drives can be equipped with data logging and alarming through our [[http://www.plowtech.net/products/11onping.org][OnPing Web system]
