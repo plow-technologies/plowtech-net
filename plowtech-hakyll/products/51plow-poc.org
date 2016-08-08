@@ -1,7 +1,7 @@
-* P.O.C. Package 
+* Pump Off Control Package 
 [[/assets/img/edited_pocnodrive.jpg]]
 
-* Pump off control automation 
+* P.o.c. automation 
 Access to accurate and timely information is the key to preventing an uninformed, costly decision.
 ** Opening a wider view of options with automated run well 
 Pump off controllers are amazing devices for delivering peak performance and production from your well.
@@ -19,7 +19,6 @@ jack automatic restart occurs after a power outage. Data is recorded in onping a
 Installed they can inform you instantly of problem areas. They also are great to use for proactive decisions with 
 up to the minute reports.
    
-** Pump jacks 
   
 ** See the graph below to compare kilo watts per day usage before and after installation
 [[/assets/img/rpc_graph.jpg]]   

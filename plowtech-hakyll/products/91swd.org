@@ -1,7 +1,7 @@
-* S.W.D. Package
+* Salt Water Disposal Package
  [[/assets/img/saltwatervisio.jpg]]
 
-* Salt water disposal automated well
+* S.w.d. well automated 
 Plow automation on a S.W.D.site, lowers costs by 
 extending equipment life and catching small problems before they become big ones.
 
