@@ -32,22 +32,21 @@ dependencies:
     - cp plow-scripts/config $HOME/.cabal/config
     - cabal --version
     - cabal update
-    - cabal install shake-0.15.5 --no-upgrade-dependencies --constraint=unix==2.7.1.0 --force-reinstalls
+    - cabal install shake    #-0.15.5 --no-upgrade-dependencies --constraint=unix==2.7.1.0 --force-reinstalls
     - which aws
-    - runhaskell Build.hs
 
 test:
   pre:
   override:
-    - runhaskell Build.hs
+    - shake
 
 deployment:
   staging:
      branch: master
      commands:
-       - runhaskell Build.hs deploy-staging
+       - shake deploy-staging
        
   production:
      branch: production
      commands:
-       - runhaskell Build.hs deploy-production
+       - shake deploy-production
