@@ -1,28 +1,22 @@
-* Low Cost RTU
+* Remote Terminal Unit
 [[/assets/img/Micro820_20x24_RTU_1025_683.png]]
 
 * A Basic Platform for Automation 
-RTU packages for both small and large applications. Designed and built in house.
-** Team up with the minds at plow to design a RTU just for your needs.
-A creative team of programmers and technicians will work with you and your 
-needs. With our experience we will create simple or higher functioning programs.   Guarantying 
-the lowest cost to your needs. we stand strongly behind our shop that your equipment will be 
-built to last.  
-** Leave room for more.
-The hope for all companies is to grow.  PLOW automation team wants to be there with you as you do.  Call us for upgrades
-to match any increase in your productivity you have in your company. 
-** We can change this list to suit your needs
-+        This low cost RTU is customized to fit your needs, all pieces are reliable off the shelf components.
-+        Each RTU can be custom programmed to meet your application.
-+        Minimum 12 discrete inputs, 7 discrete outputs, 2 analog input, and can be expanded to fit much larger I/O applications.
-+        Communication Ports are Ethernet, RS232, RS485, and can add RS232/RS485 ports if needed.
-+        Communication Protocols include Ethernet I/P, DF1, Modbus TCP/IP, Modbus RTU, Master/Slave
-+        Available SD card for local Data Logging.
-+        Built in Real Time Clock
-+        A variety of HMI Displays for local edit and control.
-+        A cell modem accessing the web for remote control and monitoring using Onping or any other monitoring software.
-+        Programming software is free to end user.
-+        Multiple programming languages to meet any engineering specs.
-+        Can be offered with solar package and battery back up.
+Designed in house RTU packages for both small and large applications.
+
+** Automation in a low cost rtu
+The reasoning in purchasing remote terminal units is to simplify data collection along different areas of
+your work environment.  They can be part of your maintenance by showing you potential problems.  Safety levels
+can be met by keeping your people out of danger areas where they would have to manually collect data.   A rtu 
+can be an investment by saving you cost on many things from repairs to replacement of equipment to energy conservation.
+
+** Team up with the minds at plow to design a RTU just for you.
+Getting customized and reliable remote terminal units is what we do, getting them to you at low prices
+is how we do what we do. A team of programmers and technicians will create a program around your automation
+needs.  Creativity to design simple or large applications comes with our years of experience around many 
+different industrial environments.  Guarantying the lowest cost to your needs.  We do not push unneeded 
+equipment or accessories. When time comes for growth,  call us back to upgrades.  Adding to our rtu's is 
+made easy so that all new equipment is not needed. We stand strongly behind our shop that your equipment will be 
+built to last.  See also how we can solar power your rtu.
 
          
