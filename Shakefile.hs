@@ -28,7 +28,9 @@ hakyllExecDir = "dist" </> "build"</> "site"
 -- root location of static files , images fonts etc
 hakyllAssets = "assets"
 
-siteDir = "_site" </> "index.html"
+siteDir = "_site"
+
+siteFile = "index.html"
 
 productDir = hakyllProjectRootDir </> "products"
 
@@ -101,29 +103,37 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Ready For Deployment
     readyarg = phony "ready" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "syncing up deply"
-        cmd "rsync -r" (fullSiteDir) (".")
+        val <- (doesDirectoryExist siteDir)
+        unless val (cmd "mkdir" siteDir)
+        cmd "rsync -r" (fullSiteJustDir) (".")
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
     readyargProduction = phony "readyprod" $ do
       removeNonApprovedProducts
-      need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
-      putNormal "syncing up deply"
-      cmd "rsync -r" (fullSiteDir) (".")
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      putNormal "syncing up deploy"
+      valleys <- (doesDirectoryExist siteDir)
+      unless valleys (cmd "mkdir" siteDir)
+      cmd "rsync -r" (fullSiteJustDir) (".")
 
 
     -- Make Deploy
     deployStagingarg = phony "deploy-staging" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "Preparing to deploy to staging"
-        () <- cmd "rsync -r" (fullSiteDir) (".")
+        vales <- (doesDirectoryExist siteDir)
+        unless vales (cmd "mkdir" siteDir)
+        () <- cmd "rsync -r" (fullSiteJustDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
 
     -- Make Deploy
     deployProductionarg = phony "deploy-production" $ do
         removeNonApprovedProducts
-        need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "Preparing to deploy to production"
+        vals <- (doesDirectoryExist siteDir)
+        unless vals (cmd "mkdir" siteDir)
         () <- cmd "rsync -r" (fullSiteDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> productionBucket , "--region us-west-2"]
 
@@ -156,7 +166,8 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     packageExecutableFile = hakyllProjectRootDir </>
                             hakyllExecDir </> hakyllSite
     sandboxDir = hakyllProjectRootDir </> sandbox
-    fullSiteDir = hakyllProjectRootDir </> siteDir
+    fullSiteDir = hakyllProjectRootDir </> siteDir </> siteFile
+    fullSiteJustDir = hakyllProjectRootDir </> siteDir
 
 
 
