@@ -34,6 +34,7 @@ dependencies:
     - cabal update
     - cabal install shake --force-reinstalls    #-0.15.5 --no-upgrade-dependencies --constraint=unix==2.7.1.0 --force-reinstalls
     - which aws
+    - shake
 
 test:
   pre:
