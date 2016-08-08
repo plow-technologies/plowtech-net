@@ -6,7 +6,7 @@ Use tables and graphical gauges to make your numbers come to life.
 **
 *** Some of the best features of OnPing include 
 ** Automation is about control 
-Onping allows you to decide who sees what.  Set the level of restrictions on who can make changes. Best of all we made it easy to use so that you maintain the control.  Get trouble shooting help
+ Onping allows you to decide who sees what.  Set the level of restrictions on who can make changes. Best of all we made it easy to use so that you maintain the control.  Get trouble shooting help
 from our 24hr tech support.  
 ** Great Graphics
 Many ways to see your wells means greater understanding of what is really happening.
