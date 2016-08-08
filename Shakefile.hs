@@ -103,13 +103,13 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Ready For Deployment
     readyarg = phony "ready" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteDir,siteFile]
+        need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
         putNormal "syncing up deply"
         cmd "rsync -r" (fullSiteDir) (".")
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
     readyargProduction = phony "readyprod" $ do
       removeNonApprovedProducts
-      need [packageExecutableFile, sandboxDir,fullSiteDir,siteDir]
+      need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
       putNormal "syncing up deply"
       cmd "rsync -r" (fullSiteDir) (".")
 
@@ -132,7 +132,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- View locally
     viewarg = phony "watch" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      need [packageExecutableFile, sandboxDir,fullSiteFile]
       putNormal "starting Watch... go to http://localhost:8000"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["build"]
@@ -140,7 +140,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
    
     -- Site only clean
     siteCleanarg = phony "site-clean" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      need [packageExecutableFile, sandboxDir,fullSiteFile]
       putNormal "starting clean"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
 
