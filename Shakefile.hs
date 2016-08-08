@@ -30,7 +30,7 @@ hakyllAssets = "assets"
 
 siteDir = "_site"
 
-siteFile = "_site" </> "index.html"
+siteFile = "index.html"
 
 productDir = hakyllProjectRootDir </> "products"
 
@@ -103,36 +103,44 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Ready For Deployment
     readyarg = phony "ready" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "syncing up deply"
-        cmd "rsync -r" (fullSiteDir) (".")
+        val <- (doesDirectoryExist siteDir)
+        unless val (cmd "mkdir" siteDir)
+        cmd "rsync -r" (fullSiteJustDir) (".")
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
     readyargProduction = phony "readyprod" $ do
       removeNonApprovedProducts
-      need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
-      putNormal "syncing up deply"
-      cmd "rsync -r" (fullSiteDir) (".")
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      putNormal "syncing up deploy"
+      valleys <- (doesDirectoryExist siteDir)
+      unless valleys (cmd "mkdir" siteDir)
+      cmd "rsync -r" (fullSiteJustDir) (".")
 
 
     -- Make Deploy
     deployStagingarg = phony "deploy-staging" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "Preparing to deploy to staging"
-        () <- cmd "rsync -r" (fullSiteDir) (".")
+        vales <- (doesDirectoryExist siteDir)
+        unless vales (cmd "mkdir" siteDir)
+        () <- cmd "rsync -r" (fullSiteJustDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> stagingBucket , "--region us-west-2"]
 
     -- Make Deploy
     deployProductionarg = phony "deploy-production" $ do
         removeNonApprovedProducts
-        need [packageExecutableFile, sandboxDir,fullSiteFile,siteFile]
+        need [packageExecutableFile, sandboxDir,fullSiteDir]
         putNormal "Preparing to deploy to production"
-        () <- cmd "rsync -r" (fullSiteDir) (".")
+        vals <- (doesDirectoryExist siteDir)
+        unless vals (cmd "mkdir" siteDir)
+        () <- cmd "rsync -r" (fullSiteJustDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> productionBucket , "--region us-west-2"]
 
 
     -- View locally
     viewarg = phony "watch" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteFile]
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
       putNormal "starting Watch... go to http://localhost:8000"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["build"]
@@ -140,7 +148,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
    
     -- Site only clean
     siteCleanarg = phony "site-clean" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteFile]
+      need [packageExecutableFile, sandboxDir,fullSiteDir]
       putNormal "starting clean"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
 
@@ -152,14 +160,14 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     wants = want $      [packageExecutableFile] <>
                         [sandboxDir] <> 
-                        [fullSiteFile]
+                        [fullSiteDir]
 
 
     packageExecutableFile = hakyllProjectRootDir </>
                             hakyllExecDir </> hakyllSite
     sandboxDir = hakyllProjectRootDir </> sandbox
-    fullSiteDir = hakyllProjectRootDir </> siteDir
-    fullSiteFile = hakyllProjectRootDir </> siteDir </> "index.html"
+    fullSiteDir = hakyllProjectRootDir </> siteDir </> siteFile
+    fullSiteJustDir = hakyllProjectRootDir </> siteDir
 
 
 
