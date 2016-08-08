@@ -134,7 +134,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
         putNormal "Preparing to deploy to production"
         vals <- (doesDirectoryExist siteDir)
         unless vals (cmd "mkdir" siteDir)
-        () <- cmd "rsync -r" (fullSiteDir) (".")
+        () <- cmd "rsync -r" (fullSiteJustDir) (".")
         command_ [Shell] "aws" ["s3","sync", siteDir <> "/", "s3://" <> productionBucket , "--region us-west-2"]
 
 
