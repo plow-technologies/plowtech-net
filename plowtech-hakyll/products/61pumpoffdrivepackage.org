@@ -1,7 +1,7 @@
 * Pump Off Drive Package
 [[/assets/img/editing_poc_picture.jpg]]
 * P.O.C. with drive
-Accurate pump off cycles with less loss of profitable oil. 
+Accurate and energy effifient pump off cycles with less loss of profitable oil. 
 ** For the highest production value add a variable frequency drive to your p.o.c.
 Pump off control is a huge part of profit flux on an oil well.  PLOW can add a 
 variable frequency drive to your well with our pump off automation.  With the
