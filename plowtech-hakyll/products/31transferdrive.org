@@ -3,15 +3,26 @@
 * Manage and monitor multiple sites with a variable speed drive
   Have quick and easy access to numerous points on a large field from one interface keypad.
   
-** Save cost on repairs or purchases
-Automatically change speed by the parameters that you set. This extends the life of your equipment.
-Maximizing your well's productivity with our Plow variable speed drive pushes up your profit margins.
+
 
 ** Structured and customized with multiple variations to fit your field
-A Plow variable speed drive can be configured to safely run in your well.  Add an optional
-cement base for extra stability.  Included is a temperature triggered heat exchange to 
-avoid over heating. 
+Transfer drives are a great source to widen profit margins.  Giving you maximum control over all your 
+r.t.u.'s.  Gather all the information from them in one unit. Change any of their perimeters easily. Not 
+only cutting out time to reach different rtu's but also adding to safety measurements by keeping workers 
+away from production areas.  Managing more efficiently your energy keeps costly energy spikes charges off your
+energy bill
 
-** Limitless options with Plow automation
-Our team creates the package you need. We design it to be upgraded at minimal cost. 
-All of our drives can be equipped with data logging and alarming through our [[http:11onping.html][onping]] Web system
+** Made to control multiple rtu's
+With PLOW you not only get a transfer drive cabinet with all its features, you also have access
+to our onping data control system.  Created by our own programmers, giving them a wider understanding
+of what they can do for you.  Reaching this system from a local h.m.i. or at your home over 
+the internet, or even through most mobile devises.  Here many more options and features become 
+available.  Set up the alarm call out system that will respond to the perimeters you also set in onping.
+To create an alarm and set its perimeters was made easy to do but PLOW will still be available 24/7
+for any problems that may occur.  Onping is just the icing on the cake for our transfer drive cabinets.
+The cabinets are built to withstand harsh weather conditions, with an option of a cement base for
+added stability.  Built in cooling fans  maintaining temperature to avoid over heating.  The automation
+panel is designed to your exact needs with applications programmed and ready for you operational needs.  
+Backhand knowledge of our own programs makes it easy for us to change for upgrades.  A safety feature on 
+the drive is a emergency shut off that is manual.  With the variable frequency drive a soft start can 
+be done to protect your equipment. 
