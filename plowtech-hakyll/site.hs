@@ -67,12 +67,12 @@ main = hakyll $ do
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
+  
+    match "contact/*.org" $ do
+        route $ setExtension "html"
+        compile $ productCompiler  >>= relativizeUrls
 
-
-
-
-
-
+    
     match "products/*.org" $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
@@ -86,6 +86,8 @@ main = hakyll $ do
             loadAndApplyTemplate "templates/product-list.html" productListContext
             >>= relativizeUrls
 
+        
+                           
 
     match "index.html" $ do
         route idRoute
