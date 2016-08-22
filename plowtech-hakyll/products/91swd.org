@@ -1,20 +1,20 @@
 * Salt Water Disposal Package
  [[/assets/img/saltwatervisio.jpg]]
 
-* S.w.d. well automated 
-Plow automation on a S.W.D.site, lowers costs by 
+* SWD well automated 
+PLOW automation on a SWD site, lowers costs by 
 extending equipment life and catching small problems before they become big ones.
 
 
 ** Safety and security are more important than ever.
 Salt water disposal well accidents can be very harmful to the environment and with 
-that, your company. A larger emphasis is being placed on tracking how much waste waster
+that, your company. A larger emphasis is being placed on tracking how much waste water
 is flowing into disposal wells.  This means that accurate steady monitoring of these
 wells is crucial. 
 ** Quality equipment, precision installation and 24/7 support at your side
  Automating your well with PLOW brings our alarm and data 
 retrieval program to you.  An alarm set up is triggered by a break in the guidelines set
-in [[http:11onping.html][onping]] option to you is an alarm light that can be seen on site.  A call out will
+in [[http:11onping.html][onping. ]] Optional to you is an alarm light that can be seen on site.  A call out will
 begin, reaching out to your team leads to respond. Cycling through till an acknowledgment
 is given.  We offer multiple varieties of sensors, meters, valve motors and drives to 
 provide the perfect amount of automation for your disposal well.  Our field service team 
