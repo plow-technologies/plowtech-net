@@ -60,7 +60,9 @@ main = hakyll $ do
  
     match "contact/*.md" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler  >>= relativizeUrls
+        compile $ do       
+            getResourceBody
+            pandocCompiler >>= loadAndApplyTemplate  "templates/default.html" defaultContext
 
 
 
@@ -88,10 +90,6 @@ main = hakyll $ do
                loadAndApplyTemplate "templates/frontpage/package-points.html" defaultContext `traverse` packages
             images <- (fmap (\ident -> Item ident ident) )  <$> -- Build an item to match an identifier
                       getMatches "assets/img/carousel/*" :: Compiler [Item Identifier]
-
-            
-
-
 
 --            images <- recentFirst =<< loadAll "assets/img/*"
             contacts <- loadAll "contact/*.md"
