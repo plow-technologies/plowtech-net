@@ -1,0 +1,50 @@
+# This is the base snapshot. It determines the GHC version
+# and a set of base packages.
+resolver: lts-6.4
+
+# Root package
+packages:
+- '.'
+# Dependencies
+#
+# Dependencies can be specified in several ways:
+#
+# First form (git):
+#
+# - location:
+#     git: <git url>
+#     commit: <commit hash>
+#   subdirs:
+#   - <optional subdirectory 1>
+#   - <optional subdirectory 2>
+#   - ...
+#   extra-dep: true
+#
+# Note that the subdirs section is optional.
+#
+# Second form (hackage):
+#
+# - <url to Hackage tarball>
+#
+
+# Other dependencies from official Hackage
+#
+# This is the list of packages that are not included in the base snapshot
+# set, or that a different version must be used.
+extra-deps:
+- orgmode-parse-0.1.1.3
+
+# Flags
+# A list of flags to be applied to dependency packages.
+# The format is:
+#
+# flags:
+#   <package 1>:
+#     <flag 1>: true/false
+#     <flag 2>: true/false
+#     ...
+#   <package 2>:
+#     <flag 1>: true/false
+#     <flag 2>: true/false
+#     ...
+
