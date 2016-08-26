@@ -57,18 +57,13 @@ main = hakyll $ do
         compile compressCssCompiler
 
 
-
-
-
-
-
  
-    match "contact/*.org" $ do
+    match "contact/*.md" $ do
         route $ setExtension "html"
-        compile $ productCompiler  >>= relativizeUrls
+        compile $ pandocCompiler  >>= relativizeUrls
 
 
-           
+
     match "products/*.org" $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
@@ -88,23 +83,23 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-
-
-
             packages <- do
-               packages <- loadAll "frontpage/packages-*.md"
+               packages <- loadAll "frontpage/packages-*.md"               
                loadAndApplyTemplate "templates/frontpage/package-points.html" defaultContext `traverse` packages
             images <- (fmap (\ident -> Item ident ident) )  <$> -- Build an item to match an identifier
                       getMatches "assets/img/carousel/*" :: Compiler [Item Identifier]
 
+            
 
 
 
 --            images <- recentFirst =<< loadAll "assets/img/*"
+            contacts <- loadAll "contact/*.md"
             let indexCtx =
-                    constField "title" "Home"                `mappend`
-                    listField "packages" defaultContext (return packages) `mappend`
-                    listField "images" filePathCtx (traverse filepathGrabber images) `mappend`
+                    constField "title"    "Home"                                        `mappend`
+                    listField  "packages" defaultContext (return packages)              `mappend`
+                    listField  "images"   filePathCtx (traverse filepathGrabber images) `mappend`
+                    listField  "contacts" defaultContext (return contacts)              `mappend`
                     defaultContext
 
 
