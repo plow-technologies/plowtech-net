@@ -1,7 +1,7 @@
 * Compressor Drive Package
 [[/assets/img/compressor.jpg]]
 * Variable speed drive air compressor 
-V.S.D. balances the energy usage to the need of the compressor.
+VSD balances the energy usage to the need of the compressor.
 
 ** Doing it right every step with automation
 The compression of gas and fluids in the oil industry involves 
@@ -9,7 +9,7 @@ many steps.   In order to get the full production
 value of your wells, you need dependable accurate reports to make 
 proactive changes. PLOW technologies brings the wisdom and understanding
 of all the options available to your project through automation.  Our team 
-will show you how to use our simple OnPing program.  Anytime whether at
+will show you how to use our simple[[http:11onping][ OnPing]] program.  Anytime whether at
 home or on site, check on your wells to make adjustments when needed. Even
 unmanned you will have comfort with the PLOW call out alarm system to
 contact who is assigned when a problem begins. 
@@ -20,6 +20,6 @@ quality of service we offer. Depending on the size of your needs
 is what we design our packages to.  In the process of compression
 the drive gives the accuracy and consistency, that a man controlled 
 value could not.  Collecting daily data with precise up to the minute
-reports.  Plow automation gives you the tools to make better decisions
+reports.  PLOW automation gives you the tools to make better decisions
 that can advance your company.  With 24hr support available to our 
-onping site. Contact Plow to get prices on other equipment needs.
+[[http:11onping][Onping]] site. Contact PLOW to get prices on other equipment needs.

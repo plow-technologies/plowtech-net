@@ -62,17 +62,13 @@ main = hakyll $ do
 
 
 
-    match (fromList ["about.rst", "contact.markdown"]) $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-  
+ 
     match "contact/*.org" $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
 
-    
+
+           
     match "products/*.org" $ do
         route $ setExtension "html"
         compile $ productCompiler  >>= relativizeUrls
@@ -82,10 +78,10 @@ main = hakyll $ do
       compile $ do
         productStrings <- loadAll "products/*"  :: Compiler ([Item String])
         let productListContext = listField "products" postProductContext (return productStrings)
-        makeItem (""::String) >>=
-            loadAndApplyTemplate "templates/product-list.html" productListContext
+        makeItem (""::String)
+            >>= loadAndApplyTemplate "templates/product-list.html" productListContext
             >>= relativizeUrls
-
+           
         
                            
 
