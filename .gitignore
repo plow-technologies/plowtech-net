@@ -45,3 +45,4 @@ tramp
 .cask/
 /plowtech-hakyll/TAGS
 /hakyll-log.log
+.stack-work
