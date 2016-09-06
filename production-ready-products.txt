@@ -1,5 +1,5 @@
-onping.org
-plow-poc.org
-solarpanelpackage.org
-transferdrive.org
-rtu.org
+11onping.org
+51plow-poc.org
+41solarpanelpackage.org
+51transferdrive.org
+21rtu.org
