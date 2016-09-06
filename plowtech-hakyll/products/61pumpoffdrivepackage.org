@@ -18,7 +18,7 @@ the changes are expected and are made gradually to avoid this.  An alarm system 
 and meters and activated when an inconsistent occurs.  Ask about our lighting feature for alarms.  Assign 
 the team members to be contacted if there is a problem on site.  Worry not if the first contact is not
 available, [[http:11onping][Onping]] will cycle through the call out order, until a response is made. [[http:11onping][Onping]] is available on most 
-portable devices and PC's.  Collecting the need to know information before you arrive, will save you time
+portable devices and PCs.  Collecting the need to know information before you arrive, will save you time
 and effort. With all that PLOW automation brings to your pump jack we still are available 24/7 for any
 technical support in onping.          
 

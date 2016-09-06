@@ -5,7 +5,7 @@
 Access to accurate and timely information is the key to preventing an uninformed, costly decision.
 ** Opening a wider view of options with automated run well 
 Pump off controllers are amazing devices for delivering peak performance and production from your well.
-The RPC's gross fluid production calculation includes user-defined pump efficiency values 
+The RPCs gross fluid production calculation includes user-defined pump efficiency values 
 for both deep and shallow wells as well as using the calculated down-hole pump stroke information
 from host software analysis of deep wells.  Having this information available to you either on site 
 or off, puts all the tools in your hand to flourish the potential of your well.  Turn to the experienced
@@ -15,7 +15,7 @@ technicians at PLOW for proper installation and configuration.
 ** Team up with PLOW to run your pump at its best.
 Make every drop count by getting a PLOW automation system through out your well site.  With an automated pump
 jack automatic restart occurs after a power outage. Data is recorded in onping and than stored in cloud for up to 
-3 years. Onping can be accessed on most mobile devices or pc's. We have multiple types of sensors and meters.
+3 years. Onping can be accessed on most mobile devices or pcs. We have multiple types of sensors and meters.
 Installed they can inform you instantly of problem areas. They also are great to use for proactive decisions with 
 up to the minute reports.
    
