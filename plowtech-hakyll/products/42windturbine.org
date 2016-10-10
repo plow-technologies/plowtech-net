@@ -1,22 +1,15 @@
 * Wind Turbine
 [[/assets/img/WindTurbine.jpg]]
+* Blend wind with solar to power equipment
+Wind turbine package that will provide an off grid 
+power supply for constant energy or backup using batteries.
 ** Uses the winds kinetic energy and turns it into electrical power.
-Besides off grid operations there are other benefits to wind turbines. 
+Besides off grid operations there are other benefits to adding wind turbines to 
+what used to be an exclusively solar installation. 
 Losing power can create financial set backs with downtime. Having wind turbines
-storing up power in batteries will keep your site up during these times. At
-plow we like to suggest getting a solar panel to add another way of charging 
-those batteries.  This hybrid design is great for areas with weather conditions 
-that change rapidly. No grid connection requirements leaves the wind turbine 
-open to be placed anywhere on site.   
+storing up power in batteries will keep your site up during these times. Using
+dual power sources allows a smaller battery bank to keep your system up time stable.
 
 ** Teaming up with plow grants comfort that your site will have continuous power 
-Plow technology is constantly finding ways to simplify your industrial needs.
-the newest addition is our wind turbine package that will provide an off grid 
-power supply for constant energy or backup using batteries. The wind turbine
-is capable working with winds speed of up to 79mph. Being made of carbon fiber 
-with a aerodynamic designed to give peek performance in energy extraction from 
-wind.  Our team will set up all equipment and provide you upon
-installation with any information you need. Size and amounts of batteries will 
-be worked out with you to ensure you have the energy support your looking for.
-Batteries will include safe containers for there storage. Plow offers 24/7 support 
-for any other needs.
+These wind turbines are capable of working in winds exceding 70mph. Our team will set up 
+all equipment and help you calculate specific installation requirements. 
