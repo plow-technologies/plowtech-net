@@ -20,5 +20,3 @@ Installed they can inform you instantly of problem areas. They also are great to
 up to the minute reports.
    
   
-** See the graph below to compare kilo watts per day usage before and after installation
-[[/assets/img/rpc_graph.jpg]]   
