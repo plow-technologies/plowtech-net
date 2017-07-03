@@ -1,0 +1,9 @@
+
+* DONE rewrite clean command #101
+* DONE fix packageExecutableDir
+Renamed to stack working dir
+* DONE fix packageExecutablefilerule 
+Get rid of cabal throughout rule
+* DONE Fix or remove sandbox dir
+* DONE depend on index.html in build step
+
