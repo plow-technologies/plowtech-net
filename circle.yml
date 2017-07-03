@@ -5,7 +5,6 @@ machine:
     - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 90
     - gcc --version
     - sudo apt-get install libzip-dev
-    - sudo apt-get install stack -y
     - sudo pip install awscli
   
   environment:
