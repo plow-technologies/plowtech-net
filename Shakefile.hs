@@ -184,6 +184,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
 
     packageExecutableFileRule = packageExecutableFile %> \_ -> do
+      cmdHakyll "stack setup"
       cmdHakyll "stack build"
 
 
