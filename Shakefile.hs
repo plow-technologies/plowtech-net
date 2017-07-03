@@ -18,7 +18,7 @@ hakyllProjectRootDir = "plowtech-hakyll"
 
 
 -- location of executable to generate static site
-hakyllExecDir = ".stack-work"</>"dist"</>"x86_64-linux"</> "Cabal-1.22.5.0"</>"build" </>"site"
+hakyllExecDir = ".stack-work"</>"dist"</>"x86_64-linux"</> "Cabal-1.24.2.0"</>"build" </>"site"
 
 -- root location of static files , images fonts etc
 hakyllAssets = "assets"
@@ -162,11 +162,9 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     rules = packageExecutableFileRule <>
             fullSiteDirRule <>
             siteDirRule <>
-
-
             -- Args
-            cleanarg <>
-            readyarg <>
+            cleanarg    <>
+            readyarg    <>
             readyargProduction <>
             deployStagingarg <>
             deployProductionarg <>
