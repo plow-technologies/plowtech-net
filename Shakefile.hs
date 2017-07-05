@@ -1,8 +1,6 @@
 #!/usr/bin/env runhaskell
-
 import           Control.Monad              (unless)
 import qualified Data.List                  as L
-import           Data.Monoid
 import           Data.Monoid                ((<>))
 import           Development.Shake
 import           Development.Shake.Command
@@ -15,15 +13,12 @@ import qualified System.IO                  as IO
 -- The directory all the files will end up in
 buildDir = "_build"
 
-
 -- Where the hakyll project is located
 hakyllProjectRootDir = "plowtech-hakyll"
 
--- normal cabal sandbox location
-sandbox = ".cabal-sandbox" </> "add-source-timestamps"
 
 -- location of executable to generate static site
-hakyllExecDir = "dist" </> "build"</> "site"
+hakyllExecDir = ".stack-work"</>"dist"</>"x86_64-linux"</> "Cabal-1.24.2.0"</>"build" </>"site"
 
 -- root location of static files , images fonts etc
 hakyllAssets = "assets"
@@ -35,6 +30,7 @@ siteFile = "index.html"
 productDir = hakyllProjectRootDir </> "products"
 
 stagingBucket =  "mockup.plowtech.net"
+
 productionBucket = "www.plowtech.net"
 
 
@@ -80,19 +76,12 @@ removeNonApprovedProducts  = do
 main :: IO ()
 main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
   where
-
-
-
-
-
-
     -- Cleanup --------------------------------------------------
     cleanarg = phony "clean" $ do
         putNormal "cleaning files in build"
         putNormal "removing submodules ..."
         command_ [(Cwd hakyllProjectRootDir)] (hakyllExecDir </> hakyllSite) ["clean"]
-        () <- cmdHakyll "cabal clean"
-        () <- cmdHakyll "cabal sandbox delete"
+        () <- cmdHakyll "stack clean" 
         return ()
 
 
@@ -103,7 +92,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Ready For Deployment
     readyarg = phony "ready" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteDir]
+        need [packageExecutableFile, fullSiteDir]
         putNormal "syncing up deply"
         val <- (doesDirectoryExist siteDir)
         unless val (cmd "mkdir" siteDir)
@@ -111,7 +100,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 --        command_ ["aws s3 sync"] [siteDir, "s3:/" </> stagingBucket]
     readyargProduction = phony "readyprod" $ do
       removeNonApprovedProducts
-      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      need [packageExecutableFile, fullSiteDir]
       putNormal "syncing up deploy"
       valleys <- (doesDirectoryExist siteDir)
       unless valleys (cmd "mkdir" siteDir)
@@ -120,7 +109,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Make Deploy
     deployStagingarg = phony "deploy-staging" $ do
-        need [packageExecutableFile, sandboxDir,fullSiteDir]
+        need [packageExecutableFile, fullSiteDir]
         putNormal "Preparing to deploy to staging"
         vales <- (doesDirectoryExist siteDir)
         unless vales (cmd "mkdir" siteDir)
@@ -130,7 +119,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     -- Make Deploy
     deployProductionarg = phony "deploy-production" $ do
         removeNonApprovedProducts
-        need [packageExecutableFile, sandboxDir,fullSiteDir]
+        need [packageExecutableFile, fullSiteDir]
         putNormal "Preparing to deploy to production"
         vals <- (doesDirectoryExist siteDir)
         unless vals (cmd "mkdir" siteDir)
@@ -140,7 +129,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- View locally
     viewarg = phony "watch" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      need [packageExecutableFile, fullSiteDir]
       putNormal "starting Watch... go to http://localhost:8000"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["build"]
@@ -148,7 +137,7 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
    
     -- Site only clean
     siteCleanarg = phony "site-clean" $ do
-      need [packageExecutableFile, sandboxDir,fullSiteDir]
+      need [packageExecutableFile, fullSiteDir]
       putNormal "starting clean"
       command_ [(Cwd hakyllProjectRootDir),FileStdout "hakyll-log.log"] (hakyllExecDir </> hakyllSite) ["clean"]
 
@@ -158,14 +147,12 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
     execute = wants >> rules
 
 
-    wants = want $      [packageExecutableFile] <>
-                        [sandboxDir] <> 
+    wants = want $      [packageExecutableFile] <>                        
                         [fullSiteDir]
 
 
     packageExecutableFile = hakyllProjectRootDir </>
                             hakyllExecDir </> hakyllSite
-    sandboxDir = hakyllProjectRootDir </> sandbox
     fullSiteDir = hakyllProjectRootDir </> siteDir </> siteFile
     fullSiteJustDir = hakyllProjectRootDir </> siteDir
 
@@ -173,14 +160,11 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
     -- Rules
     rules = packageExecutableFileRule <>
-            sandboxDirRule <>
             fullSiteDirRule <>
             siteDirRule <>
-
-
             -- Args
-            cleanarg <>
-            readyarg <>
+            cleanarg    <>
+            readyarg    <>
             readyargProduction <>
             deployStagingarg <>
             deployProductionarg <>
@@ -195,23 +179,18 @@ main = (shakeArgs shakeOptions {shakeFiles=buildDir}) execute
 
 
 
-    sandboxDirRule = sandboxDir %> \_ -> do
-                       cmdHakyll "cabal sandbox init"
 
 
     packageExecutableFileRule = packageExecutableFile %> \_ -> do
-      need [sandboxDir]
-      () <- cmdHakyll "cabal update"
-      () <- cmdHakyll "cabal install"
-      () <- cmdHakyll "cabal configure"
-      cmdHakyll "cabal build"
+      cmdHakyll "stack setup"
+      cmdHakyll "stack build"
 
 
 
 
 
     fullSiteDirRule = fullSiteDir %> \_ -> do
-      need [sandboxDir, packageExecutableFile]
+      need [ packageExecutableFile]
       command_ [(Cwd hakyllProjectRootDir)] (hakyllExecDir </> hakyllSite) ["clean"]
       command_ [(Cwd hakyllProjectRootDir)] (hakyllExecDir </> hakyllSite) ["build"]
  --------------------------------------------------

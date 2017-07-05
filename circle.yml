@@ -1,53 +1,37 @@
 machine:
   pre:
-    - sudo add-apt-repository ppa:hvr/ghc -y
     - sudo apt-get update
-    - sudo apt-get install gcc-4.8
-    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 90
-    - gcc --version
     - sudo apt-get install libzip-dev
     - sudo pip install awscli
-  services:
-  ghc:
-    version: 7.10.2
+  
   environment:
-    PATH: /opt/ghc/7.10.3/bin/:$HOME/.cabal/bin:$HOME/.cabal/bin/:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
+    PATH: $HOME/.local/bin:$HOME/.cabal/bin/:$CIRCLE_ARTIFACTS:$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin
 dependencies:
   cache_directories:
     - ~/dynamic/
-    - ./plowtech-hakyll/.cabal-sandbox
-    - ./plowtech-hakyll/dist/
-    - ~/.cabal
-    - "~/ghc"
+    - ./plowtech-hakyll/.stack-work
+    - ~/.stack
     
 
-  override:
-    - ghc --version
-    - if [ -d ~/ghc ]; then sudo cp -r ~/ghc /opt; fi
-    - if ghc --version | grep 7.10.3; then echo "Version 7.10.3"; else sudo apt-get install ghc-7.10.3 -y && sudo cp -r /opt/ghc 
-       $HOME/ghc && echo "copy complete"; fi
-    - ghc --version
-    - if cabal --version | grep 1.23.0.0; then echo "Version 1.23.0.0"; else cd ~/ && git clone https://github.com/plow-technologies/cabal.git && cd cabal && cabal --no-require-sandbox install -j2 Cabal/ cabal-install/; fi
+  override:    
     - git clone git@github.com:plow-technologies/plow-scripts.git
-    - cp plow-scripts/config $HOME/.cabal/config
-    - cabal --version
-    - cabal update
-    - cabal install shake --force-reinstalls    #-0.15.5 --no-upgrade-dependencies --constraint=unix==2.7.1.0 --force-reinstalls
+    - stack setup
+    - stack install shake
     - which aws
-    - shake
+    - stack exec shake
 
 test:
   pre:
   override:
-    - shake
+    - stack exec shake
 
 deployment:
   staging:
      branch: master
      commands:
-       - shake deploy-staging
+       - stack exec shake deploy-staging
        
   production:
      branch: production
      commands:
-       - shake deploy-production
+       - stack exec shake deploy-production
