@@ -1,5 +1,5 @@
 * Horizontal Pump Package
-[[/assets/img/carousel/temphorizontalpump.jpg]]
+[[../assets/img/carousel/temphorizontalpump.jpg]]
 
 * Sustaining a consistent flow on your horizontal system.
 Heavy weather or simply time can unbalance your horizontal pump, disrupting your steady flow.      

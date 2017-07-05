@@ -1,5 +1,5 @@
 * Compressor Drive Package
-[[/assets/img/compressor.jpg]]
+[[../assets/img/compressor.jpg]]
 * Variable speed drive air compressor 
 VSD balances the energy usage to the need of the compressor.
 

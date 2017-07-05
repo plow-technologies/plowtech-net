@@ -1,5 +1,5 @@
 * Pump Off Drive Package
-[[/assets/img/editing_poc_picture.jpg]]
+[[../assets/img/editing_poc_picture.jpg]]
 * POC with drive
 Accurate and energy efficient pump off cycles with less loss of profitable oil. 
 ** For the highest production value add a variable frequency drive to your POC

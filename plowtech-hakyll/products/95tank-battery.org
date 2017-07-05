@@ -1,5 +1,5 @@
 * Tank Battery Package
-[[/assets/img/carousel/IMG_20160225_131958.jpg]]
+[[../assets/img/carousel/IMG_20160225_131958.jpg]]
 * Level monitoring and control of automated storage tanks
 Trust in PLOW automation alarm design to set up a
 defense against equipment damage or over flow.

@@ -1,5 +1,5 @@
 * Salt Water Disposal Package
- [[/assets/img/saltwatervisio.jpg]]
+ [[../assets/img/saltwatervisio.jpg]]
 
 * SWD well automated 
 PLOW automation on a SWD site, lowers costs by 
@@ -24,11 +24,11 @@ will deliver and install your automation equipment.
 ** Tank Level Sensors
 **** Guided Wave Radar
 Dual level, guided wave sensors provide detailed monitoring of wells.
-[[/assets/img/rosemont_edited_picture.jpg]]
+[[../assets/img/rosemont_edited_picture.jpg]]
 **** Pressure Transmitters
 Pressure transmitters paired with floats provide a reliable and effective 
 method of monitoring your disposal.
-[[/assets/img/editedpressuretransdusers.jpg]]
+[[../assets/img/editedpressuretransdusers.jpg]]
 **** Wireless Sensors
 Tank level sensors, paired with on exception floats, provide a low installation cost
 with the ability to grow your system.

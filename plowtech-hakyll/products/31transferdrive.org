@@ -1,5 +1,5 @@
 * Transfer Drive Package
-  [[/assets/img/edited_transfer_drive.png]]
+  [[../assets/img/edited_transfer_drive.png]]
 * Manage and monitor multiple sites with a variable speed drive
   Have quick and easy access to numerous points on a large field from one interface keypad.
   

@@ -1,5 +1,5 @@
 * Pump Off Control Package 
-[[/assets/img/edited_pocnodrive.jpg]]
+[[../assets/img/edited_pocnodrive.jpg]]
 
 * POC automation 
 Access to accurate and timely information is the key to preventing an uninformed, costly decision.

@@ -14,7 +14,7 @@ import qualified Data.Text                              as Text
 import qualified Data.Text.IO                           as Text
 import qualified Data.Text.Lazy                         as Text.Lazy
 import qualified Data.Vector                            as Vector
-import           Debug.Trace                            (traceShow)
+
 import           Elements.Compilers
 import           Hakyll
 
@@ -61,7 +61,7 @@ main = hakyll $ do
     match "contact/*.md" $ do
         route $ setExtension "html"
         compile $ do       
-            getResourceBody
+            _ <- getResourceBody
             pandocCompiler >>= loadAndApplyTemplate  "templates/default.html" defaultContext
 
 
@@ -226,9 +226,9 @@ data ProductPage = ProductPage {
 
 productContext :: Context ProductPage
 productContext = field "product-title"  (\ip -> (return . itemBody . fmap ( Text.unpack  . _productTitle)) ip) <>
-                  field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
-                  field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
-                  field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
+                 field "product-image"  (\ip -> (fmap itemBody. productImageCompiler . fmap (Text.unpack . _productImage)) ip) <>
+                 field "product-synopsis" (\ip -> (fmap itemBody. productSynopsisCompiler . fmap (Text.unpack . _productSynopsis)) ip) <>
+                 field "product-description" (\ip -> (fmap itemBody. productDescriptionCompiler . fmap (Text.unpack . _productDescription)) ip)
   where
     -- IMAGES
     productImageCompiler = renderPandocBootStrapped imageNodeProps [mainImageTransformRunner]
@@ -277,6 +277,13 @@ renderPandocBootStrapped  (RootNodeProps { rootName, rootAttrs}) transforms item
     parseWithNewHead :: XML.Name -> XMLAttrs -> Text.Lazy.Text -> XML.Document
     parseWithNewHead elemName elemAttrs elem' = (DOM.parseLT elem') & root. name .~ elemName &
                                                 root. attrs .~  elemAttrs
+
+
+
+
+
+
+
 
 
 --------------------------------------------------
@@ -578,7 +585,7 @@ printHeadingVector vec = Vector.foldr' printDocument "" vec
 
 testPrettyPrinter :: IO Text
 testPrettyPrinter = do
-  (Right doc) <- parseAsOrgMode <$> Text.readFile "products/example-product.org"
+  (Right doc) <- parseAsOrgMode <$> Text.readFile "products/11onping.org"
   return $ orgModePrinter doc
 
 testSplitDocs :: IO ProductPage

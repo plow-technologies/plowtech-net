@@ -1,5 +1,5 @@
 * Wind Turbine Hybrid Package
-[[/assets/img/WindTurbine.jpg]]
+[[../assets/img/WindTurbine.jpg]]
 *  Combining wind and solar  energy 
  Energy storage and charging tool to collect both solar and wind energy.
 

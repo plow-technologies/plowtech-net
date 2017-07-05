@@ -1,5 +1,5 @@
 * Remote Terminal Unit
-[[/assets/img/Micro820_20x24_RTU_1025_683.png]]
+[[../assets/img/Micro820_20x24_RTU_1025_683.png]]
 
 * A Basic Platform for Automation 
 Designed in house RTU packages for both small and large applications.
