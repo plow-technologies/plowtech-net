@@ -1,9 +1,9 @@
 * Pump Off Drive Package
 [[/assets/img/editing_poc_picture.jpg]]
 * POC with drive
-Accurate and energy effifient pump off cycles with less loss of profitable oil. 
+Accurate and energy efficient pump off cycles with less loss of profitable oil. 
 ** For the highest production value add a variable frequency drive to your POC
-Pump off control is a huge part of profit flux on an oil well.  PLOW can add a 
+Pump off control is a huge part of profit flux on an oil well.  Plow can add a 
 variable frequency drive to your well with our pump off automation.  With the
 addition of a drive installation, your pump can run 24 hrs daily unmanned.
 Programmed with guidelines set in [[http:11onping][Onping]].  A drive powered pump
@@ -11,16 +11,10 @@ off is an investment with less equipment repairs and maximized well pump product
 **
 **
 ** Benefits of a POC drive package 
-Know the details of each stroke on your pump jack with PLOW automation. Having data available to you
-at any time while stored in cloud.  Reach max pump off with PLOW. Automated, your pump will instantly 
-make changes in depth and or speed.  The shift would normally create a spike of power usage.  With a POC
-the changes are expected and are made gradually to avoid this.  An alarm system in [[http:11onping][Onping]] is linked to sensors
-and meters and activated when an inconsistent occurs.  Ask about our lighting feature for alarms.  Assign 
-the team members to be contacted if there is a problem on site.  Worry not if the first contact is not
-available, [[http:11onping][Onping]] will cycle through the call out order, until a response is made. [[http:11onping][Onping]] is available on most 
-portable devices and PCs.  Collecting the need to know information before you arrive, will save you time
-and effort. With all that PLOW automation brings to your pump jack we still are available 24/7 for any
-technical support in onping.          
+Know the details of each stroke on your pump jack with Plow automation. Having data available to you
+at any time while stored in cloud.  Reach max pump off with Plow. Automated, your pump will routinely
+make changes in speed.  The shift would normally create a spike of power usage.  With a POC drive
+the changes are expected and are made gradually to avoid this.  An alarm system in [[http:11onping][Onping]] is linked 
+to sensors and meters and activated when an inconsistent occurs.  With all that Plow automation brings 
+to your pump jack we still are available 24/7 for any technical support in onping.          
 
-** See the graph below to compare kilo watts per day usage before and after installation
-[[/assets/img/rpc_graph.jpg]]

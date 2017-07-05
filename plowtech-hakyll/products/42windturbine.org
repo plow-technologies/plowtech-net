@@ -1,10 +1,10 @@
 * Wind Turbine Hybrid Package
 [[/assets/img/WindTurbine.jpg]]
-*  Combining wind turbine and solar panel energy 
+*  Combining wind and solar  energy 
  Energy storage and charging tool to collect both solar and wind energy.
 
-** Natural energy captured in two ways to ensure you are getting the most of your charged batteries  
-Using the winds kinetic energy and the suns rays and turning it into electrical power.
+** Natural energy captured in two ways to ensure you are getting the most run time.
+Using the winds kinetic energy and the suns rays, turning it into electrical power.
 Besides off grid operations there are other benefits to wind turbines. 
 Losing power can create financial set backs with downtime. Having wind turbines
 storing up power in batteries will keep your site up during these times. At
@@ -13,8 +13,8 @@ those batteries.  This hybrid design is great for areas with weather conditions
 that change rapidly. No grid connection requirements leaves the wind turbine 
 open to be placed anywhere on site.   
 
-** Teaming up with Plow grants comfort that your site will have continuous power 
-Plow Technologies is constantly finding ways to simplify your industrial needs.
+** Teaming up with plow grants comfort that your site will have continuous power 
+Plow technologies is constantly finding ways to simplify your industrial needs.
 the newest addition is our wind turbine package that will provide an off grid 
 power supply for constant energy or backup using batteries. The wind turbine
 is capable working with winds speed of up to 79mph. Being made of carbon fiber 
