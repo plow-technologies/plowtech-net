@@ -34,4 +34,5 @@ deployment:
   production:
      branch: production
      commands:
+       - stack exec shake readyprod
        - stack exec shake deploy-production
