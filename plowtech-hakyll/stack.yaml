@@ -1,6 +1,6 @@
 # This is the base snapshot. It determines the GHC version
 # and a set of base packages.
-resolver: lts-8.21
+resolver: lts-9.10
 
 # Root package
 packages:

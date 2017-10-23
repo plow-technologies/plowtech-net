@@ -1,16 +1,16 @@
-* OnPing: Modern Data Control
-[[../assets/img/demo2.png]]
-* Cutting-edge Automation and Process Control
-21st-century SCADA solution that governs the automation, control, data gathering and dissemination of your industrial operations.
-**
-**
-*** Some of the best features of OnPing include 
-** Automation is about control 
-OnPing is Plow Technologies proprietary solution that is revolutionizing the SCADA software market. OnPing delivers the huge cost savings and convenience of cloud-based software-as-a-service with user customization previously possible only with on-premises software.
+OnPing 2.0
+Cutting-edge Automation and Process Control
+From Plow Technologies
+OnPing is Plow Technologies’ proprietary solution that is revolutionizing the SCADA software market. OnPing delivers the huge cost savings and convenience of cloud-based software-as-a-service with user customization previously possible only with on-premises software.
+
 The result:  a 21st-century SCADA solution that governs the automation, control, data gathering and dissemination of your industrial operations, while providing all your team members the exact data and trends they need, exactly the way they want to receive them.
+
 OnPing is the engine that runs a SCADA system designed and installed by Plow Technologies. OnPing is also an excellent choice to maximize the scope and power of your existing process control system.
+
 OnPing resides on our servers and communicates over the cloud with the RTUs, PLCs and HMIs that populate your network. It gives you access to and control over remote locations from the strategic convenience of corporate headquarters or anywhere with an internet connection.
-** What Can OnPing Do for You?
+
+What Can OnPing Do for You?
+
 1. OnPing MONITORS your field data. Sensors and transducers at remote locations measure your process variables and send a continuous flow of real-time data to OnPing.
 
 2. OnPing DISPLAYS data in the form of easy-to-read graphics: virtual gauges, dials, etc., that make your data easy to read and easy to respond to rapidly. Enable team members to access the real-time information they need when they need it to keep their work moving forward. Keep your entire team engaged by sharing key data across your organization in a user-friendly dashboard display.
@@ -22,14 +22,23 @@ OnPing resides on our servers and communicates over the cloud with the RTUs, PLC
 5.    OnPing ANALYZES the data. OnPing archives all your data, making customized reports possible on any variable or trend. Program OnPing to automatically produce key reports. Greater knowledge leads to greater control, which leads to greater performance, productivity and profit.
 
 6. OnPing gives you CONTROL. You can adjust values from headquarters, from anywhere with internet access, or in the field.
-** Other Approaches
-*** On-premises software: Disadvantages well-known
+
+OnPing: 
+Today’s Most Modern, Most Versatile
+SCADA Software Solution
+
+OnPing combines the best features of 
+21st-century Software as a Service (SaaS)
+with the benefits of costly, antiquated but
+still popular on-premises software solutions.
+
+On-premises software: Disadvantages well-known
 
 Many of the best-known SCADA software solutions emerged when the Internet was in its infancy, the World Wide Web did not yet exist and nobody had ever heard of cloud computing. In those early days, the only way to obtain software was to purchase it, install it and maintain it in-house. Today that antiquated model is called “on-premises software.” 
 
 What’s wrong with on-premises software? Mainly the huge cost. There’s the big initial investment to purchase the software and the servers to run it on. There’s the cost to run an IT department that is kept busy mastering the software, installing and upgrading it, setting up user interfaces, devising data capture strategies and troubleshooting. The end users, your team members on the field and across your network, are at the mercy of IT to help them squeeze the data they need out of your inflexible, instantly out-of-date system.
-   
-*** Software as a Service: Pros and Cons
+
+Software as a Service: Pros and Cons
 
 With Internet access and lightning-quick networks now available everywhere, SaaS is the modern choice. 
 
@@ -39,8 +48,7 @@ But the first wave of SCADA Software-as-a-Service solutions had their disadvanta
 
 For this reason, many growing companies continue to prefer on-premises software, which can deliver more customized data capture and data visualization -- even though those benefits come at a much higher cost and with a lot more headaches.
 
-
-** Then There was OnPing
+Then There was OnPing
 
 Plow Technologies set out to revolutionize the SCADA software market by providing a cloud-based Software-as-a-Service solution with all the advantages and none of the limitations. 
 
@@ -55,86 +63,25 @@ on the SCADA market.
 
 More Important Features of OnPing
 
-** Easy, intuitive interface  
-Getting started with OnPing is easy. OnPing’s graphic representation of data makes it simple to understand. And Plow Technologies support is available 24/7/365 to provide training and answer questions.
-** [[http://www.plowtech.net/assets/video/AddPanel.mp4.jpg]]
-Add a widget
-** [[http://www.plowtech.net/assets/video/AddWidget.mp4.jpg]]     
-Build a table
-** [[http://www.plowtech.net/assets/video/AddAlarmTableToDashboard.mp4.jpg]]
-Save
-** [[http://www.plowtech.net/assets/video/SaveDashboard.mp4.jpg]]   
-Done
+• Easy, intuitive interface: Getting started with OnPing is easy. OnPing’s graphic representation of data makes it simple to understand. And Plow Technologies support is available 24/7/365 to provide training and answer questions. 
 
-** Great Graphics
-Many ways to see your wells means greater understanding of what is really happening.
-[[../assets/img/active_analysis.png]]OnPing allows you to graph multiple values 
-at the same time.  You can view the results on multiple axis and create quick spreadsheets.
+• Cloud-based access: Team members throughout your organization access OnPing’s real-time data and reports from their existing devices. No hardware purchases or software installation worries. OnPing is Software as a Service (SaaS) and is charged as a monthly fee based on how many tags the customer has.
 
-View your tank levels real time in a rich graphical format.  
-[[../assets/img/tank_widget.png]]
-** Powerful Alarming
-[[../assets/img/washed_out_table.png]]
+• OnPing interacts seamlessly with your existing process control technology. OnPing works with RTUs, PLCs, VSDs, etc., from Allen-Bradley, Emerson, ABB, Modicon, GE, Siemens and many others.
 
-+ Broadcast notification
-+ Enforced Tripped/Acknowlege
-+ Simple Drag and Drop scheduling
-+ Quick and complete Logging 
-+ Custom alarm sets for key people
-+ Alarm on inactivity of sensors
-+ Alarm on historical conditions
+• Individualized user privileges: You decide who sees what, who receives which notifications and alarms, who can change setpoints, and who can activate supervisory controls.
 
+• Scheduling is simple with drag-and-drop scheduling control.
 
-Scheduling is made much simpler with drag and drop control...
-[[../assets/img/call_order.png]]
+• No burden on your IT department. Plow Technologies provides the programming, training and support.
 
+• Scalability: Your industry and operations are changing constantly. OnPing is the ideal platform for your future success, able to change and grow with your changing needs.
 
-** Share Data With People
-Our dashboards approach allows you to create views and tables that can be shared
-across your organization.  It isn't some complicated thing either watch!
+• Integration: OnPing can fit neatly into your existing software choices. We can integrate with many other field data platforms.
 
-    
-** Cloud-based access 
-Team members throughout your organization access OnPing’s real-time data and reports from their existing devices. No hardware purchases or software installation worries. OnPing is Software as a Service (SaaS) and is charged as a monthly fee based on how many tags the customer has.
-
-** OnPing interacts seamlessly with your existing process control technology. 
-OnPing works with RTUs, PLCs, VSDs, etc., from Allen-Bradley, Emerson, ABB, Modicon, GE, Siemens and many others.
-
-** Individualized user privileges
-You decide who sees what, who receives which notifications and alarms, who can change setpoints, and who can activate supervisory controls.
-
-** Scheduling is simple with drag-and-drop scheduling control.
-
-** No burden on your IT department. 
-Plow Technologies provides the programming, training and support.
-
-** Scalability
-Your industry and operations are changing constantly. 
-OnPing is the ideal platform for your future success, 
-able to change and grow with your changing needs.
-
-** Integration 
-OnPing can fit neatly into your existing software choices. 
-We can integrate with many other field data platforms.
-
-
-** Fair pricing
-Everything we do is covered under one price.  
-+ No hidden fees!
-+ No tricky contracts
-
-** World Class support
-
-Your problems are our problems, we get them figured out and fixed.
-Our software is designed to be easy for our customers to use without our help.
-
-That does not mean our help is not ready and available!  We can be your IT and have
-a rich amount of experience helping people get onping to be the tool they need it to be for them.
-
-
-** 
 The exact data your
 team members need,
 exactly the way
 they want to receive it.
-That’s OnPing
+That’s OnPing.
+
