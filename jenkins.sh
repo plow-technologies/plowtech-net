@@ -64,6 +64,7 @@ plow-stack :version
 aws s3 cp --quiet s3://plow-build-tools/plow-build-archive ~/.local/bin/plow-build-archive
 chmod +x ~/.local/bin/plow-build-archive
 
+stack exec shake clean
 stack exec shake
 
 # DEPLOY SECTION
