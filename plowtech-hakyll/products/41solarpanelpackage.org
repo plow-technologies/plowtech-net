@@ -1,11 +1,11 @@
 * Solar Energy Package
   [[../assets/img/solarpanel.jpg]]
-* Nataural energy powered solor panals.
+* Nataural energy powered solar panals.
 An off grid set up of solar panels is inexpensive and easy to relocate.
 ** Move on to more at your pace with Plow support
 Some sites may not need a large power source.  Expenses for getting a power grid installed 
 at locations can be very costly.  Solar power panels can provide energy to your smaller sites where
-the location may be to far to provide energy while still making a profit.  Scheduling conflicts can  
+the location may be too far to provide energy while still making a profit.  Scheduling conflicts can  
 also stall any location when waiting on electricians or inspectors.  By using solar panels, waiting
 is no longer a problem.  You can begin making money faster.  Power outages can damage your equipment 
 and cost you repairs.  Relying on the rechargeable battery eliminates that worry.  The size of our 
@@ -15,7 +15,7 @@ Solar energy power packages come in assorted sizes depending on wattage needed. 
 off grid.  Our technicians are experienced in installation and trained to walk you through how the 
 package works for you.   Installation of solar panels, if done wrong, will cause down times 
 and endless service calls.  Once the solar panels are set up and tested to be operating to your
-standards, PLOW has a tech. support team available 24/7 to help with any issues.  Knowing the importance
+standards, PLOW has a tech support team available 24/7 to help with any issues.  Knowing the importance
 of continuous run equipment, we have field team support also for those issues that can not be dealt with 
 over the phone.
 [[../assets/img/solarpanelonstand.jpg]]
