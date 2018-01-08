@@ -1,6 +1,6 @@
 * Solar Energy Package
   [[../assets/img/solarpanel.jpg]]
-* Nataural energy powered solar panals.
+* Natural energy powered solar panals.
 An off grid set up of solar panels is inexpensive and easy to relocate.
 ** Move on to more at your pace with Plow support
 Some sites may not need a large power source.  Expenses for getting a power grid installed 
