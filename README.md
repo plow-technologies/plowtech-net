@@ -1,3 +1,4 @@
+[![Build Status](https://jenkins.plowtech.net/buildStatus/icon?job=plowtech-net-production)](https://jenkins.plowtech.net/job/plowtech-net-production/)
 plowtech-net
 ============
 Company website for Plow Technologies. 

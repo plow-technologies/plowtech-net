@@ -64,7 +64,11 @@ main = hakyll $ do
             _ <- getResourceBody
             pandocCompiler >>= loadAndApplyTemplate  "templates/default.html" defaultContext
 
-
+    match "onping/*.md" $ do
+        route $ setExtension "html"
+        compile $ do
+          _ <- getResourceBody
+          pandocCompiler >>= loadAndApplyTemplate  "templates/default.html" defaultContext
 
     match "products/*.org" $ do
         route $ setExtension "html"
